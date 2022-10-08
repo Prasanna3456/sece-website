@@ -4,10 +4,6 @@ img {
   max-width: 100%;
 }
 
-html {
-  font-family: "Maven Pro", sans-serif;
-}
-
 * {
   box-sizing: border-box;
 }
@@ -126,7 +122,8 @@ p {
   width: auto;
   padding: 30px;
   position: relative;
-  margin: 30px 15px 60px 15px; /* to compensate for the after element*/
+  margin: 30px 15px 60px 15px;
+  /* to compensate for the after element*/
 }
 
 .cyber-slider__slidetext:after {
@@ -177,6 +174,7 @@ p {
   height: 15px;
   background: #f9eb06;
 }
+
 .cyber-slider__controls a:hover {
   opacity: 0.8;
 }
@@ -228,7 +226,7 @@ p {
 }
 
 .cyber-slider__slide.active.glitching:after {
-  background: rgba(255,255,255,0.4) url(./../img/glitch-lines.svg);
+  background: rgba(255, 255, 255, 0.4) url(./../img/glitch-lines.svg);
   opacity: 1;
   transform: translatex(-10%);
   background-size: contain;
@@ -243,16 +241,25 @@ p {
   z-index: 999; */
 }
 
-@keyframes blink{
-  0%, 100%{ opacity: 1; }
-  50%{ opacity: 0; }
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
 
 @keyframes glitch {
+
   0%,
   100% {
     background-position: 0 0px;
   }
+
   50% {
     background-position: 0 30px;
   }

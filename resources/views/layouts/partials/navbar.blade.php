@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top navbar-expand-lg p-md-3">
+<nav class="navbar fixed-top navbar-expand-lg px-md-3">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
             <img src="{{ asset('assets/img/clg-logo.png') }}" alt="Bootstrap" width="50" height="50">
@@ -9,15 +9,10 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-            {{-- <div class="mx-auto"></div> --}}
+            <div class="me-auto"></div>
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="#">About</a>
-                </li>
-                <li class="nav-item dropdown">
+
+                <li class="nav-item dropdown-center">
                     <a class="nav-link text-white dropdown-toggle" href="#" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         Events
@@ -28,6 +23,11 @@
                         <li><a class="dropdown-item" href="#">Online</a></li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">About</a>
+                </li>
+
+
             </ul>
         </div>
     </div>

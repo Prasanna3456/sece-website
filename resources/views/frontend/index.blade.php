@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div id="cyberSlider" class="cyber-slider">
+<div id="cyberSlider" class="cyber-slider z-30 -mt-20">
     <ul class="cyber-slider__wrapper">
 
         <li data-slideid="1" class="cyber-slider__slide active">

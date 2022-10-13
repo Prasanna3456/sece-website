@@ -13,7 +13,7 @@
             <ul class="navbar-nav">
 
                 <li class="nav-item dropdown-center">
-                    <a class="nav-link text-white dropdown-toggle" href="#" role="button"
+                    <a class="nav-link text-white dropdown-toggle" href="{{ route('events') }}" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         Events
                     </a>

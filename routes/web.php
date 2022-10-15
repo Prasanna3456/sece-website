@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\FrontendController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +17,10 @@ use App\Http\Controllers\FrontendController;
 
 Route::get('/', [FrontendController::class,'index'])->name('index');
 Route::get('/events', [FrontendController::class,'events'])->name('events');
+Route::get('/show-event', [FrontendController::class,'show_event_details'])->name('events');
 
 // Route::get('/', [FrontendController::class,'index'])->name('index');
 
+//TODO : Add transparecny
+//https://codepen.io/AlainBarrios/pen/OEOKgm
+//counter 

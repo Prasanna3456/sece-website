@@ -21,14 +21,21 @@
         .orbitron {
             font-family: 'Orbitron', sans-serif !important;
         }
+
         .oswald-bold-800 {
             font-family: 'Oswald', sans-serif;
             font-weight: 800;
         }
 
+        .oswald-bold-500 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 500;
+        }
+
         .custom-heading {
             color: '#FF003C';
         }
+
     </style>
 
     <title>{{ config('app.name') }}</title>

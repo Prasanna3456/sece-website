@@ -1,10 +1,7 @@
-
-// add an event listener on the bullets
 const allBullets = document.querySelectorAll('.cyber-slider__controls li');
 
-// for (const bullet of allBullets) {
-    window.onload = function (e) {
-        co
+for (const bullet of allBullets) {
+    bullet.addEventListener('click', function (e) {
 
         const upcomingSlide = document.querySelector(`[data-slideid="${bullet.dataset.slide}"]`);
         const currentSlide = document.querySelector('.cyber-slider__wrapper .active');
@@ -39,7 +36,6 @@ const allBullets = document.querySelectorAll('.cyber-slider__controls li');
             }, 500)
 
         }
-    }
 
-    // })
-// }
+    })
+}

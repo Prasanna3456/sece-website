@@ -15,4 +15,8 @@ class FrontendController extends Controller
     {
         return view('frontend.events');
     }
+    public function show_event_details()
+    {
+        return view('frontend.show-event');
+    }
 }

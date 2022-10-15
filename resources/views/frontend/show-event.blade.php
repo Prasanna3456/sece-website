@@ -2,7 +2,7 @@
 
 @section('content')
     <section class="text-gray-900 bg-[#121212]  body-font py-16 bg-cover z-30 -mt-20"
-        style="background-image: url('{{ asset('assets/img/bg-2.jpg') }}') ">>
+        style="background-image: url('{{ asset('assets/img/bg-2.jpg') }}') ">
         <div class="container mx-auto px-16 py-16 flex flex-col md:flex-row">
             <div class="flex-none mx-auto">
                 <img src="{{ asset('assets/img/sample-poster.jpg') }}" alt="poster" class="w-64 lg:w-96">
@@ -65,7 +65,7 @@
     {{-- Register section --}}
 <section class="text-gray-900  body-font py-10" style="background-image: url('{{ asset('assets/img/bg_elements.png') }}') " id="register_section">
     {{-- <div class="overlay"></div> --}}
-    {{-- <h1 class="sm:text-5xl text-5xl text-[#FF003C] lg:text-[110px]  px-5 py-5 lg:py-0   oswald-bold-800 uppercase">Register</h1> --}}
+    <h1 class="sm:text-5xl text-5xl text-[#FF003C] lg:text-[110px]  px-5 py-5 lg:py-0   oswald-bold-800 uppercase">Register</h1>
 
     <div class="max-w-4xl mx-5 md:mx-auto lg:mx-auto  border-2 border-[#C7002F] my-16">
         <h2 class="text-3xl font-semibold  text-center text-[#111] uppercase bg-[#FF003C] h-16 flex items-center justify-center orbitron">Register</h2>
@@ -95,7 +95,7 @@
                     </div>
                     <div class="my-2">
                         <label class="text-white font-semibold tracking-wide text-lg" for="email">Department </label>
-                        <input id="email" type="email" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring">
+                        <input id="email" type="email" class="text-white block w-full px-4 py-2 mt-2 text-gray-700 bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring">
                     </div>
                     <div class="my-2">
                         <label class="text-white font-semibold tracking-wide text-lg" for="email">Year & Section</label>
@@ -110,7 +110,7 @@
                     </div>
                     <div class="my-2">
                         <label class="text-white font-semibold tracking-wide text-lg" for="email">Whatsapp number</label>
-                        <input id="email" type="email" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring">
+                        <input id="email" type="email" class=" text-white block w-full px-4 py-2 mt-2 text-gray-700 bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring">
                     </div>
                 </div>
             </div>

@@ -9,7 +9,7 @@
 
     </script>
 
-    <link rel="stylesheet" href="{{ asset('css/slider.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/slider.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,7 +37,7 @@
         }
 
     </style>
-
+    @yield('css')
     <title>{{ config('app.name') }}</title>
 </head>
 
@@ -62,7 +62,7 @@
             }
         });
     </script>
-    <script src="{{ asset('js/slider.js') }}"></script>
+    {{-- <script src="{{ asset('js/slider.js') }}"></script> --}}
 </body>
 
 </html>

@@ -17,10 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FrontendController::class,'index'])->name('index');
 Route::get('/events', [FrontendController::class,'events'])->name('events');
-Route::get('/show-event', [FrontendController::class,'show_event_details'])->name('events');
+Route::get('/show-event', [FrontendController::class,'show_event_details'])->name('show_event_details');
 
 // Route::get('/', [FrontendController::class,'index'])->name('index');
 
 //TODO : Add transparecny
 //https://codepen.io/AlainBarrios/pen/OEOKgm
-//counter 
+//counter

@@ -95,12 +95,12 @@
                     <h3 class="font-bold text-xl mt-px text-white">Quiz</h3>
                 </div>
                 <div>
-                    <button class="bg-[#FF003C] text-white font-medium px-4 py-2 rounded-md flex gap-1 items-center">Register Now<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                    <a href="{{ route('show_event_details') }}" class="bg-[#FF003C] text-white font-medium px-4 py-2 rounded-md flex gap-1 items-center">Register Now <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                         </svg>
                         </svg>
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>

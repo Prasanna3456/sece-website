@@ -355,7 +355,6 @@ hr {
 
 
 /* gltich image efffect */
-
 .glitch .glitch__item:nth-child(n+2) {
   opacity: 0;
   animation-duration: var(--time-anim);
@@ -394,14 +393,13 @@ hr {
   }
 }
 .glitch .glitch__title {
-  font-family: "Bungee", cursive;
-  font-size: 100px;
-  color: #ffffff;
   position: relative;
+  margin-top: -200px;
   text-transform: uppercase;
+
 }
 .glitch .glitch__title:before, .glitch .glitch__title:after {
-  content: "GLITCH";
+  content: "Events";
   position: absolute;
   left: 0;
   top: 0;

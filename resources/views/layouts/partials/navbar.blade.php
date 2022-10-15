@@ -51,7 +51,7 @@
         <nav :class="{ 'flex': open, 'hidden': !open }"
             class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row  ">
             <a class="px-4 py-2  text-base font-semibold text-white hover:text-gray-200"
-                href="#">Home</a>
+                href="{{ route('index') }}">Home</a>
             <a class="px-4 py-2  text-base font-semibold text-white hover:text-gray-900"
                 href="#">About</a>
             <div @click.away="open = false" class="relative" x-data="{ open: false }">

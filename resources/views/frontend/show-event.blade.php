@@ -558,8 +558,8 @@
     <section class="text-gray-900  body-font py-10"
         style="background-image: url('{{ asset('assets/img/bg_elements.png') }}') " id="register_section">
         {{-- <div class="overlay"></div> --}}
-        <h1 class="sm:text-5xl text-5xl text-[#FF003C] lg:text-[110px]  px-5 py-5 lg:py-0   oswald-bold-800 uppercase">
-            Register</h1>
+        {{-- <h1 class="sm:text-5xl text-5xl text-[#FF003C] lg:text-[110px]  px-5 py-5 lg:py-0   oswald-bold-800 uppercase">
+            Register</h1> --}}
 
         <div class="max-w-4xl mx-5 md:mx-auto lg:mx-auto  border-2 border-[#C7002F] my-16">
             <h2
@@ -567,6 +567,8 @@
                 Register</h2>
 
             <form class="p-6">
+                <h2 class="text-2xl text-[#C7002F] orbitron tracking-wide">
+                    ID card is mandatory</h2>
                 <div class="border-b-2 border-gray-200 my-6">
                     <div class="grid grid-cols-1 gap-6 mt-3 sm:grid-cols-2  orbitron uppercase">
                         <div class="my-2">

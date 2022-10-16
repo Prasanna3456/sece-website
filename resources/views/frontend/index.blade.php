@@ -3,13 +3,15 @@
     <style>
         .glitch {
             width: 100vw;
-            height: 100vh;
+            /* height: 100vh; */
             max-width: 100%;
             position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             overflow: hidden;
+
             /* margin-top: -100px; */
         }
 
@@ -21,7 +23,71 @@
             left: 0;
             position: absolute;
         }
+
+        .glitch .glitch__title:before,
+        .glitch .glitch__title:after {
+            content: "Quintessence";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* height: 100%; */
+            overflow: hidden;
+        }
+
+        .glitch .glitch__title:before {
+            left: 2px;
+            text-shadow: -1px 0 #00ffea;
+            clip: rect(24px, 550px, 90px, 0);
+            animation: glitch-anim 2s linear infinite alternate-reverse;
+        }
+
+        .glitch .glitch__title:after {
+            left: -2px;
+            text-shadow: -1px 0 #fe3a7f;
+            clip: rect(85px, 550px, 140px, 0);
+            animation: glitch-anim 2s 1s linear infinite alternate-reverse;
+        }
+
+        .glitch .glitch__title {
+            position: relative;
+            /* margin-top: -100px; */
+            text-transform: uppercase;
+
+        }
     </style>
+@endsection
+@section('js')
+    <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("Nov 12, 2022 08:00:00").getTime();
+
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+
+            // Get today's date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Output the result in an element with id="demo"
+            document.getElementById("demo").innerHTML = days + "d " + hours + "h " +
+                minutes + "m " + seconds + "s ";
+
+            // If the count down is over, write some text
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    </script>
 @endsection
 @section('content')
     {{-- <section>
@@ -85,15 +151,22 @@
         </div>
     </section> --}}
 
-    <section>
-        <div class="glitch">
-            <div class="glitch__item" ></div>
+    <section class="h-screen">
+        <div class="glitch h-screen">
             <div class="glitch__item"></div>
             <div class="glitch__item"></div>
             <div class="glitch__item"></div>
             <div class="glitch__item"></div>
-            <h1 class="glitch__title">Glitch</h1>
-          </div>
+            <div class="glitch__item"></div>
+            <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+            <h1
+                class="glitch__title sm:text-5xl mt-20 md:text-8xl text-5xl mx-5 lg:text-[110px] text-[#FF003C] pb-5  lg:py-0 md:py-0 oswald-bold-800 uppercase text-center">
+                Quintessence</h1>
+            <img src="{{ asset('assets/img/sliver-logo.png') }}" class="z-40  mx-auto w-44 lg:w-80 sm:w-52 pb-10" alt="">
+            <p id="demo" class="z-40 text-white orbitron font-bold sm:text-5xl md:text-6xl text-3xl lg:text-4xl  md:py-0 my-0 text-center uppercase "></p>
+
+        </div>
+
     </section>
 
     {{-- About us section --}}

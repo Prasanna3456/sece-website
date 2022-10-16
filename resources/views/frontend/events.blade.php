@@ -57,21 +57,7 @@
     </style>
 @endsection
 @section('content')
-    {{-- Events section --}}
-    {{-- <section class="text-gray-900  body-font py-8 bg-cover z-30 -mt-20"
-        style="background-image: url('{{ asset('assets/img/bg-1.jpg') }}') ">
-        <div class="py-16">
-            <h1
-                class="sm:text-5xl md:text-6xl text-7xl text-black lg:text-[110px] text-[#FF003C] px-5 py-5 lg:py-0 oswald-bold-800 uppercase text-center">
-                Events</h1>
-            <h1
-                class="sm:text-5xl text-5xl  lg:text-5xl tracking-wide text-white px-5 py-5 lg:py-0 oswald-bold-800 uppercase text-center">
-                Technical Events</h1>
-        </div>
-        </div>
-        </div>
 
-    </section> --}}
 
     <section>
         <div class="glitch">
@@ -83,7 +69,7 @@
             <div class="absolute inset-0 bg-black bg-opacity-30"></div>
             <div class="flex flex-col py-16">
                 <h1
-                    class="glitch__title sm:text-5xl md:text-6xl text-7xl text-black lg:text-[110px] text-[#FF003C] px-5 py-5 lg:py-0 md:py-0 oswald-bold-800 uppercase text-center">
+                    class="glitch__title sm:text-5xl md:text-6xl text-7xl  lg:text-[110px] text-[#FF003C] px-5 py-5 lg:py-0 md:py-0 oswald-bold-800 uppercase text-center">
                     Events</h1>
                 <h1
                     class="z-40 sm:text-5xl text-5xl  lg:text-5xl tracking-wide text-white px-5 py-5 lg:py-0 oswald-bold-800 uppercase text-center">
@@ -115,7 +101,7 @@
 
         </div> --}}
     </section>
-    <div class="-mt-56 lg:-mt-72 md:-mt-56 flex px-5 pb-5 space-y-4 flex flex-col items-center justify-center orbitron">
+    <div class="-mt-56 lg:-mt-72 md:-mt-56  px-5 pb-5 space-y-4 flex flex-col items-center justify-center orbitron">
         @for ($i = 0; $i < 7; $i++)
             <div class="w-full max-w-6xl py-16 overflow-hidden relative">
                 <img class="absolute inset-0 h-full w-full object-cover" src="{{ asset('assets/img/sample-poster.jpg') }}"
@@ -143,6 +129,6 @@
 
     </div>
     <div
-        class="z-50 inset-x-0 bottom-0 sticky flex justify-center bg-gradient-to-t from-black pt-32 pb-8 pointer-events-none dark:from-slate-900 absolute">
+        class="z-50 inset-x-0 bottom-0 sticky flex justify-center bg-gradient-to-t from-black pt-32 pb-8 pointer-events-none dark:from-slate-900">
     </div>
 @endsection

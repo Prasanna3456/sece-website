@@ -574,38 +574,38 @@
                         <div class="my-2">
                             <label class="text-white font-semibold tracking-wide text-lg" for="username">Name</label>
                             <input id="username" type="text" autocomplete="nickname"
-                                class=" text-white block w-full px-4 py-2 mt-2 text-gray-700 bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring">
+                                class=" text-white block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring">
                         </div>
                         <div class="my-2">
                             <label class="text-white font-semibold tracking-wide text-lg" for="email">Email</label>
                             <input id="email" type="email"
-                                class="block w-full px-4 py-2 mt-2 text-gray-700 bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring">
+                                class="block w-full px-4 py-2 mt-2 text-white bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring">
                         </div>
                     </div>
 
-                    <div class="my-2">
-                        <label class="text-white font-semibold tracking-widest text-lg orbitron uppercase"
+                    <div class="my-2 orbitron uppercase">
+                        <label class="text-white font-semibold tracking-widest text-lg "
                             for="username">Institution name</label>
                         <input id="username" type="text"
-                            class="block w-full px-4 py-2 mt-2 text-gray-700 bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring">
+                            class="block w-full px-4 py-2 mt-2 text-white bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring">
                     </div>
 
                     <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-3  orbitron uppercase">
                         <div class="my-2">
                             <label class="text-white font-semibold tracking-wide text-lg" for="username">Course</label>
                             <input id="username" type="text" autocomplete="nickname"
-                                class=" text-white block w-full px-4 py-2 mt-2 text-gray-700 bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring">
+                                class=" text-white block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring">
                         </div>
                         <div class="my-2">
                             <label class="text-white font-semibold tracking-wide text-lg" for="email">Department </label>
                             <input id="email" type="email"
-                                class="text-white block w-full px-4 py-2 mt-2 text-gray-700 bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring">
+                                class="text-white block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring">
                         </div>
                         <div class="my-2">
                             <label class="text-white font-semibold tracking-wide text-lg" for="email">Year &
                                 Section</label>
                             <input id="email" type="email"
-                                class="block w-full px-4 py-2 mt-2 text-gray-700 bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring">
+                                class="block w-full px-4 py-2 mt-2 text-white bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring">
                         </div>
                     </div>
 
@@ -614,13 +614,13 @@
                             <label class="text-white font-semibold tracking-wide text-lg" for="username">Phone number
                             </label>
                             <input id="username" type="text" autocomplete="nickname"
-                                class=" text-white block w-full px-4 py-2 mt-2 text-gray-700 bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring">
+                                class=" text-white block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring">
                         </div>
                         <div class="my-2">
                             <label class="text-white font-semibold tracking-wide text-lg" for="email">Whatsapp
                                 number</label>
                             <input id="email" type="email"
-                                class=" text-white block w-full px-4 py-2 mt-2 text-gray-700 bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring">
+                                class=" text-white block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring">
                         </div>
                     </div>
                 </div>
@@ -637,7 +637,7 @@
                                 <label class="text-white font-semibold tracking-wide text-lg" for="username">Team Member
                                     {{ $i }} </label>
                                 <input id="username" type="text" autocomplete="nickname"
-                                    class=" text-white block w-full px-4 py-2 mt-2 text-gray-700 bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring">
+                                    class=" text-white block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring">
                             </div>
                         @endfor
                     </div>

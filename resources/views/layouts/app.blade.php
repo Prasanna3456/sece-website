@@ -5,11 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
-
-    {{-- </script> --}}
-
-    {{-- <link rel="stylesheet" href="{{ asset('css/slider.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,7 +32,6 @@
         .custom-heading {
             color: '#FF003C';
         }
-
     </style>
     @yield('css')
     <title>{{ config('app.name') }}</title>
@@ -50,7 +44,6 @@
     </main>
 
     @include('layouts.partials.footer')
-    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script> --}}
     <script>
         var nav = document.querySelector('nav');
 
@@ -65,7 +58,6 @@
         });
     </script>
     @yield('js')
-    {{-- <script src="{{ asset('js/slider.js') }}"></script> --}}
 </body>
 
 </html>

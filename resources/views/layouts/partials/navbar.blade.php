@@ -54,7 +54,7 @@
             <a class="px-4 py-2  text-base font-semibold text-white hover:text-gray-200"
                 href="{{ route('index') }}">Home</a>
             <a class="px-4 py-2  text-base font-semibold text-white hover:text-gray-900"
-                href="#">About</a>
+                href="{{ route('about_us') }}">About</a>
             <div @click.away="open = false" class="relative" x-data="{ open: false }">
                 <button @click="open = !open"
                     class="flex flex-row items-center w-full px-4 py-2 text-white text-base font-semibold text-left bg-transparent  md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 focus:outline-none focus:shadow-outline">

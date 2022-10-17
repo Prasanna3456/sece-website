@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [FrontendController::class,'index'])->name('index');
+Route::get('/about-us', [FrontendController::class,'about_us'])->name('about_us');
 Route::get('/events', [FrontendController::class,'events'])->name('events');
 Route::get('/show-event', [FrontendController::class,'show_event_details'])->name('show_event_details');
 

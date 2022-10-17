@@ -10,6 +10,10 @@ class FrontendController extends Controller
     {
         return view('frontend.index');
     }
+    public function about_us()
+    {
+        return view('frontend.about_us');
+    }
 
     public function events()
     {
@@ -17,6 +21,6 @@ class FrontendController extends Controller
     }
     public function show_event_details()
     {
-        return view('frontend.show-event');
+        return view('frontend.show_event');
     }
 }

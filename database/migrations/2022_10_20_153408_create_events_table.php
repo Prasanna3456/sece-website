@@ -21,8 +21,11 @@ return new class extends Migration
             $table->longText('description');
             $table->longText('rules');
             $table->text('contact');
+            $table->string('category');
+            $table->integer('entry_fee');
             $table->integer('max_team_members');
             $table->string('poster');
+            $table->boolean('status');
             $table->timestamps();
         });
     }

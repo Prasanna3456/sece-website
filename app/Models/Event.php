@@ -16,7 +16,10 @@ class Event extends Model
         'description',
         'rules',
         'contact',
+        'category',
+        'entry_fee',
         'max_team_members',
         'poster',
+        'status',
     ];
 }

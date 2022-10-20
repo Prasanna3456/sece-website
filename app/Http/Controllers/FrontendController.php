@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -21,6 +22,8 @@ class FrontendController extends Controller
     }
     public function show_event_details()
     {
-        return view('frontend.show_event');
+        $event = Event::find(1)->first();
+        // dd($event);
+        return view('frontend.show_event',compact('event'));
     }
 }

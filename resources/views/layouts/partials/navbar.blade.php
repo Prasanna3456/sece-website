@@ -32,10 +32,10 @@
         </div>
     </div>
 </nav> --}}
-<nav class="w-full z-40 fixed top-0 z-50 text-gray-700 orbitron bg-[#121212] bg-opacity-[0.85] lg:bg-opacity-0">
+<nav class="w-full fixed top-0 z-50 text-gray-700 orbitron bg-[#121212] bg-opacity-[0.85] ">
     <div x-data="{ open: false }"
         class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
-        <div class="p-2 flex flex-row items-center justify-between">
+        <div class="p-2  flex flex-row items-center justify-between">
             <img src="{{ asset('assets/img/clg-logo.png') }}" alt="Bootstrap" width="50" height="50">
             <img src="{{ asset('assets/img/25_years_logo.png') }}" alt="Bootstrap" class="mx-1" width="50" height="50">
             <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
@@ -50,14 +50,14 @@
             </button>
         </div>
         <nav :class="{ 'flex': open, 'hidden': !open }"
-            class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row  ">
-            <a class="px-4 py-2  text-base font-semibold text-white hover:text-gray-200"
+            class="flex-col flex-grow  pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row  ">
+            <a class="px-4 py-2  text-base font-semibold text-white hover:text-gray-300"
                 href="{{ route('index') }}">Home</a>
-            <a class="px-4 py-2  text-base font-semibold text-white hover:text-gray-900"
+            <a class="px-4 py-2  text-base font-semibold text-white hover:text-gray-300"
                 href="{{ route('about_us') }}">About</a>
             <div @click.away="open = false" class="relative" x-data="{ open: false }">
                 <button @click="open = !open"
-                    class="flex flex-row items-center w-full px-4 py-2 text-white text-base font-semibold text-left bg-transparent  md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 focus:outline-none focus:shadow-outline">
+                    class="flex flex-row items-center w-full px-4 py-2 text-white text-base font-semibold text-left bg-transparent  md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-300 focus:text-gray-300 focus:outline-none focus:shadow-outline">
                     <span>Events</span>
                     <svg fill="currentColor" viewBox="0 0 20 20" :class="{ 'rotate-180': open, 'rotate-0': !open }"
                         class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1">

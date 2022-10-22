@@ -6,6 +6,7 @@
             height: 100vh;
             margin-bottom: -100px;
             max-width: 100%;
+            background: url("{{ asset('assets/img/bg-1.jpg') }}") no-repeat 50% 50% cover;
             /* position: relative; */
             display: flex;
             justify-content: center;
@@ -69,10 +70,10 @@
             <div class="absolute inset-0 bg-black bg-opacity-30"></div>
             <div class="flex flex-col py-16">
                 <h1
-                    class="glitch__title sm:text-5xl md:text-6xl text-7xl  lg:text-[110px] text-[#FF003C] px-5 py-5 lg:py-0 md:py-0 oswald-bold-800 uppercase text-center">
+                    class="glitch__title sm:text-5xl md:text-6xl text-8xl  lg:text-[110px] text-[#FF003C] px-5 py-5 lg:py-0 md:py-0 oswald-bold-800 uppercase text-center">
                     Events</h1>
                 <h1
-                    class="z-40 sm:text-5xl text-5xl  lg:text-5xl tracking-wide text-white px-5 py-5 lg:py-0 oswald-bold-800 uppercase text-center">
+                    class="z-40 sm:text-5xl text-6xl  lg:text-5xl tracking-wide text-white px-5 py-5 lg:py-0 oswald-bold-800 uppercase text-center">
                     {{ $event_type }} Events</h1>
             </div>
         </div>
@@ -101,16 +102,16 @@
 
         </div> --}}
     </section>
-    <div class="-mt-56 lg:-mt-72 md:-mt-56  px-5 pb-5 space-y-4 flex flex-col items-center justify-center orbitron">
+    <div class="-mt-72 lg:-mt-72 md:-mt-56 px-5 pb-5 space-y-4 flex flex-col items-center justify-center orbitron">
         @foreach ($events as $event)
-            <div class="w-full max-w-6xl py-16 overflow-hidden relative">
+            <div class="w-full max-w-6xl py-40 lg:py-16 md:py-16 overflow-hidden relative">
                 <img class="absolute inset-0 h-full w-full object-cover" src="{{ asset('storage/'. $event->poster) }}"
                     alt="">
                 <div class="absolute inset-0 bg-black bg-opacity-60"></div>
-                <div class="flex flex-col lg:flex-row gap-3 lg:items-center mx-5 justify-between relative">
+                <div class="flex flex-col  lg:flex-row gap-3 lg:items-center mx-5 lg:justify-between relative">
                     <div>
                         <!-- <span class="text-purple-800 text-sm">Engineering</span> -->
-                        <h3 class="font-semibold  text-3xl md:text-4xl lg:text-5xl  mt-px text-white">{{ $event->creative_name }}</h3>
+                        <h3 class="font-semibold  text-4xl md:text-4xl lg:text-5xl  text-white">{{ $event->creative_name }}</h3>
                         <h3 class="font-bold text-xl mt-px text-white">{{ ucfirst($event->name) }}</h3>
                     </div>
                     <div>
@@ -129,6 +130,6 @@
 
     </div>
     <div
-        class="z-50 inset-x-0 bottom-0 sticky flex justify-center bg-gradient-to-t from-black pt-32 pb-8 pointer-events-none dark:from-slate-900">
+        class="z-50 inset-x-0 bottom-0 sticky flex justify-center bg-gradient-to-t from-black pt-32 pb-8 pointer-events-none">
     </div>
 @endsection

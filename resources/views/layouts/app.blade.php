@@ -45,7 +45,7 @@
     </main>
 
     @include('layouts.partials.footer')
-    <script>
+    {{-- <script>
         var nav = document.querySelector('nav');
 
         window.addEventListener('scroll', function() {
@@ -57,7 +57,7 @@
                 nav.style.backgroundColor = ""
             }
         });
-    </script>
+    </script> --}}
     @yield('js')
 </body>
 

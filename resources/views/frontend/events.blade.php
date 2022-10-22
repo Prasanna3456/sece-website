@@ -73,7 +73,7 @@
                     Events</h1>
                 <h1
                     class="z-40 sm:text-5xl text-5xl  lg:text-5xl tracking-wide text-white px-5 py-5 lg:py-0 oswald-bold-800 uppercase text-center">
-                    Non Technical Events</h1>
+                    {{ $event_type }} Events</h1>
             </div>
         </div>
 
@@ -102,20 +102,20 @@
         </div> --}}
     </section>
     <div class="-mt-56 lg:-mt-72 md:-mt-56  px-5 pb-5 space-y-4 flex flex-col items-center justify-center orbitron">
-        @for ($i = 0; $i < 7; $i++)
+        @foreach ($events as $event)
             <div class="w-full max-w-6xl py-16 overflow-hidden relative">
-                <img class="absolute inset-0 h-full w-full object-cover" src="{{ asset('assets/img/sample-poster.jpg') }}"
+                <img class="absolute inset-0 h-full w-full object-cover" src="{{ asset('storage/'. $event->poster) }}"
                     alt="">
                 <div class="absolute inset-0 bg-black bg-opacity-60"></div>
                 <div class="flex flex-col lg:flex-row gap-3 lg:items-center mx-5 justify-between relative">
                     <div>
                         <!-- <span class="text-purple-800 text-sm">Engineering</span> -->
-                        <h3 class="font-semibold  text-3xl md:text-4xl lg:text-5xl  mt-px text-white">ELECTRAPHILE</h3>
-                        <h3 class="font-bold text-xl mt-px text-white">Quiz</h3>
+                        <h3 class="font-semibold  text-3xl md:text-4xl lg:text-5xl  mt-px text-white">{{ $event->creative_name }}</h3>
+                        <h3 class="font-bold text-xl mt-px text-white">{{ ucfirst($event->name) }}</h3>
                     </div>
                     <div>
-                        <a href="{{ route('show_event_details') }}"
-                            class="bg-[#FF003C] text-white font-medium px-4 py-2 rounded-md flex gap-1 items-center">Register
+                        <a href="{{ route('show_event_details',$event->slug) }}"
+                            class="bg-[#FF003C] text-white font-medium px-4 py-2 rounded-md inline-flex gap-1 items-center">Register
                             Now <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -125,7 +125,7 @@
                     </div>
                 </div>
             </div>
-        @endfor
+        @endforeach
 
     </div>
     <div

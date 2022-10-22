@@ -1,4 +1,19 @@
 @extends('layouts.app')
+@section('js')
+    <script>
+        function rulesDivFunction() {
+            var x = document.getElementById("rulesDiv").querySelectorAll("ol");
+            if(x)
+            {
+                console.log('found')
+                x[0].classList.add("list-disc");
+            } else {
+                console.log('not found')
+            }
+        }
+        rulesDivFunction();
+    </script>
+@endsection
 @section('css')
     <style>
         .register_text {
@@ -523,22 +538,16 @@
                     </li>
                 </ul>
 
-                <div class="my-5 h-80 mx-5">
-                    <p class="text-gray-200 text-base" x-show="opentab === 1">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, expedita iusto culpa cumque
-                        consectetur qui tempora natus animi id quasi quam doloribus commodi, repellendus harum esse dicta.
-                        Incidunt, accusamus fugiat.
-                    </p>
-                    <p class="text-gray-200 text-base" x-show="opentab === 2">
-                        Tab 2 ipsum dolor sit amet consectetur adipisicing elit. Est, expedita iusto culpa cumque
-                        consectetur qui tempora natus animi id quasi quam doloribus commodi, repellendus harum esse dicta.
-                        Incidunt, accusamus fugiat.
-                    </p>
-                    <p class="text-gray-200 text-base" x-show="opentab === 3">
-                        Tab 3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, expedita iusto culpa cumque
-                        consectetur qui tempora natus animi id quasi quam doloribus commodi, repellendus harum esse dicta.
-                        Incidunt, accusamus fugiat.
-                    </p>
+                <div class="my-5 h-80 mx-5 text-white">
+                    <div class="w-full" x-show="opentab === 1">
+                        {!! $event->description !!}
+                    </div>
+                    <div class="text-gray-200 text-base w-full p-2" id="rulesDiv" x-show="opentab === 2">
+                        {!! $event->rules !!}
+                    </div>
+                    <div class="text-gray-200 text-base w-full" x-show="opentab === 3">
+                        {!! $event->contact !!}
+                    </div>
 
                 </div>
                 <div>
@@ -584,8 +593,8 @@
                     </div>
 
                     <div class="my-2 orbitron uppercase">
-                        <label class="text-white font-semibold tracking-widest text-lg "
-                            for="username">Institution name</label>
+                        <label class="text-white font-semibold tracking-widest text-lg " for="username">Institution
+                            name</label>
                         <input id="username" type="text"
                             class="block w-full px-4 py-2 mt-2 text-white bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring">
                     </div>
@@ -629,10 +638,11 @@
 
 
 
+                @if($event->max_team_members > 0)
                 <div class="orbitron uppercase">
                     <h2 class="text-white font-semibold tracking-wide text-lg" for="username">Team Members Details </h2>
                     <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2  ">
-                        @for ($i = 1; $i < 3; $i++)
+                        @for ($i = 0; $i < $event->max_team_members; $i++)
                             <div class="my-2">
                                 <label class="text-white font-semibold tracking-wide text-lg" for="username">Team Member
                                     {{ $i }} </label>
@@ -642,6 +652,7 @@
                         @endfor
                     </div>
                 </div>
+                @endif
 
                 <div class="flex justify-end mt-6">
                     <a href="#register_section"
@@ -652,6 +663,6 @@
     </section>
 
     <div
-        class="z-50 inset-x-0 bottom-0 sticky flex justify-center bg-gradient-to-t from-black pt-32 pb-8 pointer-events-none dark:from-slate-900 absolute">
+        class="z-50 inset-x-0 bottom-0 sticky flex justify-center bg-gradient-to-t from-black  pb-8 pointer-events-none dark:from-slate-900 absolute">
     </div>
 @endsection

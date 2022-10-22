@@ -17,8 +17,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FrontendController::class,'index'])->name('index');
 Route::get('/about-us', [FrontendController::class,'about_us'])->name('about_us');
-Route::get('/events', [FrontendController::class,'events'])->name('events');
-Route::get('/show-event', [FrontendController::class,'show_event_details'])->name('show_event_details');
+
+Route::get('/technical-events', [FrontendController::class,'technical_events'])->name('technical_events');
+Route::get('/non-technical-events', [FrontendController::class,'non_technical_events'])->name('non_technical_events');
+Route::get('/online-events', [FrontendController::class,'online_events'])->name('online_events');
+Route::get('/show-event/{event_slug}', [FrontendController::class,'show_event_details'])->name('show_event_details');
 
 // Route::get('/', [FrontendController::class,'index'])->name('index');
 

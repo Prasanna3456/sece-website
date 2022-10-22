@@ -16,13 +16,29 @@ class FrontendController extends Controller
         return view('frontend.about_us');
     }
 
-    public function events()
+    public function technical_events()
     {
-        return view('frontend.events');
+        $events = Event::where('category', 0)->get();
+        // dd($events);
+        $event_type = 'Technical';
+        return view('frontend.events',compact('events','event_type'));
     }
-    public function show_event_details()
+    public function non_technical_events()
     {
-        $event = Event::find(1)->first();
+        $events = Event::where('category', 1)->get();
+        $event_type = 'Non Technical';
+        // dd($events);
+        return view('frontend.events',compact('events','event_type'));
+    }
+    public function online_events()
+    {
+        $events = Event::where('category', 2)->get();
+        $event_type = 'Online';
+        return view('frontend.events',compact('events','event_type'));
+    }
+    public function show_event_details($slug)
+    {
+        $event = Event::where('slug',$slug)->first();
         // dd($event);
         return view('frontend.show_event',compact('event'));
     }

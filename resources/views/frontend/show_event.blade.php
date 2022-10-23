@@ -672,8 +672,7 @@
 
                     @if ($event->fifa_event)
                         <div class="my-2 orbitron uppercase">
-                            <label class="text-white font-semibold tracking-wide text-lg" for="email">Do you have a PS4
-                                Controller ?</label>
+                            <label class="text-white font-semibold tracking-wide text-lg" for="email">Do you have a PS4 Controller ?</label>
                             <select id="country" name="fifa_event" autocomplete="country-name"
                                 class="text-white block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring"
                                 required>

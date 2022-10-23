@@ -6,6 +6,7 @@ use App\Enum\EventCategoryEnum;
 use App\Filament\Resources\EventResource\Pages;
 use App\Filament\Resources\EventResource\RelationManagers;
 use App\Models\Event;
+use Closure;
 use Filament\Forms;
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\FileUpload;
@@ -47,8 +48,8 @@ class EventResource extends Resource
                                 TextInput::make('name')
                                     ->label('Event Name')
                                     ->required(),
-                                ]),
-                                Hidden::make('slug'),
+                            ]),
+                        Hidden::make('slug'),
                         Grid::make()
                             ->schema([
                                 Select::make('category')
@@ -58,7 +59,7 @@ class EventResource extends Resource
                                         '0' => 'Technical',
                                         '1' => 'Non-Technical',
                                         '2' => 'Online',
-                                    ]),
+                                    ])->reactive(),
                                 TextInput::make('entry_fee')
                                     ->label('Entry Fee')
                                     ->numeric()
@@ -70,6 +71,14 @@ class EventResource extends Resource
                                     ->required(),
 
                             ])->columns(3),
+                        Toggle::make('project_based_event')
+                            ->hidden(fn (Closure $get) => $get('category') != 0)
+                            ->label('Project/Paper Presentation Based Event')
+                            ->required(),
+                        Toggle::make('fifa_event')
+                            ->hidden(fn (Closure $get) => $get('category') != 1 )
+                            ->label('FIFA Event ?')
+                            ->required(),
 
                         Tabs::make('Event Details')
                             ->tabs([
@@ -103,9 +112,6 @@ class EventResource extends Resource
 
 
                             ]),
-                            Toggle::make('status')
-                            ->inline(false)
-                                ->required(),
 
                     ])
             ]);
@@ -117,10 +123,10 @@ class EventResource extends Resource
             ->columns([
                 TextColumn::make('creative_name'),
                 TextColumn::make('name')
-                ->label('Event Type'),
+                    ->label('Event Type'),
                 TextColumn::make('category')
-                ->label('Event Category')
-                ->enum(EventCategoryEnum::getCategoryTypes()),
+                    ->label('Event Category')
+                    ->enum(EventCategoryEnum::getCategoryTypes()),
                 TextColumn::make('entry_fee')
             ])
             ->filters([

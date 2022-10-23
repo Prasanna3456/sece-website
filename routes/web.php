@@ -23,6 +23,9 @@ Route::get('/non-technical-events', [FrontendController::class,'non_technical_ev
 Route::get('/online-events', [FrontendController::class,'online_events'])->name('online_events');
 Route::get('/show-event/{event_slug}', [FrontendController::class,'show_event_details'])->name('show_event_details');
 
+Route::post('upload-id',[FrontendController::class,'id_upload'])->name('upload_id');
+
+Route::post('register-team',[FrontendController::class,'register_team'])->name('register_team');
 // Route::get('/', [FrontendController::class,'index'])->name('index');
 
 //TODO : Add transparecny

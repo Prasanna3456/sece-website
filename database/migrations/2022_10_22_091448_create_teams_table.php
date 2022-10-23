@@ -24,19 +24,21 @@ return new class extends Migration
     {
         Schema::create('teams', function (Blueprint $table) {
             $status = $this->team_status();
-            
+
             $table->id();
+            $table->unsignedBigInteger('event_id')->references('id')->on('events');
             $table->string('team_id');
             $table->string('name');
             $table->string('email');
-            $table->string('phone');
             $table->string('institution_name');
+            $table->string('whatsapp_number');
             $table->string('course');
             $table->string('department');
             $table->string('year_section');
+            $table->boolean('fifa_event')->default(0);
+            $table->boolean('project_based_event')->default(0);
             $table->enum('status',$status)->default(0);
             $table->string('razorpay_order_id')->nullable();
-            $table->unsignedBigInteger('event_id')->references('id')->on('events');
             $table->timestamps();
         });
     }

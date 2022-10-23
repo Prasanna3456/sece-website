@@ -10,15 +10,18 @@ class Team extends Model
     use HasFactory;
 
     protected $fillable = [
+        'event_id',
+        'team_id',
         'name',
         'email',
-        'phone',
+        'whatsapp_number',
         'institution_name',
         'course',
         'department',
         'year_section',
-        'event_id',
-        'team_id',
+        'fifa_event',
+        'project_based_event',
         'status',
+        'razorpay_order_id',
     ];
 }

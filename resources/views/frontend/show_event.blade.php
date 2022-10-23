@@ -1,21 +1,11 @@
 @extends('layouts.app')
-@section('js')
-    <script>
-        function rulesDivFunction() {
-            var x = document.getElementById("rulesDiv").querySelectorAll("ol");
-            if(x)
-            {
-                console.log('found')
-                x[0].classList.add("list-disc");
-            } else {
-                console.log('not found')
-            }
-        }
-        rulesDivFunction();
-    </script>
-@endsection
 @section('css')
+    <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
     <style>
+        .filepond--panel-root {
+            background-color: #121212;
+        }
+
         .register_text {
             margin-top: 10px;
             /* font-family: "Cabin", sans-serif; */
@@ -513,6 +503,41 @@
         }
     </style>
 @endsection
+@section('js')
+    <script>
+        function rulesDivFunction() {
+            var x = document.getElementById("rulesDiv").querySelectorAll("ol");
+            if (x) {
+                console.log('found')
+                x[0].classList.add("list-disc");
+            } else {
+                console.log('not found')
+            }
+        }
+        rulesDivFunction();
+    </script>
+    <script src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.js">
+    </script>
+    <script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
+
+    <script>
+        // Get a reference to the file input element
+        const inputElement = document.querySelector('input[type="file"]');
+        // Create a FilePond instance
+        FilePond.registerPlugin(FilePondPluginImageExifOrientation);
+        const pond = FilePond.create(inputElement);
+        FilePond.setOptions({
+            server: {
+                url: '{{ route('upload_id') }}',
+                process: {
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
+                },
+            }
+        });
+    </script>
+@endsection
 @section('content')
     <section class="text-gray-900 bg-[#121212] py-20 body-font bg-cover z-30"
         style="background-image: url('{{ asset('assets/img/bg-2.jpg') }}') ">
@@ -575,88 +600,142 @@
                 class="text-3xl font-semibold  text-center text-[#111] uppercase bg-[#FF003C] h-16 flex items-center justify-center orbitron">
                 Register</h2>
 
-            <form class="p-6">
+            <form class="p-6" action="{{ route('register_team') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <input type="hidden" name="event_id" value="{{ $event->id }}">
                 <h2 class="text-2xl text-[#C7002F] orbitron tracking-wide">
                     ID card is mandatory</h2>
                 <div class="border-b-2 border-gray-200 my-6">
                     <div class="grid grid-cols-1 gap-6 mt-3 sm:grid-cols-2  orbitron uppercase">
                         <div class="my-2">
                             <label class="text-white font-semibold tracking-wide text-lg" for="username">Name</label>
-                            <input id="username" type="text" autocomplete="nickname"
-                                class=" text-white block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring">
+                            <input id="username" type="text" name="name" autocomplete="nickname"
+                                class=" text-white block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring"
+                                required>
                         </div>
                         <div class="my-2">
                             <label class="text-white font-semibold tracking-wide text-lg" for="email">Email</label>
-                            <input id="email" type="email"
-                                class="block w-full px-4 py-2 mt-2 text-white bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring">
+                            <input id="email" name="email" type="email"
+                                class="block w-full px-4 py-2 mt-2 text-white bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring"
+                                required>
                         </div>
                     </div>
 
                     <div class="my-2 orbitron uppercase">
                         <label class="text-white font-semibold tracking-widest text-lg " for="username">Institution
                             name</label>
-                        <input id="username" type="text"
-                            class="block w-full px-4 py-2 mt-2 text-white bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring">
+                        <input id="username" name="institution_name" type="text"
+                            class="block w-full px-4 py-2 mt-2 text-white bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring"
+                            required>
                     </div>
 
                     <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-3  orbitron uppercase">
                         <div class="my-2">
                             <label class="text-white font-semibold tracking-wide text-lg" for="username">Course</label>
-                            <input id="username" type="text" autocomplete="nickname"
-                                class=" text-white block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring">
+                            <input id="username" name="course" type="text" autocomplete="nickname"
+                                class=" text-white block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring"
+                                required>
                         </div>
                         <div class="my-2">
                             <label class="text-white font-semibold tracking-wide text-lg" for="email">Department </label>
-                            <input id="email" type="email"
-                                class="text-white block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring">
+                            <input id="email" name="department" type="text"
+                                class="text-white block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring"
+                                required>
                         </div>
                         <div class="my-2">
                             <label class="text-white font-semibold tracking-wide text-lg" for="email">Year &
                                 Section</label>
-                            <input id="email" type="email"
-                                class="block w-full px-4 py-2 mt-2 text-white bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring">
+                            <input id="email" name="year_and_section" type="text"
+                                class="block w-full px-4 py-2 mt-2 text-white bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring"
+                                required>
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2  orbitron uppercase mb-3">
-                        <div class="my-2">
+                        {{-- <div class="my-2">
                             <label class="text-white font-semibold tracking-wide text-lg" for="username">Phone number
                             </label>
-                            <input id="username" type="text" autocomplete="nickname"
-                                class=" text-white block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring">
-                        </div>
+                            <input id="username" name="phone_number" type="text" autocomplete="nickname"
+                                class=" text-white block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring"
+                                required>
+                        </div> --}}
                         <div class="my-2">
                             <label class="text-white font-semibold tracking-wide text-lg" for="email">Whatsapp
                                 number</label>
-                            <input id="email" type="email"
-                                class=" text-white block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring">
+                            <input  name="whatsapp_number" type="number" autocomplete="none"
+                                class=" text-white block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring"
+                                required>
                         </div>
                     </div>
-                </div>
 
+                    <input type="file" name="college_id_card" required />
 
+                    @if ($event->fifa_event)
+                        <div class="my-2 orbitron uppercase">
+                            <label class="text-white font-semibold tracking-wide text-lg" for="email">Do you have a PS4
+                                Controller ?</label>
+                            <select id="country" name="fifa_event" autocomplete="country-name"
+                                class="text-white block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring"
+                                required>
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+                    @endif
 
-
-
-                @if($event->max_team_members > 0)
-                <div class="orbitron uppercase">
-                    <h2 class="text-white font-semibold tracking-wide text-lg" for="username">Team Members Details </h2>
-                    <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2  ">
-                        @for ($i = 0; $i < $event->max_team_members; $i++)
-                            <div class="my-2">
-                                <label class="text-white font-semibold tracking-wide text-lg" for="username">Team Member
-                                    {{ $i }} </label>
-                                <input id="username" type="text" autocomplete="nickname"
-                                    class=" text-white block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring">
+                    @if ($event->project_based_event)
+                        <div class="orbitron uppercase">
+                            <div class="my-2 ">
+                                <label class="text-white font-semibold tracking-wide text-lg" for="username">Project
+                                    Title</label>
+                                </label>
+                                <input id="username" name="phone_number" type="text" autocomplete="nickname"
+                                    class=" text-white  block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring"
+                                    required>
                             </div>
-                        @endfor
-                    </div>
+                            <div class="my-2 ">
+                                <label class="text-white font-semibold tracking-wide text-lg" for="username">Project
+                                    Abstract</label>
+                                </label>
+                                <textarea id="username" name="phone_number" type="text" autocomplete="nickname"
+                                    class=" text-white block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring"
+                                    required></textarea>
+                            </div>
+
+                        </div>
+                    @endif
+
                 </div>
+
+
+
+
+                @if ($event->max_team_members > 0)
+                    <div class="orbitron uppercase">
+                        <h2 class="text-white font-semibold tracking-wide text-lg" for="username">Team Members Details
+                        </h2>
+                        <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2  ">
+                            @for ($i = 0; $i < $event->max_team_members; $i++)
+                                <div class="my-2">
+                                    <label class="text-white font-semibold tracking-wide text-lg" for="username">Team
+                                        Member
+                                        {{ $i }} </label>
+                                    <input id="username" name="team_member_names[]" type="text"
+                                        autocomplete="nickname"
+                                        class=" text-white block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring">
+                                </div>
+                            @endfor
+                        </div>
+                    </div>
                 @endif
 
+                <div>
+                    <p class="text-white text-sm mt-2 tracking-wide">After submission you will be redirected to the payment
+                        page</p>
+                </div>
                 <div class="flex justify-end mt-6">
-                    <a href="#register_section"
-                        class=" px-8 py-3 oswald-bold-500 uppercase tracking-wide leading-5 text-white transition-colors duration-300 transform bg-[#FF003C]  hover:bg-[#FF2054] focus:outline-none">Submit</a>
+                    <button type="submit"
+                        class=" px-8 py-3 oswald-bold-500 uppercase tracking-wide leading-5 text-white transition-colors duration-300 transform bg-[#FF003C]  hover:bg-[#FF2054] focus:outline-none">Submit</button>
                 </div>
             </form>
         </div>

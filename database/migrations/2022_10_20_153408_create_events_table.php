@@ -25,7 +25,8 @@ return new class extends Migration
             $table->integer('entry_fee');
             $table->integer('max_team_members');
             $table->string('poster');
-            $table->boolean('status');
+            $table->boolean('project_based_event')->default(0);
+            $table->boolean('fifa_event')->default(0);
             $table->timestamps();
         });
     }

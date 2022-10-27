@@ -1,15 +1,9 @@
 @extends('layouts.app')
 @section('css')
+    <link href="https://fonts.googleapis.com/css2?family=Tourney:ital,wght@1,900&display=swap" rel="stylesheet">
     <style>
-        @font-face {
-            font-family: dirtchunk ;
-            src: url("{{ asset('dirtchunk.otf') }}");
-        }
-
-        .quint_font {
-            font-family: dirtchunk;
-        }
         .glitch {
+            font-family: "Tourney",cursive;
             width: 100vw;
             /* height: 100vh; */
             max-width: 100%;
@@ -34,6 +28,7 @@
 
         .glitch .glitch__title:before,
         .glitch .glitch__title:after {
+            font-family: "Tourney",cursive;
             content: "Quintessence";
             position: absolute;
             left: 0;
@@ -45,6 +40,7 @@
 
         .glitch .glitch__title:before {
             left: 2px;
+            font-family: "Tourney",cursive;
             text-shadow: -1px 0 #00ffea;
             clip: rect(24px, 550px, 90px, 0);
             animation: glitch-anim 2s linear infinite alternate-reverse;
@@ -52,6 +48,7 @@
 
         .glitch .glitch__title:after {
             left: -2px;
+            font-family: "Tourney",cursive;
             text-shadow: -1px 0 #fe3a7f;
             clip: rect(85px, 550px, 140px, 0);
             animation: glitch-anim 2s 1s linear infinite alternate-reverse;
@@ -97,6 +94,7 @@
     </style>
 @endsection
 @section('js')
+<script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
     <script>
         function getTimeRemaining(endtime) {
     var t = Date.parse(endtime) - Date.parse(new Date());
@@ -150,11 +148,35 @@
     return;
   }
 
+  function initialLoader() {
+		$('body').removeClass('noscroll');
+
+		var loadText = '> Quintessence welcomes you!';
+		var loaderDone = false;
+		$.each(loadText.split(''), function(i, letter){
+			setTimeout(function(){
+				$('#loader-text').html($('#loader-text').html() + letter);
+			}, 60*i);
+		});
+
+		setTimeout(function(){
+			loaderDone = true;
+		}, 1700);
+
+    }
+
   var deadline = "Nov 12 2022, 9:00";
   initializeClock("countdown", deadline);
+
+  initialLoader();
     </script>
 @endsection
 @section('content')
+
+<div class="bg-black z-50 w-screen h-screen flex justify-start mx-auto absolute">
+    <span id="loader-text" class="text-green-500 text-left text-lg mt-20 ml-5 oswald-bold-500 tracking-widest uppercase"></span>
+    </div>
+
     <section>
         <div class="glitch h-screen">
             <div class="glitch__item"></div>
@@ -164,9 +186,9 @@
             <div class="glitch__item"></div>
             <div class="absolute inset-0 bg-black bg-opacity-50"></div>
             <h1
-                class="glitch__title  quint_font sm:text-5xl mt-40 lg:mt-20 md:mt-20 md:text-8xl text-6xl  lg:text-[150px] text-yellow-500 pb-5 lg:py-0 md:py-0 oswald-bold-800 uppercase text-center">
+                class="glitch__title sm:text-5xl mt-40 lg:mt-20 md:mt-20 md:text-8xl text-4xl  lg:text-[120px] text-yellow-500 pb-5 lg:py-0 md:py-0 uppercase text-center">
                 Quintessence</h1>
-            <img src="{{ asset('assets/img/sliver-logo.png') }}" class="z-40  mx-auto w-44 lg:w-72 sm:w-52 pb-10"
+            <img src="{{ asset('assets/img/sliver-logo.png') }}" class="z-40  mx-auto w-44 lg:w-80 sm:w-52 pb-10"
                 alt="">
             <!-- <p id="demo"
                 class="z-40 text-white orbitron font-bold sm:text-5xl md:text-6xl text-4xl lg:text-6xl  md:py-0 my-0 text-center uppercase ">
@@ -211,7 +233,7 @@
                     <a href="{{ route('technical_events') }}">
                         <div class="flex-shrink-0 mt-3">
                             <img class="object-cover w-full h-48"
-                                src="https://cdn.mos.cms.futurecdn.net/UcXeK6DWKBWdc3Ao4TZ9nU.jpg" alt="">
+                                src="{{ asset('assets/img/tech_cover.jpeg') }}" alt="">
                         </div>
                     </a>
                     <div class="flex flex-col justify-between flex-1">
@@ -231,7 +253,7 @@
                     <a href="{{ route('non_technical_events') }}">
                         <div class="flex-shrink-0 mt-3">
                             <img class="object-cover w-full h-48"
-                                src="https://cdn.vox-cdn.com/thumbor/MNz6SMRdP43YGJdsUvW-rBflRd8=/0x0:3840x2160/1400x1050/filters:focal(1920x1080:1921x1081)/cdn.vox-cdn.com/uploads/chorus_asset/file/20053035/Cyberpunk_2077_screen_10.jpg"
+                                src="https://cdn.mos.cms.futurecdn.net/UcXeK6DWKBWdc3Ao4TZ9nU.jpg"
                                 alt="">
                         </div>
                     </a>
@@ -253,7 +275,7 @@
                     <a href="{{ route('online_events') }}">
                         <div class="flex-shrink-0 mt-3">
                             <img class="object-cover w-full h-48"
-                                src="https://cdn.mos.cms.futurecdn.net/UcXeK6DWKBWdc3Ao4TZ9nU.jpg" alt="">
+                                src="{{ asset('assets/img/online_event.jpeg') }}" alt="">
                         </div>
                     </a>
                     <div class="flex flex-col justify-between flex-1">
@@ -279,7 +301,7 @@
         <h1 class="sm:text-5xl text-center text-6xl text-yellow-500 lg:text-[110px]  px-5 py-5 lg:py-0  oswald-bold-800 uppercase">About Us
         </h1>
         <section class="text-gray-400  body-font">
-        <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+        <div class="container mx-auto flex px-5 pt-24  md:flex-row flex-col items-center">
             <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left  md:mb-0 items-center text-center">
             <h1 class=" w-full title-font sm:text-4xl text-4xl text-white lg:text-7xl mb-4  oswald-bold-800 uppercase">
                             Quintessence

@@ -1,4 +1,4 @@
-<footer class="bg-[#121211] body-font">
+<footer class="bg-[#121211] body-font bottom-0 relative">
     <div class="bg-black bg-opacity-30 ">
         <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
             <p class="text-gray-400 text-sm text-center sm:text-left">© {{ date('Y') }} Quintessence

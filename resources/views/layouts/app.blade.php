@@ -38,6 +38,7 @@
 </head>
 
 <body class="bg-black">
+       
     <main>
         @include('layouts.partials.navbar')
         @yield('content')

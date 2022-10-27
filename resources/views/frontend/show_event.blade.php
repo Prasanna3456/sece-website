@@ -541,60 +541,62 @@
 @section('content')
     <section class="text-gray-900 bg-[#121212] py-20 body-font bg-cover z-30"
         style="background-image: url('{{ asset('assets/img/bg-2.jpg') }}') ">
-        <div class="container mx-auto px-16 my-5  flex flex-col md:flex-row">
-            <div class="flex-none mx-auto">
-                <img src="{{ asset('assets/img/sample-poster.jpg') }}" alt="poster" class="w-64 lg:w-96">
-            </div>
-
-            <div class="md:ml-24 bg-black bg-opacity-60 h-96 mt-5 lg:mt-0 md:mt-0 " x-data="{ opentab: 1 }">
-                <ul
-                    class="flex flex-wrap text-xl uppercase  oswald-bold-500 tracking-wide font-medium text-center text-gray-500 border-b border-gray-200">
-                    <li class="mr-2 flex-auto">
-                        <a :class="{ 'text-[#FF003C]': opentab === 1 }" @click="opentab = 1" aria-current="page"
-                            class="inline-block p-4 cursor-pointer rounded-t-lg active">Description</a>
-                    </li>
-                    <li class="mr-2 flex-auto">
-                        <a @click="opentab = 2" class="inline-block p-4  cursor-pointer hover:text-[#FF003c]"
-                            :class="{ 'text-[#FF003C]': opentab === 2 }">Rules</a>
-                    </li>
-                    <li class="mr-2 flex-auto">
-                        <a @click="opentab = 3" class="inline-block p-4 cursor-pointer  hover:text-[#FF003c]"
-                            :class="{ 'text-[#FF003C]': opentab === 3 }">Contact</a>
-                    </li>
-                </ul>
-
-                <div class="my-5 h-80 mx-5 text-white">
-                    <div class="w-full" x-show="opentab === 1">
-                        {!! $event->description !!}
-                    </div>
-                    <div class="text-gray-200 text-base w-full p-2" id="rulesDiv" x-show="opentab === 2">
-                        {!! $event->rules !!}
-                    </div>
-                    <div class="text-gray-200 text-base w-full" x-show="opentab === 3">
-                        {!! $event->contact !!}
-                    </div>
-
-                </div>
-                <div>
-                    {{-- <a href="#register_section"
-                        class=" px-8 py-3 mx-3  oswald-bold-500 uppercase tracking-wide leading-5 text-white transition-colors duration-300 transform bg-[#FF003C]  hover:bg-[#FF2054] focus:outline-none">Register</a> --}}
+        
+        <div class="container mx-auto px-16 ">
+            <div class="lg:max-w-screen-xl mx-auto my-5 flex flex-wrap justify-between">
+                <div class="mx-auto ">
+                    <img src="{{ asset('assets/img/sample-poster.jpg') }}" alt="poster" class="w-64 lg:w-96">
                 </div>
 
-
+                <div class="flex-grow md:ml-5 overflow-x-hidden bg-black bg-opacity-60 h-96 mt-5 lg:mt-0 md:mt-0 " x-data="{ opentab: 1 }">
+                    <ul
+                        class="flex flex-wrap text-xl uppercase  oswald-bold-500 tracking-wide font-medium text-center text-gray-500 border-b border-gray-200">
+                        <li class="mr-2 flex-auto">
+                            <a :class="{ 'text-[#FF003C]': opentab === 1 }" @click="opentab = 1" aria-current="page"
+                                class="inline-block p-4 cursor-pointer rounded-t-lg active">Description</a>
+                        </li>
+                        <li class="mr-2 flex-auto">
+                            <a @click="opentab = 2" class="inline-block p-4  cursor-pointer hover:text-[#FF003c]"
+                                :class="{ 'text-[#FF003C]': opentab === 2 }">Rules</a>
+                        </li>
+                        <li class="mr-2 flex-auto">
+                            <a @click="opentab = 3" class="inline-block p-4 cursor-pointer  hover:text-[#FF003c]"
+                                :class="{ 'text-[#FF003C]': opentab === 3 }">Contact</a>
+                        </li>
+                    </ul>
+    
+                    <div class="my-5 h-80 mx-5 text-white">
+                        <div class="w-full" x-show="opentab === 1">
+                            {!! $event->description !!}
+                        </div>
+                        <div class="text-gray-200 text-base w-full p-2" id="rulesDiv" x-show="opentab === 2">
+                            {!! $event->rules !!}
+                        </div>
+                        <div class="text-gray-200 text-base w-full" x-show="opentab === 3">
+                            {!! $event->contact !!}
+                        </div>
+    
+                    </div>
+                    <div>
+                        {{-- <a href="#register_section"
+                            class=" px-8 py-3 mx-3  oswald-bold-500 uppercase tracking-wide leading-5 text-white transition-colors duration-300 transform bg-[#FF003C]  hover:bg-[#FF2054] focus:outline-none">Register</a> --}}
+                    </div>
+    
+    
+                </div>
             </div>
+
 
         </div>
         <div class="mouse flex justify-center mx-auto  lg:-mt-10"></div>
         <p class="register_text flex justify-center mx-auto">Scroll</p>
     </section>
 
+
+
     {{-- Register section --}}
     <section class="text-gray-900  body-font py-10"
         style="background-image: url('{{ asset('assets/img/bg_elements.png') }}') " id="register_section">
-        {{-- <div class="overlay"></div> --}}
-        {{-- <h1 class="sm:text-5xl text-5xl text-[#FF003C] lg:text-[110px]  px-5 py-5 lg:py-0   oswald-bold-800 uppercase">
-            Register</h1> --}}
-
         <div class="max-w-4xl mx-5 md:mx-auto lg:mx-auto  border-2 border-[#C7002F] my-16">
             <h2
                 class="text-3xl font-semibold  text-center text-[#111] uppercase bg-[#FF003C] h-16 flex items-center justify-center orbitron">
@@ -668,7 +670,11 @@
                         </div>
                     </div>
 
-                    <input type="file" name="college_id_card" required />
+                    <div class="my-2 orbitron uppercase mb-3">
+                            <label class="text-white font-semibold tracking-wide text-lg" for="email">Upload your college ID card</label>
+                                <input type="file" name="college_id_card" required />
+                        </div>
+
 
                     @if ($event->fifa_event)
                         <div class="my-2 orbitron uppercase">

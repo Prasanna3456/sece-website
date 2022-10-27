@@ -1,6 +1,14 @@
 @extends('layouts.app')
 @section('css')
     <style>
+        @font-face {
+            font-family: dirtchunk ;
+            src: url("{{ asset('dirtchunk.otf') }}");
+        }
+
+        .quint_font {
+            font-family: dirtchunk;
+        }
         .glitch {
             width: 100vw;
             /* height: 100vh; */
@@ -56,104 +64,98 @@
 
         }
 
+        .countdown {
+        font-family: sans-serif;
+        color: #fff;
+        display: inline-block;
+        font-weight: 100;
+        text-align: center;
+        font-size: 30px;
+        }
+
+        .countdown-number {
+        /* padding: 10px;
+        border-radius: 3px;
+        background: #FF003C; */
+        display: inline-block;
+        }
+
+        .countdown-time {
+        padding: 15px;
+        color: yellow;
+        border-radius: 3px;
+        background: rgba(0,0,0,0.5);
+        display: inline-block;
+        }
+
+        .countdown-text {
+        display: block;
+        padding-top: 5px;
+        font-size: 16px;
+        }
     
 
     </style>
 @endsection
 @section('js')
     <script>
-        // Set the date we're counting down to
-        var countDownDate = new Date("Nov 12, 2022 08:00:00").getTime();
+        function getTimeRemaining(endtime) {
+    var t = Date.parse(endtime) - Date.parse(new Date());
+    var seconds = Math.floor((t / 1000) % 60);
+    var minutes = Math.floor((t / 1000 / 60) % 60);
+    var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+    var days = Math.floor(t / (1000 * 60 * 60 * 24));
+    return {
+      total: t,
+      days: days,
+      hours: hours,
+      minutes: minutes,
+      seconds: seconds
+    };
+  }
 
-        // Update the count down every 1 second
-        var x = setInterval(function() {
+  function initializeClock(id, endtime) {
+    var clock = document.getElementById(id);
+    var daysSpan = clock.querySelector(".days");
+    var hoursSpan = clock.querySelector(".hours");
+    var minutesSpan = clock.querySelector(".minutes");
+    var secondsSpan = clock.querySelector(".seconds");
 
-            // Get today's date and time
-            var now = new Date().getTime();
+    function updateClock() {
+      var t = getTimeRemaining(endtime);
 
-            // Find the distance between now and the count down date
-            var distance = countDownDate - now;
+      if (t.total <= 0) {
+        clearInterval(timeinterval);
+        var timer_text = document.getElementById('timer_exp');
 
-            // Time calculations for days, hours, minutes and seconds
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        timer_text.classList.remove('hidden');
+        clock.classList.add('hidden');
 
-            // Output the result in an element with id="demo"
-            document.getElementById("demo").innerHTML = days + "d " + hours + "h " +
-                minutes + "m " + seconds + "s";
+        var newTime = Date.parse(endtime);
+        var nowTime = Date.parse(new Date());
 
-            // If the count down is over, write some text
-            if (distance < 0) {
-                clearInterval(x);
-                document.getElementById("demo").innerHTML = "EXPIRED";
-            }
-        }, 1000);
+    
+        var deadline = new Date('Nov 12, 2022, 9:00');
+        initializeClock('countdown', deadline);
+      } else {
+        daysSpan.innerHTML = t.days;
+        hoursSpan.innerHTML = ("0" + t.hours).slice(-2);
+        minutesSpan.innerHTML = ("0" + t.minutes).slice(-2);
+        secondsSpan.innerHTML = ("0" + t.seconds).slice(-2);
+      }
+      return;
+    }
+
+    updateClock();
+    var timeinterval = setInterval(updateClock, 1000);
+    return;
+  }
+
+  var deadline = "Nov 12 2022, 9:00";
+  initializeClock("countdown", deadline);
     </script>
 @endsection
 @section('content')
-    {{-- <section>
-        <div id="cyberSlider" class="cyber-slider z-30 -mt-20">
-            <ul class="cyber-slider__wrapper">
-
-                <li data-slideid="1" class="cyber-slider__slide active">
-                    <span class="cyber-slider__imgwrap">
-                        <img class="slide-image" src="{{ asset('assets/img/slides/slide-1.jpg') }}" alt="Slide 1">
-                        <span class="glitch-area"></span>
-                    </span>
-
-                    <div class="cyber-slider__content">
-                        <!-- class glitching -->
-                        <div class="cyber-slider__slidetext">
-                            <h3 class="heading-lg">LIVE IN THE CITY OF THE FUTURE</h3>
-                            <p>Enter the massive open world of Night City, a place that sets new standards in terms of
-                                visuals, complexity and depth.</p>
-                        </div>
-                    </div>
-                </li>
-
-                <li data-slideid="2" class="cyber-slider__slide">
-                    <span class="cyber-slider__imgwrap">
-                        <img class="slide-image" src="{{ asset('assets/img/slides/slide-2.jpg') }}" alt="Slide 2">
-                        <span class="glitch-area"></span>
-                    </span>
-
-                    <div class="cyber-slider__content">
-                        <!-- class glitching -->
-                        <div class="cyber-slider__slidetext">
-                            <h3 class="heading-lg">Slide 2</h3>
-                            <p>Enter the massive open world of Night City, a place that sets new standards in terms of
-                                visuals, complexity and depth.</p>
-                        </div>
-                    </div>
-                </li>
-
-                <li data-slideid="3" class="cyber-slider__slide">
-                    <span class="cyber-slider__imgwrap">
-                        <img class="slide-image" src="{{ asset('assets/img/slides/slide-3.jpg') }}" alt="Slide 3">
-                        <span class="glitch-area"></span>
-                    </span>
-
-                    <div class="cyber-slider__content">
-                        <!-- class glitching -->
-                        <div class="cyber-slider__slidetext">
-                            <h3 class="heading-lg">Slide 3</h3>
-                            <p>Enter the massive open world of Night City, a place that sets new standards in terms of
-                                visuals, complexity and depth.</p>
-                        </div>
-                    </div>
-                </li>
-
-            </ul>
-            <ul class="cyber-slider__controls">
-                <li data-slide="1" class="current"><a href="#"><span class="sr-only">Slide 1</span></a></li>
-                <li data-slide="2" class=""><a href="#"><span class="sr-only">Slide 2</span></a></li>
-                <li data-slide="3" class=""><a href="#"><span class="sr-only">Slide 3</span></a></li>
-            </ul>
-        </div>
-    </section> --}}
-
     <section>
         <div class="glitch h-screen">
             <div class="glitch__item"></div>
@@ -163,13 +165,34 @@
             <div class="glitch__item"></div>
             <div class="absolute inset-0 bg-black bg-opacity-50"></div>
             <h1
-                class="glitch__title sm:text-5xl mt-40 lg:mt-20 md:mt-20 md:text-8xl text-6xl  lg:text-[110px] text-[#FF003C] pb-5 lg:py-0 md:py-0 oswald-bold-800 uppercase text-center">
+                class="glitch__title  quint_font sm:text-5xl mt-40 lg:mt-20 md:mt-20 md:text-8xl text-6xl  lg:text-[150px] text-yellow-500 pb-5 lg:py-0 md:py-0 oswald-bold-800 uppercase text-center">
                 Quintessence</h1>
             <img src="{{ asset('assets/img/sliver-logo.png') }}" class="z-40  mx-auto w-44 lg:w-72 sm:w-52 pb-10"
                 alt="">
-            <p id="demo"
+            <!-- <p id="demo"
                 class="z-40 text-white orbitron font-bold sm:text-5xl md:text-6xl text-4xl lg:text-6xl  md:py-0 my-0 text-center uppercase ">
-            </p>
+            </p> -->
+            <div id="countdown" class="countdown z-40">
+            <div class="countdown-number">
+                <span class="days countdown-time"></span>
+                <span class="countdown-text">Days</span>
+            </div>
+            <div class="countdown-number">
+                <span class="hours countdown-time"></span>
+                <span class="countdown-text">Hours</span>
+            </div>
+            <div class="countdown-number">
+                <span class="minutes countdown-time"></span>
+                <span class="countdown-text">Minutes</span>
+            </div>
+            <div class="countdown-number">
+                <span class="seconds countdown-time"></span>
+                <span class="countdown-text">Seconds</span>
+            </div>
+        </div>
+        <div id="timer_exp" class="hidden z-40 text-4xl text-center text-yellow-500 md:text-5xl lg:text-5xl  font-semibold text-white oswald-bold-500">
+            TODAY'S THE DAY
+        </div>
 
             {{-- <div class="mouse flex justify-center mx-auto mt-10 lg:mt-2 md:mt-2"></div>
             <p class="register_text flex justify-center mx-auto">Scroll</p> --}}

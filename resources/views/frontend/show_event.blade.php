@@ -500,7 +500,7 @@
 @endsection
 @section('content')
     <section class="text-gray-900 bg-[#121212] py-20 body-font bg-cover z-30"
-        style="background-image: url('{{ asset('assets/img/bg-2.jpg') }}') ">
+        style="background-image: url('{{ asset('assets/img/eventshow.jpg') }}') ">
         <div class="container mx-auto px-16 my-5  flex flex-col md:flex-row">
             <div class="flex-none mx-auto">
                 <img src="{{ asset('assets/img/sample-poster.jpg') }}" alt="poster" class="w-64 lg:w-96">

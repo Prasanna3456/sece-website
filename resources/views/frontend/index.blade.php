@@ -16,7 +16,7 @@
         }
 
         .glitch .glitch__item {
-            background: url("https://www.cyberpunk.net/build/images/home3/screen-image-mercenary-e79283ec.jpg") no-repeat 50% 50%/cover;
+            background: url("https://free4kwallpapers.com/uploads/originals/2020/01/14/cyberpunk-city-wallpaper.jpg") no-repeat 70% 30%/cover;
             height: 100%;
             width: 100%;
             top: 0;
@@ -551,9 +551,40 @@
                 color: #ffffff;
             }
         }
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+    body{
+    background: #EEE
+}
+
+    #str {
+   width: 800px;
+   padding: 20px;
+   height: auto;
+   font-family: sans-serif;
+   font-size: 40px;
+   margin: 200px auto;
+   color: #fff;
+   font-weight: bold;
+   background: #000;
+   z-index:2;
+}
+        #page-structure {
+  height: 100vh;
+}
+
+.header-text h2, .header-text h1 {
+  font-family: HelveticaNeue, Helvetica, Arial, "Lucida Grande", sans-serif !important;
+  font-weight: 900 !important;
+}
     </style>
 @endsection
 @section('js')
+
     <script>
         // Set the date we're counting down to
         var countDownDate = new Date("Nov 12, 2022 08:00:00").getTime();
@@ -586,7 +617,24 @@
     </script>
 @endsection
 @section('content')
-    {{-- <section>
+    {{-- 
+        <script>
+    var string = "Hello I'm Laith Haleem Form Ghammas Love Developing Websites";
+var str = string.split("");
+var el = document.getElementById('str');
+(function animate() {
+str.length > 0 ? el.innerHTML += str.shift() : clearTimeout(running); 
+var running = setTimeout(animate, 90);
+})();
+</script>
+        <div id="str"></div>
+
+        <div id="initial-loader" class="padded"><span id="loader-text"></span></div>
+
+<div id="main-body">
+<section id="page-structure" class="ajax">
+	</section>
+        <section>
         <div id="cyberSlider" class="cyber-slider z-30 -mt-20">
             <ul class="cyber-slider__wrapper">
 
@@ -656,16 +704,16 @@
             <div class="glitch__item"></div>
             <div class="absolute inset-0 bg-black bg-opacity-50"></div>
             <h1
-                class="glitch__title sm:text-5xl mt-20 md:text-8xl text-5xl mx-5 lg:text-[110px] text-[#FF003C] pb-5  lg:py-0 md:py-0 oswald-bold-800 uppercase text-center">
-                Quintessence</h1>
+                class="glitch__title sm:text-5xl mt-20 md:text-8xl text-7xl mx-5 lg:text-[110px] text-[yellow] pb-5  lg:py-0 md:py-0 oswald-bold-800 uppercase text-center">
+                QUINTESSENCE</h1>
             <img src="{{ asset('assets/img/sliver-logo.png') }}" class="z-40  mx-auto w-44 lg:w-80 sm:w-52 pb-10"
                 alt="">
             <p id="demo"
                 class="z-40 text-white orbitron font-bold sm:text-5xl md:text-6xl text-3xl lg:text-4xl  md:py-0 my-0 text-center uppercase ">
             </p>
 
-            <div class="mouse flex justify-center mx-auto mt-2"></div>
-            <p class="register_text flex justify-center mx-auto">Scroll</p>
+            <!-- <div class="mouse flex justify-center mx-auto mt-2"></div> -->
+            <!-- <p class="register_text flex justify-center mx-auto">Scroll</p> -->
         </div>
     </section>
 
@@ -699,11 +747,11 @@
     </section> --}}
     <section style="background-image: url('{{ asset('assets/img/bg_elements.png') }}') ">
 
-        <h1 class="sm:text-5xl text-7xl text-[#FF003C] lg:text-[110px]  px-5 py-5 lg:py-0  oswald-bold-800 uppercase">Events
+        <h1 class="sm:text-5xl text-7xl text-[yellow] lg:text-[110px]  px-5 py-5 lg:py-0  oswald-bold-800 uppercase text-center">Events
         </h1>
         <div class="relative mx-auto max-w-7xl">
             <div class="grid container gap-6 mx-auto mt-12 lg:grid-cols-3 lg:max-w-none">
-                <div class="flex  duration-100 hover:scale-105 flex-col mb-12 overflow-hidden cursor-pointer bg-[#FF003C] py-4 px-2"
+                <div class="flex  duration-100 hover:scale-105 flex-col mb-12 overflow-hidden cursor-pointer bg-[yellow] py-4 px-2"
                     style=" clip-path: polygon(0px 25px, 26px 0px, calc(60% - 25px) 0px, 60% 25px, 100% 25px, 100% calc(100% - 10px), calc(100% - 15px) calc(100% - 10px), calc(80% - 10px)  calc(100% - 10px), calc(80% - 15px) calc(100% - 0px), 10px  calc(100% - 0px), 0% calc(100% - 10px));">
                     <a href="/blog-post">
                         <div class="flex-shrink-0 mt-3">
@@ -715,16 +763,16 @@
                         <a href="/blog-post"></a>
                         <div class="flex-1 px-1">
                             <a href="#" class="block mt-2 space-y-6">
-                                <h3 class="text-2xl mb-0 font-semibold uppercase  tracking-wide text-white oswald-bold-500">
+                                <h3 class="text-2xl mb-0 font-semibold uppercase  tracking-wide text-black oswald-bold-500">
                                     Technical Events</h3>
-                                <span class="text-lg font-normal text-white mt-0">Filling text so you can see how it looks
+                                <span class="text-lg font-normal text-black mt-0">Filling text so you can see how it looks
                                     like
                                     with text. Did I said text?</span>
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="flex duration-100 hover:scale-105 flex-col mb-12 overflow-hidden cursor-pointer bg-[#FF003C] py-4 px-2""
+                <div class="flex duration-100 hover:scale-105 flex-col mb-12 overflow-hidden cursor-pointer bg-[yellow] py-4 px-2""
                     style=" clip-path: polygon(0px 25px, 26px 0px, calc(60% - 25px) 0px, 60% 25px, 100% 25px, 100% calc(100% - 10px), calc(100% - 15px) calc(100% - 10px), calc(80% - 10px)  calc(100% - 10px), calc(80% - 15px) calc(100% - 0px), 10px  calc(100% - 0px), 0% calc(100% - 10px));">
                     <a href="/blog-post">
                         <div class="flex-shrink-0 mt-3">
@@ -737,16 +785,16 @@
                         <a href="/blog-post"></a>
                         <div class="flex-1 px-1">
                             <a href="#" class="block mt-2 space-y-6">
-                                <h3 class="text-2xl mb-0 font-semibold uppercase  tracking-wide text-white oswald-bold-500">
+                                <h3 class="text-2xl mb-0 font-semibold uppercase  tracking-wide text-black oswald-bold-500">
                                     Non Technical Events</h3>
-                                <span class="text-lg font-normal text-white mt-0">Filling text so you can see how it looks
+                                <span class="text-lg font-normal text-black mt-0">Filling text so you can see how it looks
                                     like
                                     with text. Did I said text?</span>
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="flex duration-100 hover:scale-105 flex-col mb-12 overflow-hidden cursor-pointer bg-[#FF003C] py-4 px-2""
+                <div class="flex duration-100 hover:scale-105 flex-col mb-12 overflow-hidden cursor-pointer bg-[yellow] py-4 px-2""
                     style=" clip-path: polygon(0px 25px, 26px 0px, calc(60% - 25px) 0px, 60% 25px, 100% 25px, 100% calc(100% - 10px), calc(100% - 15px) calc(100% - 10px), calc(80% - 10px)  calc(100% - 10px), calc(80% - 15px) calc(100% - 0px), 10px  calc(100% - 0px), 0% calc(100% - 10px));">
                     <a href="/blog-post">
                         <div class="flex-shrink-0 mt-3">
@@ -758,9 +806,9 @@
                         <a href="/blog-post"></a>
                         <div class="flex-1 px-1">
                             <a href="#" class="block mt-2 space-y-6">
-                                <h3 class="text-2xl mb-0 font-semibold uppercase  tracking-wide text-white oswald-bold-500">
+                                <h3 class="text-2xl mb-0 font-semibold uppercase  tracking-wide text-black oswald-bold-500">
                                     Online Events</h3>
-                                <span class="text-lg font-normal text-white mt-0">Filling text so you can see how it looks
+                                <span class="text-lg font-normal text-black mt-0">Filling text so you can see how it looks
                                     like
                                     with text. Did I said text?</span>
                             </a>

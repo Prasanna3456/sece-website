@@ -15,12 +15,12 @@
         }
 
         .glitch .glitch__item {
-            background: url("{{ asset('assets/img/bg-1.jpg') }}") no-repeat 50% 50%/cover;
+            background: url("{{ asset('assets/img/eventpage.jpg') }}") no-repeat 50% 50%/cover;
             height: 100%;
             width: 100%;
             top: 0;
             left: 0;
-            position: absolute;
+            position: fixed;
         }
 
         .glitch .glitch__title:before,

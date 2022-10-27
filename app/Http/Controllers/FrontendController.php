@@ -22,8 +22,8 @@ class FrontendController extends Controller
     }
     public function show_event_details()
     {
-        $event = Event::find(1)->first();
+        // $event = Event::find(1)->first();
         // dd($event);
-        return view('frontend.show_event',compact('event'));
+        return view('frontend.show_event');
     }
 }

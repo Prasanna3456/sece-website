@@ -58,6 +58,8 @@ return [
 
     'asset_url' => env('ASSET_URL'),
 
+    'razorpay_public_key' => env('RAZORPAY_PUBLIC_KEY'),
+    'razorpay_secret_key' => env('RAZORPAY_SECRET_KEY'),
     /*
     |--------------------------------------------------------------------------
     | Application Timezone

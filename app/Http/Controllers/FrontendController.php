@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Api\RazorpayController;
 use App\Models\Event;
 use App\Models\Team;
 use App\Models\TeamMember;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 
 class FrontendController extends Controller
@@ -90,6 +93,38 @@ class FrontendController extends Controller
             ]);
         }
 
-        return view('frontend.payment',compact('event_details','team'));
+        $razorpay_order = app(RazorpayController::class)->create_order($team,$event_details);
+
+        // dd($razorpay_order);
+        // return view('frontend.payment',compact('razorpay_order','team'));
+        return redirect(route('payment',['razorpay_order_id' => $razorpay_order['order_id']]));
+    }
+
+    public function payment($razorpay_order_id)
+    {
+        // dd($razorpay_order_id);
+
+        if($razorpay_order_id == null)
+        {
+            return redirect(route('index'));
+        }
+        $order = app(RazorpayAPIController::class)->fetch_order($razorpay_order_id);
+
+        if ($order['status'] == "paid"){
+            return redirect()->route('index');
+        }
+
+        // dd($order    );
+        return view('frontend.payment',compact('order'));
+    }
+
+
+    function registration_successfull()
+    {
+        // dd($request->all());
+        // $team = Team::where('team_id',$request->team_id)->first();
+        // $team->payment_status = 1;
+        // $team->save();
+        return view('frontend.registration_successfull');
     }
 }

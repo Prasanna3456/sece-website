@@ -26,6 +26,9 @@ Route::get('/show-event/{event_slug}', [FrontendController::class,'show_event_de
 Route::post('upload-id',[FrontendController::class,'id_upload'])->name('upload_id');
 
 Route::post('register-team',[FrontendController::class,'register_team'])->name('register_team');
+Route::get('payment/{razorpay_order_id}',[FrontendController::class,'payment'])->name('payment');
+
+Route::get('registration-successfull/{payment_id?}',[FrontendController::class,'registration_successfull'])->name('registration_successfull');
 // Route::get('/', [FrontendController::class,'index'])->name('index');
 
 //TODO : Add transparecny

@@ -24,7 +24,7 @@
         }
 
         .glitch .glitch__item {
-            background: url("https://www.cyberpunk.net/build/images/home3/screen-image-mercenary-e79283ec.jpg") no-repeat 50% 50%/cover;
+            background: url("{{ asset('assets/img/home_bg.jpeg') }}") no-repeat 50% 50%/cover;
             height: 100%;
             width: 100%;
             top: 0;
@@ -65,12 +65,11 @@
         }
 
         .countdown {
-        font-family: sans-serif;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 800;
         color: #fff;
         display: inline-block;
-        font-weight: 100;
         text-align: center;
-        font-size: 30px;
         }
 
         .countdown-number {
@@ -172,7 +171,7 @@
             <!-- <p id="demo"
                 class="z-40 text-white orbitron font-bold sm:text-5xl md:text-6xl text-4xl lg:text-6xl  md:py-0 my-0 text-center uppercase ">
             </p> -->
-            <div id="countdown" class="countdown z-40">
+            <div id="countdown" class="countdown z-40 text-5xl">
             <div class="countdown-number">
                 <span class="days countdown-time"></span>
                 <span class="countdown-text">Days</span>
@@ -199,42 +198,15 @@
         </div>
     </section>
 
-    {{-- Events CTA us section --}}
-    {{-- <section class="text-gray-900 bg-[#3A0067] body-font py-5"
-        style="background-image: url('{{ asset('assets/img/bg_elements.png') }}') ">
-        <div class="overlay"></div>
-        <h1 class="sm:text-5xl text-5xl text-white lg:text-[110px]  px-5 py-5 lg:py-0   oswald-bold-800 uppercase">ABOUT US
-        </h1>
-        <div class="container mx-auto flex px-5 md:flex-row flex-col items-center">
-            <div
-                class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-                <h1
-                    class=" w-full title-font sm:text-4xl text-3xl text-white lg:text-4xl mb-4 font-medium h1 glitched cyberpunk orbitron uppercase">
-                    Quintessence 2k22
-                </h1>
-                <p class="mb-8 leading-relaxed text-gray-200">Copper mug try-hard pitchfork pour-over freegan heirloom
-                    neutra air plant cold-pressed tacos poke beard tote bag. Heirloom echo park mlkshk tote bag selvage hot
-                    chicken authentic tumeric truffaut hexagon try-hard chambray.</p>
-                <div class="flex justify-center">
-                    <button
-                        class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
-                    <button
-                        class="ml-4 inline-flex text-gray-400 bg-gray-800 border-0 py-2 px-6 focus:outline-none hover:bg-gray-700 hover:text-white rounded text-lg">Button</button>
-                </div>
-            </div>
-            <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-                <img class="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600">
-            </div>
-        </div>
-    </section> --}}
+
     <section style="background-image: url('{{ asset('assets/img/bg_elements.png') }}') ">
 
-        <h1 class="sm:text-5xl text-7xl text-[#FF003C] lg:text-[110px]  px-5 py-5 lg:py-0  oswald-bold-800 uppercase">Events
+        <h1 class="sm:text-5xl text-center text-7xl text-yellow-500 lg:text-[110px]  px-5 py-5 lg:py-0  oswald-bold-800 uppercase">Events
         </h1>
         <div class="relative mx-auto max-w-7xl">
             <div class="grid container gap-6 mx-auto mt-12 lg:grid-cols-3 lg:max-w-none">
 
-                <div class="flex  duration-100 hover:scale-105 flex-col mb-12 overflow-hidden cursor-pointer bg-[#FF003C] py-4 px-2"
+                <div class="flex  duration-100 hover:scale-105 flex-col mb-12 overflow-hidden cursor-pointer bg-yellow-500 py-4 px-2"
                     style=" clip-path: polygon(0px 25px, 26px 0px, calc(60% - 25px) 0px, 60% 25px, 100% 25px, 100% calc(100% - 10px), calc(100% - 15px) calc(100% - 10px), calc(80% - 10px)  calc(100% - 10px), calc(80% - 15px) calc(100% - 0px), 10px  calc(100% - 0px), 0% calc(100% - 10px));">
                     <a href="{{ route('technical_events') }}">
                         <div class="flex-shrink-0 mt-3">
@@ -243,18 +215,18 @@
                         </div>
                     </a>
                     <div class="flex flex-col justify-between flex-1">
-                        <div class="flex-1 px-1">
+                        <div class="flex-1 px-1 text-black">
                             <a href="{{ route('technical_events') }}" class="block mt-2 space-y-6">
-                                <h3 class="text-2xl mb-0 font-semibold uppercase  tracking-wide text-white oswald-bold-500">
+                                <h3 class="text-2xl mb-0 font-semibold uppercase  tracking-wide  oswald-bold-500">
                                     Technical Events</h3>
-                                <span class="text-lg font-normal text-white mt-0">Filling text so you can see how it looks
+                                <span class="text-lg font-normal  mt-0">Filling text so you can see how it looks
                                     like
                                     with text. Did I said text?</span>
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="flex duration-100 hover:scale-105 flex-col mb-12 overflow-hidden cursor-pointer bg-[#FF003C] py-4 px-2""
+                <div class="flex  duration-100 hover:scale-105 flex-col mb-12 overflow-hidden cursor-pointer bg-yellow-500 py-4 px-2""
                     style=" clip-path: polygon(0px 25px, 26px 0px, calc(60% - 25px) 0px, 60% 25px, 100% 25px, 100% calc(100% - 10px), calc(100% - 15px) calc(100% - 10px), calc(80% - 10px)  calc(100% - 10px), calc(80% - 15px) calc(100% - 0px), 10px  calc(100% - 0px), 0% calc(100% - 10px));">
                     <a href="{{ route('non_technical_events') }}">
                         <div class="flex-shrink-0 mt-3">
@@ -265,18 +237,18 @@
                     </a>
                     <div class="flex flex-col justify-between flex-1">
                         <a href="{{ route('non_technical_events') }}"></a>
-                        <div class="flex-1 px-1">
+                        <div class="flex-1 px-1 text-black">
                             <a href="{{ route('non_technical_events') }}" class="block mt-2 space-y-6">
-                                <h3 class="text-2xl mb-0 font-semibold uppercase  tracking-wide text-white oswald-bold-500">
+                                <h3 class="text-2xl mb-0 font-semibold uppercase  tracking-wide  oswald-bold-500">
                                     Non Technical Events</h3>
-                                <span class="text-lg font-normal text-white mt-0">Filling text so you can see how it looks
+                                <span class="text-lg font-normal  mt-0">Filling text so you can see how it looks
                                     like
                                     with text. Did I said text?</span>
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="flex duration-100 hover:scale-105 flex-col mb-12 overflow-hidden cursor-pointer bg-[#FF003C] py-4 px-2""
+                <div class="flex duration-100 hover:scale-105 flex-col mb-12 overflow-hidden cursor-pointer bg-yellow-500 py-4 px-2""
                     style=" clip-path: polygon(0px 25px, 26px 0px, calc(60% - 25px) 0px, 60% 25px, 100% 25px, 100% calc(100% - 10px), calc(100% - 15px) calc(100% - 10px), calc(80% - 10px)  calc(100% - 10px), calc(80% - 15px) calc(100% - 0px), 10px  calc(100% - 0px), 0% calc(100% - 10px));">
                     <a href="{{ route('online_events') }}">
                         <div class="flex-shrink-0 mt-3">
@@ -286,21 +258,57 @@
                     </a>
                     <div class="flex flex-col justify-between flex-1">
                         <a href="{{ route('online_events') }}"></a>
-                        <div class="flex-1 px-1">
+                        <div class="flex-1 px-1 text-black">
                             <a href="{{ route('online_events') }}" class="block mt-2 space-y-6">
-                                <h3 class="text-2xl mb-0 font-semibold uppercase  tracking-wide text-white oswald-bold-500">
+                                <h3 class="text-2xl mb-0 font-semibold uppercase  tracking-wide oswald-bold-500">
                                     Online Events</h3>
-                                <span class="text-lg font-normal text-white mt-0">Filling text so you can see how it looks
+                                <span class="text-lg font-normal  mt-0">Filling text so you can see how it looks
                                     like
                                     with text. Did I said text?</span>
                             </a>
                         </div>
                     </div>
                 </div>
-
-
-
             </div>
         </div>
+    </section>
+
+
+    <section style="background-image: url('{{ asset('assets/img/bg_elements.png') }}') ">
+
+        <h1 class="sm:text-5xl text-center text-6xl text-yellow-500 lg:text-[110px]  px-5 py-5 lg:py-0  oswald-bold-800 uppercase">About Us
+        </h1>
+        <section class="text-gray-400  body-font">
+        <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+            <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left  md:mb-0 items-center text-center">
+            <h1 class=" w-full title-font sm:text-4xl text-4xl text-white lg:text-7xl mb-4  oswald-bold-800 uppercase">
+                            Quintessence
+                        </h1>
+            <p class="mb-8 leading-relaxed">Quintessence, a national technical symposium hosted by the department of Electronics and Communication Engineering, showcases engineering brilliance. The symposium combines a wide range of technical and non-technical events, all of which are aimed to flummox our participants' thoughts and illuminate their knowledge while maintaining a positive atmosphere. With the use of a competitive platform, Quintessence aims to procure the top skills from them.</p>
+            <div class="flex justify-center">
+            </div>
+            </div>
+            <div class="lg:w-1/3 md:w-1/2 w-5/6">
+            <img class="object-cover object-center rounded" alt="hero" src="{{ asset('assets/img/sliver-logo.png') }}">
+            </div>
+        </div>
+       </section>
+       
+        <section class="text-gray-400  body-font">
+        <div class="container mx-auto flex px-5 py-12 md:flex-row flex-col items-center">
+            <div class="lg:w-1/3 md:w-1/2 w-5/6">
+            <img class="object-cover object-center rounded" alt="hero" src="{{ asset('assets/img/clg-logo.png') }}">
+            </div>
+
+            <div class="lg:flex-grow  md:w-1/2  md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center mx-10">
+            <h1 class="w-full title-font sm:text-4xl text-4xl text-white lg:text-5xl mb-4  oswald-bold-800 uppercase">
+                          Easwari Enginerring College
+                        </h1>
+            <p class="mb-8 leading-relaxed">Easwari Engineer­ing College, Auto­nomous From 2019, a unit of SRM Group of Edu­cat­ional Instit­utions for higher learning is funct­ioning under Valliammai Society. The College offers eleven Under-Graduate and six Post-Graduate Programmes covering Engineer­ing & Tech­nology, and Management.</p>
+            <div class="flex justify-center">
+            </div>
+            </div>
+        </div>
+       </section>
     </section>
 @endsection

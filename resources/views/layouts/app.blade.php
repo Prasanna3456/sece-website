@@ -13,7 +13,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
-    @yield('intersect')
     <script src="{{ asset('js/app.js') }}" defer></script>
     <style>
         .orbitron {

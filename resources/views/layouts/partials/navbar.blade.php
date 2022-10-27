@@ -1,40 +1,7 @@
-{{-- <nav class="navbar fixed-top navbar-expand-lg px-md-3">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img src="{{ asset('assets/img/clg-logo.png') }}" alt="Bootstrap" width="50" height="50">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <div class="me-auto"></div>
-            <ul class="navbar-nav">
-
-                <li class="nav-item dropdown-center">
-                    <a class="nav-link text-white dropdown-toggle" href="{{ route('events') }}" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Events
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Technical</a></li>
-                        <li><a class="dropdown-item" href="#">Non Technical</a></li>
-                        <li><a class="dropdown-item" href="#">Online</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="#">About</a>
-                </li>
-
-
-            </ul>
-        </div>
-    </div>
-</nav> --}}
 <nav class="w-full fixed top-0 z-50 text-gray-700 orbitron bg-[#121212] bg-opacity-[0.85] ">
     <div x-data="{ open: false }"
-        class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+        class="flex flex-col w-full px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
         <div class="p-2  flex flex-row items-center justify-between">
             <img src="{{ asset('assets/img/clg-logo.png') }}" alt="Bootstrap" width="50" height="50">
             <img src="{{ asset('assets/img/25_years_logo.png') }}" alt="Bootstrap" class="mx-1" width="50" height="50">

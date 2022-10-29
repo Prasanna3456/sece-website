@@ -73,7 +73,7 @@ class FrontendController extends Controller
 
         // dd($request->input());
         $project_based_event = $request->project_based_event;
-
+        $fifa_event = $request->fifa_event;
         $event_details = Event::where('id', $request->event_id)->first();
         $team = Team::create([
             'event_id' => $request->event_id,
@@ -88,6 +88,8 @@ class FrontendController extends Controller
             'college_id_card' => $request->college_id_card,
             'project_title' => $project_based_event ? $request->project_title : null,
             'project_abstract' => $project_based_event ? $request->project_abstract : NULL,
+            'project_based_event' => $project_based_event ? 1 : 0,
+            'fifa_event' =>  $request->fifa_event ? 1:0
         ]);
 
         for ($i = 0; $i < count($request->team_member_names); $i++) {
@@ -133,6 +135,6 @@ class FrontendController extends Controller
 
         // dd($team);
 
-        return view('frontend.registration_successfull',compact('team'));
+        return view('frontend.registration_successfull', compact('team'));
     }
 }

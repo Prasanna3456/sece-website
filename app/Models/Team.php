@@ -26,4 +26,9 @@ class Team extends Model
         'status',
         'razorpay_order_id',
     ];
+
+    public function event()
+    {
+        return $this->belongsTo(Event::class,'event_id','id');
+    }
 }

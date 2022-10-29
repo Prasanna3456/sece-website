@@ -13,6 +13,14 @@ class TeamStatusEnum
     const PAYMENT_SUCCESSFULL = 1;
     const PAYMENT_FAILED = 2;
 
+    public static function colors()
+    {
+        return [
+            'warning' => self::REGISTERED,
+            'success' => self::PAYMENT_SUCCESSFULL,
+            'danger' => self::PAYMENT_FAILED,
+        ];
+    }
     public static function getStatusTypes()
     {
         return [
@@ -21,6 +29,8 @@ class TeamStatusEnum
             self::PAYMENT_FAILED => 'Payment Failed',
         ];
     }
+
+
 
 
 

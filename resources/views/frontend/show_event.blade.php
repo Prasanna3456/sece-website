@@ -640,14 +640,14 @@
                         </div>
                         <div class="my-2">
                             <label class="text-white font-semibold tracking-wide text-lg" for="email">Department </label>
-                            <input id="email" name="department" type="text"
+                            <input id="department" name="department" type="text"
                                 class="text-white block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring"
                                 required>
                         </div>
                         <div class="my-2">
                             <label class="text-white font-semibold tracking-wide text-lg" for="email">Year &
                                 Section</label>
-                            <input id="email" name="year_and_section" type="text"
+                            <input id="year" name="year_and_section" type="text"
                                 class="block w-full px-4 py-2 mt-2 text-white bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring"
                                 required>
                         </div>
@@ -689,12 +689,13 @@
                     @endif
 
                     @if ($event->project_based_event)
+                    <input type="hidden" name="project_based_event" value="1">
                         <div class="orbitron uppercase">
                             <div class="my-2 ">
                                 <label class="text-white font-semibold tracking-wide text-lg" for="username">Project
                                     Title</label>
                                 </label>
-                                <input id="username" name="phone_number" type="text" autocomplete="nickname"
+                                <input id="username" name="project_title" type="text" autocomplete="nickname"
                                     class=" text-white  block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring"
                                     required>
                             </div>
@@ -702,7 +703,7 @@
                                 <label class="text-white font-semibold tracking-wide text-lg" for="username">Project
                                     Abstract</label>
                                 </label>
-                                <textarea id="username" name="phone_number" type="text" autocomplete="nickname"
+                                <textarea id="username" name="project_abstract" type="text" autocomplete="nickname"
                                     class=" text-white block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring"
                                     required></textarea>
                             </div>

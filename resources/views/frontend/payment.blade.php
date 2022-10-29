@@ -15,7 +15,7 @@
                 // alert(response.razorpay_payment_id);
                 // alert(response.razorpay_order_id);
                 // alert(response.razorpay_signature)
-                window.location.href = '{{ route("registration_successfull") }}' + '/' + response.razorpay_payment_id
+                window.location.href = '{{ route("registration_successfull") }}' + '/' + response.razorpay_order_id
             },
             "notes": {
                 'team_id': '{{ $order->notes->team_id }}',

@@ -37,6 +37,8 @@ return new class extends Migration
             $table->string('year_section');
             $table->boolean('fifa_event')->default(0);
             $table->boolean('project_based_event')->default(0);
+            $table->text('project_title')->nullable();
+            $table->longText('project_abstract')->nullable();
             $table->enum('status',$status)->default(0);
             $table->string('razorpay_order_id')->nullable();
             $table->timestamps();

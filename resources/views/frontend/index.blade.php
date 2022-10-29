@@ -3,7 +3,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Tourney:ital,wght@1,900&display=swap" rel="stylesheet">
     <style>
         .glitch {
-            font-family: "Tourney",cursive;
+            font-family: "Tourney", cursive;
             width: 100vw;
             /* height: 100vh; */
             max-width: 100%;
@@ -28,7 +28,7 @@
 
         .glitch .glitch__title:before,
         .glitch .glitch__title:after {
-            font-family: "Tourney",cursive;
+            font-family: "Tourney", cursive;
             content: "Quintessence";
             position: absolute;
             left: 0;
@@ -40,7 +40,7 @@
 
         .glitch .glitch__title:before {
             left: 2px;
-            font-family: "Tourney",cursive;
+            font-family: "Tourney", cursive;
             text-shadow: -1px 0 #00ffea;
             clip: rect(24px, 550px, 90px, 0);
             animation: glitch-anim 2s linear infinite alternate-reverse;
@@ -48,7 +48,7 @@
 
         .glitch .glitch__title:after {
             left: -2px;
-            font-family: "Tourney",cursive;
+            font-family: "Tourney", cursive;
             text-shadow: -1px 0 #fe3a7f;
             clip: rect(85px, 550px, 140px, 0);
             animation: glitch-anim 2s 1s linear infinite alternate-reverse;
@@ -64,16 +64,16 @@
         .countdown {
             font-family: 'Oswald', sans-serif;
             font-weight: 800;
-        color: #fff;
-        display: inline-block;
-        text-align: center;
+            color: #fff;
+            display: inline-block;
+            text-align: center;
         }
 
         .countdown-number {
-        /* padding: 10px;
-        border-radius: 3px;
-        background: #FF003C; */
-        display: inline-block;
+            /* padding: 10px;
+            border-radius: 3px;
+            background: #FF003C; */
+            display: inline-block;
         }
 
         .countdown-time {
@@ -84,97 +84,104 @@
         }
 
         .countdown-text {
-        display: block;
-        padding-top: 5px;
-        font-size: 16px;
+            display: block;
+            padding-top: 5px;
+            font-size: 16px;
         }
 
 
     </style>
 @endsection
 @section('js')
-<script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js"
+        integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
     <script>
         function getTimeRemaining(endtime) {
-    var t = Date.parse(endtime) - Date.parse(new Date());
-    var seconds = Math.floor((t / 1000) % 60);
-    var minutes = Math.floor((t / 1000 / 60) % 60);
-    var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-    var days = Math.floor(t / (1000 * 60 * 60 * 24));
-    return {
-      total: t,
-      days: days,
-      hours: hours,
-      minutes: minutes,
-      seconds: seconds
-    };
-  }
+            var t = Date.parse(endtime) - Date.parse(new Date());
+            var seconds = Math.floor((t / 1000) % 60);
+            var minutes = Math.floor((t / 1000 / 60) % 60);
+            var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+            var days = Math.floor(t / (1000 * 60 * 60 * 24));
+            return {
+                total: t,
+                days: days,
+                hours: hours,
+                minutes: minutes,
+                seconds: seconds
+            };
+        }
 
-  function initializeClock(id, endtime) {
-    var clock = document.getElementById(id);
-    var daysSpan = clock.querySelector(".days");
-    var hoursSpan = clock.querySelector(".hours");
-    var minutesSpan = clock.querySelector(".minutes");
-    var secondsSpan = clock.querySelector(".seconds");
+        function initializeClock(id, endtime) {
+            var clock = document.getElementById(id);
+            var daysSpan = clock.querySelector(".days");
+            var hoursSpan = clock.querySelector(".hours");
+            var minutesSpan = clock.querySelector(".minutes");
+            var secondsSpan = clock.querySelector(".seconds");
 
-    function updateClock() {
-      var t = getTimeRemaining(endtime);
+            function updateClock() {
+                var t = getTimeRemaining(endtime);
 
-      if (t.total <= 0) {
-        clearInterval(timeinterval);
-        var timer_text = document.getElementById('timer_exp');
+                if (t.total <= 0) {
+                    clearInterval(timeinterval);
+                    var timer_text = document.getElementById('timer_exp');
 
-        timer_text.classList.remove('hidden');
-        clock.classList.add('hidden');
+                    timer_text.classList.remove('hidden');
+                    clock.classList.add('hidden');
 
-        var newTime = Date.parse(endtime);
-        var nowTime = Date.parse(new Date());
+                    var newTime = Date.parse(endtime);
+                    var nowTime = Date.parse(new Date());
 
 
-        var deadline = new Date('Nov 12, 2022, 9:00');
-        initializeClock('countdown', deadline);
-      } else {
-        daysSpan.innerHTML = t.days;
-        hoursSpan.innerHTML = ("0" + t.hours).slice(-2);
-        minutesSpan.innerHTML = ("0" + t.minutes).slice(-2);
-        secondsSpan.innerHTML = ("0" + t.seconds).slice(-2);
-      }
-      return;
-    }
+                    var deadline = new Date('Nov 12, 2022, 9:00');
+                    initializeClock('countdown', deadline);
+                } else {
+                    daysSpan.innerHTML = t.days;
+                    hoursSpan.innerHTML = ("0" + t.hours).slice(-2);
+                    minutesSpan.innerHTML = ("0" + t.minutes).slice(-2);
+                    secondsSpan.innerHTML = ("0" + t.seconds).slice(-2);
+                }
+                return;
+            }
 
-    updateClock();
-    var timeinterval = setInterval(updateClock, 1000);
-    return;
-  }
+            updateClock();
+            var timeinterval = setInterval(updateClock, 1000);
+            return;
+        }
 
-//   function initialLoader() {
-// 		$('body').removeClass('noscroll');
+        function initialLoader() {
 
-// 		var loadText = '> Quintessence welcomes you!';
-// 		var loaderDone = false;
-// 		$.each(loadText.split(''), function(i, letter){
-// 			setTimeout(function(){
-// 				$('#loader-text').html($('#loader-text').html() + letter);
-// 			}, 60*i);
-// 		});
 
-// 		setTimeout(function(){
-// 			loaderDone = true;
-// 		}, 1700);
+            var loadText = '> Quintessence welcomes you!';
+            var loaderDone = false;
+            var body = document.getElementsByTagName('body')[0];
+            var loading_screen = document.getElementById('loading_screen');
 
-//     }
+            body.style.overflow = 'hidden';
+            $.each(loadText.split(''), function(i, letter) {
+                setTimeout(function() {
+                    $('#loader-text').html($('#loader-text').html() + letter);
+                }, 60 * i);
+            });
 
-  var deadline = "Nov 12 2022, 9:00";
-  initializeClock("countdown", deadline);
+            setTimeout(function() {
+                loaderDone = true;
+                loading_screen.classList.add('hidden');
+                body.style.overflowY = 'scroll';
+            }, 2000);
 
-//   initialLoader();
+        }
+
+        var deadline = "Nov 12 2022, 9:00";
+        initializeClock("countdown", deadline);
+
+        initialLoader();
     </script>
 @endsection
 @section('content')
-<!--
-<div class="bg-black z-50 w-screen h-screen flex justify-start mx-auto absolute">
-    <span id="loader-text" class="text-green-500 text-left text-lg mt-20 ml-5 oswald-bold-500 tracking-widest uppercase"></span>
-    </div> -->
+    <div class="bg-black z-50 w-screen h-screen flex justify-start mx-auto fixed " id="loading_screen">
+        <span id="loader-text"
+            class="text-green-500 text-left text-lg mt-20 ml-5 oswald-bold-500 tracking-widest uppercase"></span>
+    </div>
 
     <section>
         <div class="glitch h-screen">
@@ -249,8 +256,7 @@
                     <a href="{{ route('non_technical_events') }}">
                         <div class="flex-shrink-0 mt-3">
                             <img class="object-cover w-full h-48"
-                                src="https://cdn.mos.cms.futurecdn.net/UcXeK6DWKBWdc3Ao4TZ9nU.jpg"
-                                alt="">
+                                src="https://cdn.mos.cms.futurecdn.net/UcXeK6DWKBWdc3Ao4TZ9nU.jpg" alt="">
                         </div>
                     </a>
                     <div class="flex flex-col justify-between flex-1">
@@ -267,8 +273,8 @@
                     style=" clip-path: polygon(0px 25px, 26px 0px, calc(60% - 25px) 0px, 60% 25px, 100% 25px, 100% calc(100% - 10px), calc(100% - 15px) calc(100% - 10px), calc(80% - 10px)  calc(100% - 10px), calc(80% - 15px) calc(100% - 0px), 10px  calc(100% - 0px), 0% calc(100% - 10px));">
                     <a href="{{ route('online_events') }}">
                         <div class="flex-shrink-0 mt-3">
-                            <img class="object-cover w-full h-48"
-                                src="{{ asset('assets/img/online_event.jpeg') }}" alt="">
+                            <img class="object-cover w-full h-48" src="{{ asset('assets/img/online_event.jpeg') }}"
+                                alt="">
                         </div>
                     </a>
                     <div class="flex flex-col justify-between flex-1">
@@ -320,7 +326,6 @@
             <div class="flex justify-center">
             </div>
             </div>
-        </div>
-       </section>
+        </section>
     </section>
 @endsection

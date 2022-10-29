@@ -6,7 +6,7 @@
             Registered Successfully </h1>
         <p class="text-gray-200 text-lg text-center max-w-3xl  mx-5 mt-6">
             You have successfully registered for the <strong class="text-[#FF003C]">Electrphile</strong> event.Your Team ID
-            <strong class="text-[#FF003C]">QN-12345</strong>.
+            <strong class="text-[#FF003C]">{{ $team->team_id }}</strong>.
            We have sent you an email with your team ID and other information,  Please call the below mobile number if you haven't received an email from us.
         </p>
         {{-- <p class="text-white text-lg mt-6">Want to register for other events ? </p> --}}

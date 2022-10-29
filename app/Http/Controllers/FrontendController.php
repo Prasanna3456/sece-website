@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enum\TeamStatusEnum;
 use App\Http\Controllers\Api\RazorpayController;
 use App\Models\Event;
 use App\Models\Team;
@@ -27,36 +28,35 @@ class FrontendController extends Controller
         $events = Event::where('category', 0)->get();
         // dd($events);
         $event_type = 'Technical';
-        return view('frontend.events',compact('events','event_type'));
+        return view('frontend.events', compact('events', 'event_type'));
     }
     public function non_technical_events()
     {
         $events = Event::where('category', 1)->get();
         $event_type = 'Non Technical';
         // dd($events);
-        return view('frontend.events',compact('events','event_type'));
+        return view('frontend.events', compact('events', 'event_type'));
     }
     public function online_events()
     {
         $events = Event::where('category', 2)->get();
         $event_type = 'Online';
-        return view('frontend.events',compact('events','event_type'));
+        return view('frontend.events', compact('events', 'event_type'));
     }
     public function show_event_details($slug)
     {
-        $event = Event::where('slug',$slug)->first();
+        $event = Event::where('slug', $slug)->first();
         // dd($event);
-        return view('frontend.show_event',compact('event'));
+        return view('frontend.show_event', compact('event'));
     }
 
 
     public function id_upload(Request $request)
     {
-        if($request->hasFile('college_id_card'))
-        {
+        if ($request->hasFile('college_id_card')) {
             $file = $request->file('college_id_card');
-            $filename = time().$file->getClientOriginalName();
-            $file_path = $file->storeAs('uploads',$filename);
+            $filename = time() . $file->getClientOriginalName();
+            $file_path = $file->storeAs('uploads', $filename);
             return $file_path;
         }
 
@@ -71,11 +71,13 @@ class FrontendController extends Controller
         //     }
         // }
 
-        // dd($request->all());
-        $event_details = Event::where('id',$request->event_id)->first();
+        // dd($request->input());
+        $project_based_event = $request->project_based_event;
+
+        $event_details = Event::where('id', $request->event_id)->first();
         $team = Team::create([
             'event_id' => $request->event_id,
-            'team_id' => 'QN-'.random_int(10000, 99999),
+            'team_id' => 'QN-' . random_int(10000, 99999),
             'name' => $request->name,
             'email' => $request->email,
             'institution_name' => $request->institution_name,
@@ -84,47 +86,53 @@ class FrontendController extends Controller
             'year_section' => $request->year_and_section,
             'whatsapp_number' => $request->whatsapp_number,
             'college_id_card' => $request->college_id_card,
+            'project_title' => $project_based_event ? $request->project_title : null,
+            'project_abstract' => $project_based_event ? $request->project_abstract : NULL,
         ]);
 
-        for($i = 0; $i < count($request->team_member_names); $i++) {
+        for ($i = 0; $i < count($request->team_member_names); $i++) {
             $team_member = TeamMember::create([
                 'team_id' => $team->team_id,
                 'name' => $request->team_member_names[$i],
             ]);
         }
 
-        $razorpay_order = app(RazorpayController::class)->create_order($team,$event_details);
+        $razorpay_order = app(RazorpayController::class)->create_order($team, $event_details);
 
         // dd($razorpay_order);
         // return view('frontend.payment',compact('razorpay_order','team'));
-        return redirect(route('payment',['razorpay_order_id' => $razorpay_order['order_id']]));
+        return redirect(route('payment', ['razorpay_order_id' => $razorpay_order['order_id']]));
     }
 
     public function payment($razorpay_order_id)
     {
         // dd($razorpay_order_id);
 
-        if($razorpay_order_id == null)
-        {
+        if ($razorpay_order_id == null) {
             return redirect(route('index'));
         }
-        $order = app(RazorpayAPIController::class)->fetch_order($razorpay_order_id);
+        $order = app(RazorpayController::class)->fetch_order($razorpay_order_id);
 
-        if ($order['status'] == "paid"){
+        if ($order['status'] == "paid") {
             return redirect()->route('index');
         }
 
         // dd($order    );
-        return view('frontend.payment',compact('order'));
+        return view('frontend.payment', compact('order'));
     }
 
 
-    function registration_successfull()
+    public function registration_successfull($razorpay_order_id)
     {
-        // dd($request->all());
-        // $team = Team::where('team_id',$request->team_id)->first();
-        // $team->payment_status = 1;
-        // $team->save();
-        return view('frontend.registration_successfull');
+        // dd($razorpay_order_id);
+        $team = Team::where('razorpay_order_id', $razorpay_order_id)->first();
+        // dd($team)
+        $team->update([
+            'status' => '1'
+        ]);
+
+        // dd($team);
+
+        return view('frontend.registration_successfull',compact('team'));
     }
 }

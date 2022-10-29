@@ -541,7 +541,7 @@
 @section('content')
     <section class="text-gray-900 bg-[#121212] py-20 body-font bg-cover z-30"
         style="background-image: url('{{ asset('assets/img/bg-2.jpg') }}') ">
-        
+
         <div class="container mx-auto px-16 ">
             <div class="lg:max-w-screen-xl mx-auto my-5 flex flex-wrap justify-between">
                 <div class="mx-auto ">
@@ -564,7 +564,7 @@
                                 :class="{ 'text-[#FF003C]': opentab === 3 }">Contact</a>
                         </li>
                     </ul>
-    
+
                     <div class="my-5 h-80 mx-5 text-white">
                         <div class="w-full" x-show="opentab === 1">
                             {!! $event->description !!}
@@ -575,14 +575,14 @@
                         <div class="text-gray-200 text-base w-full" x-show="opentab === 3">
                             {!! $event->contact !!}
                         </div>
-    
+
                     </div>
                     <div>
                         {{-- <a href="#register_section"
                             class=" px-8 py-3 mx-3  oswald-bold-500 uppercase tracking-wide leading-5 text-white transition-colors duration-300 transform bg-[#FF003C]  hover:bg-[#FF2054] focus:outline-none">Register</a> --}}
                     </div>
-    
-    
+
+
                 </div>
             </div>
 
@@ -689,12 +689,13 @@
                     @endif
 
                     @if ($event->project_based_event)
+                    <input type="hidden" name="project_based_event" value="1">
                         <div class="orbitron uppercase">
                             <div class="my-2 ">
                                 <label class="text-white font-semibold tracking-wide text-lg" for="username">Project
                                     Title</label>
                                 </label>
-                                <input id="username" name="phone_number" type="text" autocomplete="nickname"
+                                <input id="username" name="project_title" type="text" autocomplete="nickname"
                                     class=" text-white  block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring"
                                     required>
                             </div>
@@ -702,7 +703,7 @@
                                 <label class="text-white font-semibold tracking-wide text-lg" for="username">Project
                                     Abstract</label>
                                 </label>
-                                <textarea id="username" name="phone_number" type="text" autocomplete="nickname"
+                                <textarea id="username" name="project_abstract" type="text" autocomplete="nickname"
                                     class=" text-white block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring"
                                     required></textarea>
                             </div>

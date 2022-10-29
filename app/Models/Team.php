@@ -21,6 +21,8 @@ class Team extends Model
         'year_section',
         'fifa_event',
         'project_based_event',
+        'project_title',
+        'project_abstract',
         'status',
         'razorpay_order_id',
     ];

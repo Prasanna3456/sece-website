@@ -1,41 +1,8 @@
-{{-- <nav class="navbar fixed-top navbar-expand-lg px-md-3">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img src="{{ asset('assets/img/clg-logo.png') }}" alt="Bootstrap" width="50" height="50">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <div class="me-auto"></div>
-            <ul class="navbar-nav">
-
-                <li class="nav-item dropdown-center">
-                    <a class="nav-link text-white dropdown-toggle" href="{{ route('events') }}" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Events
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Technical</a></li>
-                        <li><a class="dropdown-item" href="#">Non Technical</a></li>
-                        <li><a class="dropdown-item" href="#">Online</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="#">About</a>
-                </li>
-
-
-            </ul>
-        </div>
-    </div>
-</nav> --}}
-<nav class="w-full z-40 fixed top-0 z-50 text-gray-700 orbitron bg-[#121212] bg-opacity-[0.85] lg:bg-opacity-0">
+<nav class="w-full fixed top-0 z-50 text-gray-700 orbitron bg-[#121212] bg-opacity-[0.85] ">
     <div x-data="{ open: false }"
-        class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
-        <div class="p-2 flex flex-row items-center justify-between">
+        class="flex flex-col w-full px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+        <div class="p-2  flex flex-row items-center justify-between">
             <img src="{{ asset('assets/img/clg-logo.png') }}" alt="Bootstrap" width="50" height="50">
             <img src="{{ asset('assets/img/25_years_logo.png') }}" alt="Bootstrap" class="mx-1" width="50" height="50">
             <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
@@ -50,14 +17,14 @@
             </button>
         </div>
         <nav :class="{ 'flex': open, 'hidden': !open }"
-            class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row  ">
-            <a class="px-4 py-2  text-base font-semibold text-white hover:text-gray-200"
+            class="flex-col flex-grow  pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row  ">
+            <a class="px-4 py-2  text-base font-semibold text-white hover:text-gray-300"
                 href="{{ route('index') }}">Home</a>
-            <a class="px-4 py-2  text-base font-semibold text-white hover:text-gray-900"
+            <a class="px-4 py-2  text-base font-semibold text-white hover:text-gray-300"
                 href="{{ route('about_us') }}">About</a>
             <div @click.away="open = false" class="relative" x-data="{ open: false }">
                 <button @click="open = !open"
-                    class="flex flex-row items-center w-full px-4 py-2 text-white text-base font-semibold text-left bg-transparent  md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 focus:outline-none focus:shadow-outline">
+                    class="flex flex-row items-center w-full px-4 py-2 text-white text-base font-semibold text-left bg-transparent  md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-300 focus:text-gray-300 focus:outline-none focus:shadow-outline">
                     <span>Events</span>
                     <svg fill="currentColor" viewBox="0 0 20 20" :class="{ 'rotate-180': open, 'rotate-0': !open }"
                         class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1">
@@ -75,11 +42,11 @@
                     class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48">
                     <div class="px-2 py-2 bg-white rounded-md shadow dark-mode:bg-gray-800">
                         <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                            href="#">Technical</a>
+                            href="{{ route('technical_events') }}">Technical</a>
                         <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                            href="#">Non Technical</a>
+                            href="{{ route('non_technical_events') }}">Non Technical</a>
                         <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                            href="#">Online</a>
+                            href="{{ route('online_events') }}">Online</a>
                     </div>
                 </div>
             </div>

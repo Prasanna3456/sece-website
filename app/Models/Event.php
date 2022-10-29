@@ -20,6 +20,7 @@ class Event extends Model
         'entry_fee',
         'max_team_members',
         'poster',
-        'status',
+        'project_based_event',
+        'fifa_event',
     ];
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FrontendController;
+use App\Models\Team;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,7 +31,11 @@ Route::get('payment/{razorpay_order_id}',[FrontendController::class,'payment'])-
 
 Route::get('registration-successfull/{payment_id?}',[FrontendController::class,'registration_successfull'])->name('registration_successfull');
 // Route::get('/', [FrontendController::class,'index'])->name('index');
+Route::get('/test',function() {
+    $team = Team::where('team_id','QN-42078')->first();
 
+    dd($team->members());
+});
 //TODO : Add transparecny
 //https://codepen.io/AlainBarrios/pen/OEOKgm
 //counter

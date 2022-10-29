@@ -13,4 +13,9 @@ class TeamMember extends Model
         'team_id',
         'name',
     ];
+
+    public function team()
+    {
+       return $this->belongsTo(Team::class,'team_id','id');
+    }
 }

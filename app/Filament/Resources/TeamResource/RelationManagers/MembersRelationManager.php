@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Filament\Resources\TeamMembersResource\RelationManagers;
+namespace App\Filament\Resources\TeamResource\RelationManagers;
 
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -30,7 +31,8 @@ class MembersRelationManager extends RelationManager
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('Team members'),
+                TextColumn::make('name')
+                ->label('Member Name')
             ])
             ->filters([
                 //
@@ -45,5 +47,5 @@ class MembersRelationManager extends RelationManager
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
-    }    
+    }
 }

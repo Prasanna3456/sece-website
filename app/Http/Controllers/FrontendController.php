@@ -94,7 +94,7 @@ class FrontendController extends Controller
 
         for ($i = 0; $i < count($request->team_member_names); $i++) {
             $team_member = TeamMember::create([
-                'team_id' => $team->team_id,
+                'team_id' => $team->id,
                 'name' => $request->team_member_names[$i],
             ]);
         }

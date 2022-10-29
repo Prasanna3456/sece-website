@@ -545,7 +545,7 @@
         <div class="container mx-auto px-16 ">
             <div class="lg:max-w-screen-xl mx-auto my-5 flex flex-wrap justify-between">
                 <div class="mx-auto ">
-                    <img src="{{ asset('assets/img/sample-poster.jpg') }}" alt="poster" class="w-64 lg:w-96">
+                    <img src="{{ asset('assets/img/sample-poster.jpeg') }}" alt="poster" class="w-64 lg:w-96">
                 </div>
 
                 <div class="flex-grow md:ml-5 overflow-x-hidden bg-black bg-opacity-60 h-96 mt-5 lg:mt-0 md:mt-0 " x-data="{ opentab: 1 }">

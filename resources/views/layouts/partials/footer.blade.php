@@ -5,6 +5,9 @@
                 {{-- <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" class="text-gray-500 ml-1"
                     target="_blank">@knyttneve</a> --}}
             </p>
+            <div class="sm:text-center md:text-center">
+            <p class="text-gray-400 text-sm sm:justify-center">Made by <a href="https://github.com/Thirumalai15"  target="_blank" class="text-center text-gray-400 hover:text-[#FF003C] cursor-pointer"><u>Thirumalai</u></a>, Mahesh, Jabilo Jose.</p>
+                </div>
             <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
 
                 <a href="https://instagram.com/quintessence_ece?igshid=YmMyMTA2M2Y=" target="_blank" class="ml-3 text-gray-400 hover:text-red-500 cursor-pointer">

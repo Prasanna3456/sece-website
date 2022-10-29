@@ -148,34 +148,34 @@
     return;
   }
 
-  function initialLoader() {
-		$('body').removeClass('noscroll');
+//   function initialLoader() {
+// 		$('body').removeClass('noscroll');
 
-		var loadText = '> Quintessence welcomes you!';
-		var loaderDone = false;
-		$.each(loadText.split(''), function(i, letter){
-			setTimeout(function(){
-				$('#loader-text').html($('#loader-text').html() + letter);
-			}, 60*i);
-		});
+// 		var loadText = '> Quintessence welcomes you!';
+// 		var loaderDone = false;
+// 		$.each(loadText.split(''), function(i, letter){
+// 			setTimeout(function(){
+// 				$('#loader-text').html($('#loader-text').html() + letter);
+// 			}, 60*i);
+// 		});
 
-		setTimeout(function(){
-			loaderDone = true;
-		}, 1700);
+// 		setTimeout(function(){
+// 			loaderDone = true;
+// 		}, 1700);
 
-    }
+//     }
 
   var deadline = "Nov 12 2022, 9:00";
   initializeClock("countdown", deadline);
 
-  initialLoader();
+//   initialLoader();
     </script>
 @endsection
 @section('content')
-
+<!-- 
 <div class="bg-black z-50 w-screen h-screen flex justify-start mx-auto absolute">
     <span id="loader-text" class="text-green-500 text-left text-lg mt-20 ml-5 oswald-bold-500 tracking-widest uppercase"></span>
-    </div>
+    </div> -->
 
     <section>
         <div class="glitch h-screen">
@@ -185,11 +185,11 @@
             <div class="glitch__item"></div>
             <div class="glitch__item"></div>
             <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-            <h1
-                class="glitch__title sm:text-5xl mt-40 lg:mt-20 md:mt-20 md:text-8xl text-4xl  lg:text-[120px] text-yellow-500 pb-5 lg:py-0 md:py-0 uppercase text-center">
+            <h1 class="glitch__title sm:text-5xl mt-40 lg:mt-20 md:mt-20 md:text-8xl text-5xl  lg:text-[120px] text-[#ffff00] pb-5 lg:py-0 md:py-0 uppercase text-center">
                 Quintessence</h1>
-            <img src="{{ asset('assets/img/sliver-logo.png') }}" class="z-40  mx-auto w-44 lg:w-80 sm:w-52 pb-10"
+            <img src="{{ asset('assets/img/sliver-logo.png') }}" class="z-40 lg:w-80 sm:w-52 pb-10"
                 alt="">
+
             <!-- <p id="demo"
                 class="z-40 text-white orbitron font-bold sm:text-5xl md:text-6xl text-4xl lg:text-6xl  md:py-0 my-0 text-center uppercase ">
             </p> -->
@@ -211,7 +211,7 @@
                 <span class="countdown-text">Seconds</span>
             </div>
         </div>
-        <div id="timer_exp" class="hidden z-40 text-4xl text-center text-yellow-500 md:text-5xl lg:text-5xl  font-semibold text-white oswald-bold-500">
+        <div id="timer_exp" class="hidden z-40 text-4xl text-center text-[#ffff00] md:text-5xl lg:text-5xl  font-semibold text-white oswald-bold-500">
             TODAY'S THE DAY
         </div>
 
@@ -223,32 +223,29 @@
 
     <section style="background-image: url('{{ asset('assets/img/bg_elements.png') }}') ">
 
-        <h1 class="sm:text-5xl text-center text-7xl text-yellow-500 lg:text-[110px]  px-5 py-5 lg:py-0  oswald-bold-800 uppercase">Events
+        <h1 class="sm:text-5xl text-center text-7xl text-[#ffff00] lg:text-[110px]  px-5 py-5 lg:py-0  oswald-bold-800 uppercase">Events
         </h1>
         <div class="relative mx-auto max-w-7xl">
             <div class="grid container gap-6 mx-auto mt-12 lg:grid-cols-3 lg:max-w-none">
 
-                <div class="flex  duration-100 hover:scale-105 flex-col mb-12 overflow-hidden cursor-pointer bg-yellow-500 py-4 px-2"
+                <div class="flex  duration-100 hover:scale-105 flex-col mb-12 overflow-hidden cursor-pointer bg-[#ffff00] py-4 px-2"
                     style=" clip-path: polygon(0px 25px, 26px 0px, calc(60% - 25px) 0px, 60% 25px, 100% 25px, 100% calc(100% - 10px), calc(100% - 15px) calc(100% - 10px), calc(80% - 10px)  calc(100% - 10px), calc(80% - 15px) calc(100% - 0px), 10px  calc(100% - 0px), 0% calc(100% - 10px));">
                     <a href="{{ route('technical_events') }}">
                         <div class="flex-shrink-0 mt-3">
                             <img class="object-cover w-full h-48"
-                                src="{{ asset('assets/img/tech_cover.jpeg') }}" alt="">
+                                src="{{ asset('assets/img/tech_cover.jpg') }}" alt="">
                         </div>
                     </a>
                     <div class="flex flex-col justify-between flex-1">
                         <div class="flex-1 px-1 text-black">
                             <a href="{{ route('technical_events') }}" class="block mt-2 space-y-6">
-                                <h3 class="text-2xl mb-0 font-semibold uppercase  tracking-wide  oswald-bold-500">
+                                <h3 class="text-4xl mt-4 text-center font-semibold uppercase  tracking-wide  oswald-bold-500">
                                     Technical Events</h3>
-                                <span class="text-lg font-normal  mt-0">Filling text so you can see how it looks
-                                    like
-                                    with text. Did I said text?</span>
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="flex  duration-100 hover:scale-105 flex-col mb-12 overflow-hidden cursor-pointer bg-yellow-500 py-4 px-2""
+                <div class="flex  duration-100 hover:scale-105 flex-col mb-12 overflow-hidden cursor-pointer bg-[#ffff00] py-4 px-2"
                     style=" clip-path: polygon(0px 25px, 26px 0px, calc(60% - 25px) 0px, 60% 25px, 100% 25px, 100% calc(100% - 10px), calc(100% - 15px) calc(100% - 10px), calc(80% - 10px)  calc(100% - 10px), calc(80% - 15px) calc(100% - 0px), 10px  calc(100% - 0px), 0% calc(100% - 10px));">
                     <a href="{{ route('non_technical_events') }}">
                         <div class="flex-shrink-0 mt-3">
@@ -261,16 +258,13 @@
                         <a href="{{ route('non_technical_events') }}"></a>
                         <div class="flex-1 px-1 text-black">
                             <a href="{{ route('non_technical_events') }}" class="block mt-2 space-y-6">
-                                <h3 class="text-2xl mb-0 font-semibold uppercase  tracking-wide  oswald-bold-500">
-                                    Non Technical Events</h3>
-                                <span class="text-lg font-normal  mt-0">Filling text so you can see how it looks
-                                    like
-                                    with text. Did I said text?</span>
+                                <h3 class="text-4xl mt-4  text-center font-semibold uppercase  tracking-wide  oswald-bold-500">
+                                    Non-Technical Events</h3>
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="flex duration-100 hover:scale-105 flex-col mb-12 overflow-hidden cursor-pointer bg-yellow-500 py-4 px-2""
+                <div class="flex duration-100 hover:scale-105 flex-col mb-12 overflow-hidden cursor-pointer bg-[#ffff00]  py-4 px-2""
                     style=" clip-path: polygon(0px 25px, 26px 0px, calc(60% - 25px) 0px, 60% 25px, 100% 25px, 100% calc(100% - 10px), calc(100% - 15px) calc(100% - 10px), calc(80% - 10px)  calc(100% - 10px), calc(80% - 15px) calc(100% - 0px), 10px  calc(100% - 0px), 0% calc(100% - 10px));">
                     <a href="{{ route('online_events') }}">
                         <div class="flex-shrink-0 mt-3">
@@ -282,11 +276,8 @@
                         <a href="{{ route('online_events') }}"></a>
                         <div class="flex-1 px-1 text-black">
                             <a href="{{ route('online_events') }}" class="block mt-2 space-y-6">
-                                <h3 class="text-2xl mb-0 font-semibold uppercase  tracking-wide oswald-bold-500">
+                                <h3 class="text-4xl mt-4 text-center font-semibold uppercase   tracking-wide oswald-bold-500">
                                     Online Events</h3>
-                                <span class="text-lg font-normal  mt-0">Filling text so you can see how it looks
-                                    like
-                                    with text. Did I said text?</span>
                             </a>
                         </div>
                     </div>
@@ -298,15 +289,15 @@
 
     <section style="background-image: url('{{ asset('assets/img/bg_elements.png') }}') ">
 
-        <h1 class="sm:text-5xl text-center text-6xl text-yellow-500 lg:text-[110px]  px-5 py-5 lg:py-0  oswald-bold-800 uppercase">About Us
+        <h1 class="sm:text-5xl text-center text-6xl text-[#ffff00] lg:text-[110px]  px-5 py-5 lg:py-0  oswald-bold-800 uppercase">About Us
         </h1>
         <section class="text-gray-400  body-font">
         <div class="container mx-auto flex px-5 pt-24  md:flex-row flex-col items-center">
             <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left  md:mb-0 items-center text-center">
-            <h1 class=" w-full title-font sm:text-4xl text-4xl text-white lg:text-7xl mb-4  oswald-bold-800 uppercase">
+            <h1 class=" w-full title-font sm:text-4xl text-6xl text-white text-center lg:text-6xl mb-4  oswald-bold-800 uppercase">
                             Quintessence
                         </h1>
-            <p class="mb-8 leading-relaxed">Quintessence, a national technical symposium hosted by the department of Electronics and Communication Engineering, showcases engineering brilliance. The symposium combines a wide range of technical and non-technical events, all of which are aimed to flummox our participants' thoughts and illuminate their knowledge while maintaining a positive atmosphere. With the use of a competitive platform, Quintessence aims to procure the top skills from them.</p>
+            <p class="mb-8 text-center text-2xl leading-relaxed">Quintessence, a national technical symposium hosted by the department of Electronics and Communication Engineering, showcases engineering brilliance. The symposium combines a wide range of technical and non-technical events, all of which are aimed to flummox our participants thoughts and illuminate their knowledge while maintaining a positive atmosphere. With the use of a competitive platform, Quintessence aims to procure the top skills from them.</p>
             <div class="flex justify-center">
             </div>
             </div>
@@ -323,10 +314,10 @@
             </div>
 
             <div class="lg:flex-grow  md:w-1/2  md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center mx-10">
-            <h1 class="w-full title-font sm:text-4xl text-4xl text-white lg:text-5xl mb-4  oswald-bold-800 uppercase">
+            <h1 class="w-full title-font sm:text-4xl text-6xl text-white lg:text-6xl mb-4 text-center oswald-bold-800 uppercase">
                           Easwari Enginerring College
                         </h1>
-            <p class="mb-8 leading-relaxed">Easwari Engineer­ing College, Auto­nomous From 2019, a unit of SRM Group of Edu­cat­ional Instit­utions for higher learning is funct­ioning under Valliammai Society. The College offers eleven Under-Graduate and six Post-Graduate Programmes covering Engineer­ing & Tech­nology, and Management.</p>
+            <p class="mb-8 text-2xl text-center leading-relaxed">Easwari Engineer­ing College, Auto­nomous From 2019, a unit of SRM Group of Edu­cat­ional Instit­utions for higher learning is funct­ioning under Valliammai Society. The College offers eleven Under-Graduate and six Post-Graduate Programmes covering Engineer­ing & Tech­nology, and Management.</p>
             <div class="flex justify-center">
             </div>
             </div>

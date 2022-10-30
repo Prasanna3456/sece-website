@@ -32,13 +32,22 @@
         .custom-heading {
             color: '#FF003C';
         }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+            background-color: yellow;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #000000;
+        }
     </style>
     @yield('css')
     <title>{{ config('app.name') }}</title>
 </head>
 
-<body class="bg-black">
-       
+<body class="bg-black w-screen">
+
     <main>
         @include('layouts.partials.navbar')
         @yield('content')

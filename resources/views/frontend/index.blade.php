@@ -71,16 +71,16 @@
 
         .countdown-number {
             /* padding: 10px;
-            border-radius: 3px;
-            background: #FF003C; */
+                border-radius: 3px;
+                background: #FF003C; */
             display: inline-block;
         }
 
         .countdown-time {
-        padding: 15px;
-        border-radius: 3px;
-        background: rgba(0,0,0,0.5);
-        display: inline-block;
+            padding: 15px;
+            border-radius: 3px;
+            background: rgba(0, 0, 0, 0.5);
+            display: inline-block;
         }
 
         .countdown-text {
@@ -88,8 +88,6 @@
             padding-top: 5px;
             font-size: 16px;
         }
-
-
     </style>
 @endsection
 @section('js')
@@ -184,52 +182,75 @@
     </div>
 
     <section>
-        <div class="glitch h-screen">
+        <div class="glitch py-12">
             <div class="glitch__item"></div>
             <div class="glitch__item"></div>
             <div class="glitch__item"></div>
             <div class="glitch__item"></div>
             <div class="glitch__item"></div>
             <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-            <h1 class="glitch__title sm:text-5xl mt-40 lg:mt-20 md:mt-20 md:text-8xl text-5xl  lg:text-[120px] text-[#FFFF00] pb-5 lg:py-0 md:py-0 uppercase text-center">
+            <h4 class="z-40 text-white text-xl lg:text-2xl md:text-3xl text-center mt-20 uppercase">Department of
+                Electronics and Communication Engineering</h4>
+            <h4 class="z-40 text-white text-lg  text-center uppercase">Presents</h4>
+            <h1
+                class="glitch__title sm:text-5xl md:text-8xl text-5xl  lg:text-[110px] text-[#FFFF00] pb-5 lg:py-0 md:py-0 uppercase text-center">
                 Quintessence</h1>
             <img src="{{ asset('assets/img/sliver-logo.png') }}" class="z-40 lg:w-80 md:w-96 sm:w-44 w-64 pb-10"
                 alt="">
 
             <!-- <p id="demo"
-                class="z-40 text-white orbitron font-bold sm:text-5xl md:text-6xl text-4xl lg:text-6xl  md:py-0 my-0 text-center uppercase ">
-            </p> -->
+                    class="z-40 text-white orbitron font-bold sm:text-5xl md:text-6xl text-4xl lg:text-6xl  md:py-0 my-0 text-center uppercase ">
+                </p> -->
             <div id="countdown" class="countdown z-40 text-5xl ">
-            <div class="countdown-number">
-                <span class="days countdown-time  text-[#FFFf00]"></span>
-                <span class="countdown-text">Days</span>
+                <div class="countdown-number">
+                    <span class="days countdown-time  text-[#FFFf00]"></span>
+                    <span class="countdown-text">Days</span>
+                </div>
+                <div class="countdown-number">
+                    <span class="hours countdown-time text-[#FFFf00]"></span>
+                    <span class="countdown-text">Hours</span>
+                </div>
+                <div class="countdown-number">
+                    <span class="minutes countdown-time text-[#FFFf00]"></span>
+                    <span class="countdown-text">Minutes</span>
+                </div>
+                <div class="countdown-number">
+                    <span class="seconds countdown-time text-[#FFFf00]"></span>
+                    <span class="countdown-text">Seconds</span>
+                </div>
             </div>
-            <div class="countdown-number">
-                <span class="hours countdown-time text-[#FFFf00]"></span>
-                <span class="countdown-text">Hours</span>
+            <div id="timer_exp"
+                class="hidden z-40 text-4xl text-center text-yellow-500 md:text-5xl lg:text-5xl  font-semibold oswald-bold-500">
+                TODAY'S THE DAY
             </div>
-            <div class="countdown-number">
-                <span class="minutes countdown-time text-[#FFFf00]"></span>
-                <span class="countdown-text">Minutes</span>
-            </div>
-            <div class="countdown-number">
-                <span class="seconds countdown-time text-[#FFFf00]"></span>
-                <span class="countdown-text">Seconds</span>
-            </div>
-        </div>
-        <div id="timer_exp" class="hidden z-40 text-4xl text-center text-yellow-500 md:text-5xl lg:text-5xl  font-semibold oswald-bold-500">
-            TODAY'S THE DAY
-        </div>
 
             {{-- <div class="mouse flex justify-center mx-auto mt-10 lg:mt-2 md:mt-2"></div>
             <p class="register_text flex justify-center mx-auto">Scroll</p> --}}
+            <div class="flex flex-col lg:flex-row justify-between items-center z-40 w-full mx-5 text-2xl my-5">
+                <p class="text-white uppercase text-center flex items-center mx-5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mx-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    <span>
+                        SRM Easwari Engineering College
+                    </span>
+                </p>
+                <div class="flex mx-5">
+                    <p class="text-white mx-5">12 Nov 2022</p>
+                    <p class="text-white">9:00AM onwards</p>
+                </div>
+            </div>
         </div>
+
     </section>
 
 
-    <section style="background-image: url('{{ asset('assets/img/bg_elements.png') }}') ">
+    <section id="events" style="background-image: url('{{ asset('assets/img/bg_elements.png') }}') ">
 
-        <h1 class="sm:text-5xl text-center text-7xl text-[#ffff00] lg:text-[110px]  px-5 py-5 lg:py-0  oswald-bold-800 uppercase">Events
+        <h1 class="sm:text-5xl text-center text-7xl text-[#ffff00] lg:text-[110px]  px-5 py-5  oswald-bold-800 uppercase">
+            Events
         </h1>
         <div class="relative mx-auto max-w-7xl">
             <div class="grid container gap-6 mx-auto mt-12 lg:grid-cols-3 lg:max-w-none">
@@ -238,14 +259,15 @@
                     style=" clip-path: polygon(0px 25px, 26px 0px, calc(60% - 25px) 0px, 60% 25px, 100% 25px, 100% calc(100% - 10px), calc(100% - 15px) calc(100% - 10px), calc(80% - 10px)  calc(100% - 10px), calc(80% - 15px) calc(100% - 0px), 10px  calc(100% - 0px), 0% calc(100% - 10px));">
                     <a href="{{ route('technical_events') }}">
                         <div class="flex-shrink-0 mt-3">
-                            <img class="object-cover w-full h-48"
-                                src="{{ asset('assets/img/tech_cover.jpg') }}" alt="">
+                            <img class="object-cover w-full h-48" src="{{ asset('assets/img/tech_cover.jpg') }}"
+                                alt="">
                         </div>
                     </a>
                     <div class="flex flex-col justify-between flex-1">
                         <div class="flex-1 px-1 text-black">
                             <a href="{{ route('technical_events') }}" class="block mt-2 space-y-6">
-                                <h3 class="text-4xl mt-4 text-center font-semibold uppercase  tracking-wide  oswald-bold-500">
+                                <h3
+                                    class="text-4xl mt-4 text-center font-semibold uppercase  tracking-wide  oswald-bold-500">
                                     Technical Events</h3>
                             </a>
                         </div>
@@ -263,7 +285,8 @@
                         <a href="{{ route('non_technical_events') }}"></a>
                         <div class="flex-1 px-1 text-black">
                             <a href="{{ route('non_technical_events') }}" class="block mt-2 space-y-6">
-                                <h3 class="text-4xl mt-4  text-center font-semibold uppercase  tracking-wide  oswald-bold-500">
+                                <h3
+                                    class="text-4xl mt-4  text-center font-semibold uppercase  tracking-wide  oswald-bold-500">
                                     Non-Technical Events</h3>
                             </a>
                         </div>
@@ -281,7 +304,8 @@
                         <a href="{{ route('online_events') }}"></a>
                         <div class="flex-1 px-1 text-black">
                             <a href="{{ route('online_events') }}" class="block mt-2 space-y-6">
-                                <h3 class="text-4xl mt-4 text-center font-semibold uppercase   tracking-wide oswald-bold-500">
+                                <h3
+                                    class="text-4xl mt-4 text-center font-semibold uppercase   tracking-wide oswald-bold-500">
                                     Online Events</h3>
                             </a>
                         </div>
@@ -292,40 +316,56 @@
     </section>
 
 
-    <section style="background-image: url('{{ asset('assets/img/bg_elements.png') }}') ">
+    <section id="about_us" style="background-image: url('{{ asset('assets/img/bg_elements.png') }}') ">
 
-        <h1 class="sm:text-5xl text-center text-6xl text-[#ffff00] lg:text-[110px]  px-5 py-5 lg:py-0  oswald-bold-800 uppercase">About Us
+        <h1
+            class="sm:text-5xl text-center text-6xl text-[#ffff00] lg:text-[110px]  px-5 py-5 lg:py-0  oswald-bold-800 uppercase">
+            About Us
         </h1>
         <section class="text-gray-400  body-font">
-        <div class="container mx-auto flex px-5 pt-24  md:flex-row flex-col items-center">
-            <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left  md:mb-0 items-center text-center">
-            <h1 class="w-full title-font sm:text-4xl text-6xl text-white text-center lg:text-6xl mb-4  oswald-bold-800 uppercase">
-                            Quintessence
-                        </h1>
-            <p class="mb-8 text-center text-md lg:text-2xl leading-relaxed">Quintessence, a national technical symposium hosted by the department of Electronics and Communication Engineering, showcases engineering brilliance. The symposium combines a wide range of technical and non-technical events, all of which are aimed to flummox our participants thoughts and illuminate their knowledge while maintaining a positive atmosphere. With the use of a competitive platform, Quintessence aims to procure the top skills from them.</p>
-            <div class="flex justify-center">
+            <div class="container mx-auto flex px-5 pt-24  md:flex-row flex-col items-center">
+                <div
+                    class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left  md:mb-0 items-center text-center">
+                    <h1
+                        class="w-full title-font sm:text-4xl text-6xl text-white text-center lg:text-6xl mb-4  oswald-bold-800 uppercase">
+                        Quintessence
+                    </h1>
+                    <p class="mb-8 text-center text-md lg:text-2xl leading-relaxed">Quintessence, a national technical
+                        symposium hosted by the department of Electronics and Communication Engineering, showcases
+                        engineering brilliance. The symposium combines a wide range of technical and non-technical events,
+                        all of which are aimed to flummox our participants thoughts and illuminate their knowledge while
+                        maintaining a positive atmosphere. With the use of a competitive platform, Quintessence aims to
+                        procure the top skills from them.</p>
+                    <div class="flex justify-center">
+                    </div>
+                </div>
+                <div class="lg:w-1/3 md:w-1/2 w-5/6">
+                    <img class="object-cover object-center rounded" alt="hero"
+                        src="{{ asset('assets/img/sliver-logo.png') }}">
+                </div>
             </div>
-            </div>
-            <div class="lg:w-1/3 md:w-1/2 w-5/6">
-            <img class="object-cover object-center rounded" alt="hero" src="{{ asset('assets/img/sliver-logo.png') }}">
-            </div>
-        </div>
-       </section>
+        </section>
 
         <section class="text-gray-400  body-font">
-        <div class="container mx-auto flex px-5 py-12 md:flex-row flex-col items-center">
-            <div class="lg:w-1/3 md:w-1/2 w-44">
-            <img class="object-cover object-center rounded" alt="hero" src="{{ asset('assets/img/clg-logo.png') }}">
-            </div>
+            <div class="container mx-auto flex px-5 py-12 md:flex-row flex-col items-center">
+                <div class="lg:w-1/3 md:w-1/2 w-44">
+                    <img class="object-cover object-center rounded" alt="hero"
+                        src="{{ asset('assets/img/clg-logo.png') }}">
+                </div>
 
-            <div class="lg:flex-grow  md:w-1/2  md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center mx-10">
-            <h1 class="w-full title-font sm:text-4xl text-5xl mt-4 text-white lg:text-6xl mb-4 text-center oswald-bold-800 uppercase">
-                          Easwari Enginerring College
-                        </h1>
-            <p class="mb-8 text-md lg:text-2xl text-center leading-relaxed">Easwari Engineer­ing College, Auto­nomous From 2019, a unit of SRM Group of Edu­cat­ional Instit­utions for higher learning is funct­ioning under Valliammai Society. The College offers eleven Under-Graduate and six Post-Graduate Programmes covering Engineer­ing & Tech­nology, and Management.</p>
-            <div class="flex justify-center">
-            </div>
-            </div>
+                <div
+                    class="lg:flex-grow  md:w-1/2  md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center mx-10">
+                    <h1
+                        class="w-full title-font sm:text-4xl text-5xl mt-4 text-white lg:text-6xl mb-4 text-center oswald-bold-800 uppercase">
+                        Easwari Enginerring College
+                    </h1>
+                    <p class="mb-8 text-md lg:text-2xl text-center leading-relaxed">Easwari Engineer­ing College,
+                        Auto­nomous From 2019, a unit of SRM Group of Edu­cat­ional Instit­utions for higher learning is
+                        funct­ioning under Valliammai Society. The College offers eleven Under-Graduate and six
+                        Post-Graduate Programmes covering Engineer­ing & Tech­nology, and Management.</p>
+                    <div class="flex justify-center">
+                    </div>
+                </div>
         </section>
     </section>
 @endsection

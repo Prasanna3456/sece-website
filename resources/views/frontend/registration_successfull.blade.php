@@ -10,7 +10,7 @@
            We have sent you an email with your team ID and other information,  Please call the below mobile number if you haven't received an email from us.
         </p>
         {{-- <p class="text-white text-lg mt-6">Want to register for other events ? </p> --}}
-        <a href="{{ route('index') }}"
+        <a href="{{ route('index') }}/#events"
             class=" px-8 py-3 mt-6 oswald-bold-500 uppercase tracking-wide leading-5 text-white transition-colors duration-300 transform bg-[#FF003C]  hover:bg-[#FF2054] focus:outline-none">Home</a>
     </div>
 @endsection

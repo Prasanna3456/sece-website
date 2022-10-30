@@ -71,8 +71,8 @@
 
         .countdown-number {
             /* padding: 10px;
-                border-radius: 3px;
-                background: #FF003C; */
+                    border-radius: 3px;
+                    background: #FF003C; */
             display: inline-block;
         }
 
@@ -163,7 +163,9 @@
 
             setTimeout(function() {
                 loaderDone = true;
-                loading_screen.classList.add('hidden');
+                // loading_screen.classList.add('hidden');
+
+                $("#loading_screen").hide(200);
                 body.style.overflowY = 'scroll';
             }, 2000);
 
@@ -199,8 +201,8 @@
                 alt="">
 
             <!-- <p id="demo"
-                    class="z-40 text-white orbitron font-bold sm:text-5xl md:text-6xl text-4xl lg:text-6xl  md:py-0 my-0 text-center uppercase ">
-                </p> -->
+                        class="z-40 text-white orbitron font-bold sm:text-5xl md:text-6xl text-4xl lg:text-6xl  md:py-0 my-0 text-center uppercase ">
+                    </p> -->
             <div id="countdown" class="countdown z-40 text-5xl ">
                 <div class="countdown-number">
                     <span class="days countdown-time  text-[#FFFf00]"></span>
@@ -227,17 +229,10 @@
             {{-- <div class="mouse flex justify-center mx-auto mt-10 lg:mt-2 md:mt-2"></div>
             <p class="register_text flex justify-center mx-auto">Scroll</p> --}}
             <div class="flex flex-col lg:flex-row justify-between items-center z-40 w-full mx-5 text-2xl my-5">
-                <p class="text-white uppercase text-center flex items-center mx-5">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mx-1" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd"
-                            d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                            clip-rule="evenodd" />
-                    </svg>
-                    <span>
+                <p class="text-white uppercase text-center inline-flex items-center mx-5">
                         SRM Easwari Engineering College
-                    </span>
                 </p>
-                <div class="flex mx-5">
+                <div class="flex-col lg:mx-5 mx-0 ">
                     <p class="text-white mx-5">12 Nov 2022</p>
                     <p class="text-white">9:00AM onwards</p>
                 </div>

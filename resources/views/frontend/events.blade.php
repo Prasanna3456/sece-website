@@ -32,7 +32,7 @@
             content: "Events";
             position: absolute;
             left: 0;
-            top: 0;
+            /* top: ; */
             width: 100%;
             height: 100%;
             overflow: hidden;
@@ -73,10 +73,10 @@
             <div class="relative inset-0 bg-black bg-opacity-30"></div>
             <div class="flex flex-col py-16">
                 <h1
-                    class="glitch__title sm:text-5xl md:text-6xl text-8xl  lg:text-[110px] text-[#FF003C] px-5 py-5 lg:py-0 md:py-0 oswald-bold-800 uppercase text-center">
+                    class="glitch__title sm:text-6xl md:text-6xl text-7xl  lg:text-[110px] text-[#FF003C] px-5 pt-8 lg:py-0 md:py-0 oswald-bold-800 uppercase text-center">
                     Events</h1>
                 <h1
-                    class="z-40 sm:text-5xl text-6xl  lg:text-5xl tracking-wide text-white px-5 py-5 lg:py-0 oswald-bold-800 uppercase text-center">
+                    class="z-40 sm:text-5xl text-5xl  lg:text-5xl tracking-wide text-white px-5 py-5 lg:py-0 oswald-bold-800 uppercase text-center">
                     {{ $event_type }} Events</h1>
             </div>
         </div>
@@ -105,7 +105,7 @@
 
         </div> --}}
     </section>
-    <div class="-mt-64 lg:-mt-72 md:-mt-56 px-5 pb-5 space-y-4 flex flex-col items-center justify-center orbitron">
+    <div class="-mt-72 lg:-mt-72 md:-mt-56 px-5 pb-5 space-y-4 flex flex-col items-center justify-center orbitron">
         @foreach ($events as $event)
             <div class="w-full max-w-6xl py-28 lg:py-16 md:py-16 overflow-hidden relative">
                 <img class="absolute inset-0 h-full w-full object-cover" src="{{ asset('storage/'. $event->poster) }}"

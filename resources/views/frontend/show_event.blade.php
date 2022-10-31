@@ -588,7 +588,7 @@
 
 
         </div>
-        <div class="mouse flex justify-center mx-auto  lg:-mt-10"></div>
+        <div class="mouse flex justify-center mx-auto  lg:mt-10"></div>
         <p class="register_text flex justify-center mx-auto">Scroll</p>
     </section>
 

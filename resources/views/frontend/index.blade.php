@@ -228,7 +228,7 @@
 
             {{-- <div class="mouse flex justify-center mx-auto mt-10 lg:mt-2 md:mt-2"></div>
             <p class="register_text flex justify-center mx-auto">Scroll</p> --}}
-            <div class="flex flex-col lg:flex-row justify-between items-center z-40 w-full mx-5 text-2xl my-5">
+            <div class="flex flex-col lg:flex-row justify-between items-center z-40 w-full mx-5 text-xl my-5">
                 <div class="lg:mx-5 mx-0">
                     <p class="text-white text-center uppercase flex items-start lg:items-center md:items-center">
                         <span>

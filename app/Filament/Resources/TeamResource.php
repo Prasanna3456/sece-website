@@ -12,12 +12,15 @@ use Filament\Forms\Components\Card;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Tables\Columns\BadgeColumn;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ToggleColumn;
 
 class TeamResource extends Resource
 {
@@ -34,49 +37,43 @@ class TeamResource extends Resource
                         Grid::make()
                             ->schema([
                                 TextInput::make('name')
-                                    ->required()
                                     ->label('Team Lead Name')
                                     ->disabled(),
                                 TextInput::make('email')
-                                    ->required()
                                     ->label('Team Lead Email')
                                     ->disabled(),
                             ]),
                         Grid::make()
                             ->schema([
                                 TextInput::make('whatsapp_number')
-                                    ->required()
                                     ->label('Whatsapp Number')
                                     ->disabled(),
                                 TextInput::make('institution_name')
-                                    ->required()
                                     ->label('Institution Name')
                                     ->disabled(),
                                 TextInput::make('course')
-                                    ->required()
                                     ->label('Course')
                                     ->disabled(),
                                 TextInput::make('department')
-                                    ->required()
                                     ->label('Course')
                                     ->disabled(),
                                 TextInput::make('year_section')
-                                    ->required()
                                     ->label('Year and section')
                                     ->disabled(),
                             ]),
 
                         TextInput::make('project_title')
-                            ->required()
                             ->label('Project Title')
                             ->disabled()
                             ->hidden(fn (Closure $get) => $get('project_based_event') == 0),
                         Textarea::make('project_abstract')
-                            ->required()
                             ->label('Project Abstract')
                             ->disabled()
                             ->hidden(fn (Closure $get) => $get('project_based_event') == 0),
 
+                        Toggle::make('team_present')
+                            ->label('Team Present ?')
+                            ->required(),
                     ])
             ]);
     }
@@ -101,9 +98,15 @@ class TeamResource extends Resource
                         'success' => '1',
                         'danger' => '2',
                     ]),
+                BadgeColumn::make('team_present')
+                    ->enum([
+                        '0' => 'Absent',
+                        '1' => 'Present',
+                    ]),
                 TextColumn::make('created_at')
                     ->label('Registered On')
-                    ->dateTime('d M, y')
+                    ->dateTime('d M, y'),
+
 
 
             ])

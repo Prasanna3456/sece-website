@@ -339,7 +339,7 @@
                         class="w-full title-font sm:text-4xl text-6xl text-white text-center lg:text-6xl mb-4  oswald-bold-800 uppercase">
                         Quintessence
                     </h1>
-                    <p class="mb-8 text-center text-md lg:text-2xl leading-relaxed">Quintessence, a national technical
+                    <p class="mb-8 text-center text-md lg:text-xl leading-relaxed">Quintessence, a national technical
                         symposium hosted by the department of Electronics and Communication Engineering, showcases
                         engineering brilliance. The symposium combines a wide range of technical and non-technical events,
                         all of which are aimed to flummox our participants thoughts and illuminate their knowledge while
@@ -365,10 +365,10 @@
                 <div
                     class="lg:flex-grow  md:w-1/2  md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center mx-10">
                     <h1
-                        class="w-full title-font sm:text-4xl text-5xl mt-4 text-white lg:text-6xl mb-4 text-center oswald-bold-800 uppercase">
+                        class="w-full title-font sm:text-4xl text-3xl mt-4 text-white lg:text-6xl mb-4 text-center oswald-bold-800 uppercase">
                         Easwari Enginerring College
                     </h1>
-                    <p class="mb-8 text-md lg:text-2xl text-center leading-relaxed">Easwari Engineer­ing College,
+                    <p class="mb-8 text-md lg:text-xl text-center leading-relaxed">Easwari Engineer­ing College,
                         Auto­nomous From 2019, a unit of SRM Group of Edu­cat­ional Instit­utions for higher learning is
                         funct­ioning under Valliammai Society. The College offers eleven Under-Graduate and six
                         Post-Graduate Programmes covering Engineer­ing & Tech­nology, and Management.</p>

@@ -222,14 +222,14 @@
                 </div>
             </div>
             <div id="timer_exp"
-                class="hidden z-40 text-4xl text-center text-yellow-500 md:text-5xl lg:text-5xl  font-semibold oswald-bold-500">
+                class="hidden z-40 text-4xl text-center text-[#FFFF000] md:text-5xl lg:text-5xl  font-semibold oswald-bold-500">
                 TODAY'S THE DAY
             </div>
 
             {{-- <div class="mouse flex justify-center mx-auto mt-10 lg:mt-2 md:mt-2"></div>
             <p class="register_text flex justify-center mx-auto">Scroll</p> --}}
-            <div class="flex flex-col lg:flex-row justify-between items-center z-40 w-full mx-5 text-xl my-5">
-                <div class="lg:mx-5 mx-0">
+            <div class="flex flex-col lg:flex-row justify-between text-left items-center z-40 w-full mx-5 text-xl my-5">
+                <div class="lg:mx-5 mx-0 mt-5">
                     <p class="text-white text-center uppercase flex items-start lg:items-center md:items-center">
                         <span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 lg:mt-0 md:mt-0 mt-1" viewBox="0 0 20 20" fill="currentColor">
@@ -238,7 +238,7 @@
                                     clip-rule="evenodd" />
                             </svg>
                         </span>
-                        SRM Easwari Engineering College
+                        Easwari Engineering College
                     </p>
                 </div>
                 <div class="flex  items-center lg:mx-5 mx-0 ">

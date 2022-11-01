@@ -46,7 +46,7 @@
     <title>{{ config('app.name') }}</title>
 </head>
 
-<body class="bg-black w-screen">
+<body class="bg-black">
 
     <main>
         @include('layouts.partials.navbar')

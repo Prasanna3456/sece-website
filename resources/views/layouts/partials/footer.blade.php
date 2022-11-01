@@ -1,6 +1,6 @@
 <footer class="bg-[#121211] body-font bottom-0 relative">
     <div class="bg-black bg-opacity-30 ">
-        <div class="container mx-auto py-4 px-5 flex  w-full justify-evenly flex-wrap flex-col sm:flex-row">
+        <div class="container mx-auto py-4 px-5 flex  w-full justify-evenly items-center flex-wrap flex-col sm:flex-row">
             <div class="text-gray-400 text-sm text-center sm:text-left">© {{ date('Y') }} Quintessence
                 {{-- <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" class="text-gray-500 ml-1"
                     target="_blank">@knyttneve</a> --}}

@@ -504,18 +504,6 @@
     </style>
 @endsection
 @section('js')
-    <script>
-        function rulesDivFunction() {
-            var x = document.getElementById("rulesDiv").querySelectorAll("ol");
-            if (x) {
-                console.log('found')
-                x[0].classList.add("list-disc");
-            } else {
-                console.log('not found')
-            }
-        }
-        rulesDivFunction();
-    </script>
     <script src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.js">
     </script>
     <script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
@@ -539,7 +527,7 @@
     </script>
 @endsection
 @section('content')
-    <section class="text-gray-900 bg-[#121212] py-20 body-font bg-cover z-30"
+    <section class="text-gray-900 bg-[#121212] py-20 body-font bg-cover bg-center z-30"
         style="background-image: url('{{ asset('assets/img/bg-2.jpeg') }}') ">
 
         <div class="container mx-auto px-16 ">

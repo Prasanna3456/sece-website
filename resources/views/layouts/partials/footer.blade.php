@@ -5,11 +5,11 @@
                 {{-- <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" class="text-gray-500 ml-1"
                     target="_blank">@knyttneve</a> --}}
             </div>
-            <div class="text-center flex-grow lg:my-0 my-3">
-                <p class="text-gray-400 text-sm sm:justify-center">Made by <a href="https://github.com/Thirumalai15"
-                        target="_blank"
+            <div class="text-center flex-grow items-center lg:my-0 my-3">
+                <p class="text-gray-400 text-sm sm:justify-center">Made with 💖 by <a href="https://github.com/Thirumalai15" target="_blank"
                         class="text-center text-gray-400 hover:text-[#FF003C] cursor-pointer"><u>Thirumalai</u></a>,
-                    Mahesh, Jabilo Jose.</p>
+                    Mahesh, Jabilo Jose.
+                </p>
             </div>
             <span class="inline-flex sm:ml-auto sm:mt-0  justify-center sm:justify-start">
 

@@ -5,8 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://cdn.tailwindcss.com"></script>
 
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/img/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/img/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/img/favicon-16x16.png') }}">
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <!-- Primary Meta Tags -->
+<title>Quintessence  — National Level Tech Symposium</title>
+<meta name="title" content="Quintessence  — National Level Tech Symposium">
+<meta name="description" content="Quintessence, a national technical symposium hosted by the department of Electronics and Communication Engineering, showcases engineering brilliance. The symposium combines a wide range of technical and non-technical events, all of which are aimed to flummox our participants thoughts and illuminate their knowledge while maintaining a positive atmosphere. With the use of a competitive platform, Quintessence aims to procure the top skills from them.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://metatags.io/">
+<meta property="og:title" content="Quintessence  — National Level Tech Symposium">
+<meta property="og:description" content="Quintessence, a national technical symposium hosted by the department of Electronics and Communication Engineering, showcases engineering brilliance. The symposium combines a wide range of technical and non-technical events, all of which are aimed to flummox our participants thoughts and illuminate their knowledge while maintaining a positive atmosphere. With the use of a competitive platform, Quintessence aims to procure the top skills from them.">
+<meta property="og:image" content="{{ asset('assets/img/meta_image.jpeg') }}">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://metatags.io/">
+<meta property="twitter:title" content="Quintessence  — National Level Tech Symposium">
+<meta property="twitter:description" content="Quintessence, a national technical symposium hosted by the department of Electronics and Communication Engineering, showcases engineering brilliance. The symposium combines a wide range of technical and non-technical events, all of which are aimed to flummox our participants thoughts and illuminate their knowledge while maintaining a positive atmosphere. With the use of a competitive platform, Quintessence aims to procure the top skills from them.">
+<meta property="twitter:image" content="{{ asset('assets/img/meta_image.jpeg') }}">
+
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

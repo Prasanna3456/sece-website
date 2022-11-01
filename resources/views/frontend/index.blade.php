@@ -276,7 +276,7 @@
                         <div class="flex-1 px-1 text-black">
                             <a href="{{ route('technical_events') }}" class="block mt-2 space-y-6">
                                 <h3
-                                    class="text-4xl mt-4 text-center font-semibold uppercase  tracking-wide  oswald-bold-500">
+                                    class="text-3xl mt-4 text-center font-semibold uppercase  tracking-wide  oswald-bold-500">
                                     Technical Events</h3>
                             </a>
                         </div>
@@ -295,7 +295,7 @@
                         <div class="flex-1 px-1 text-black">
                             <a href="{{ route('non_technical_events') }}" class="block mt-2 space-y-6">
                                 <h3
-                                    class="text-4xl mt-4  text-center font-semibold uppercase  tracking-wide  oswald-bold-500">
+                                    class="text-3xl mt-4  text-center font-semibold uppercase  tracking-wide  oswald-bold-500">
                                     Non-Technical Events</h3>
                             </a>
                         </div>
@@ -314,7 +314,7 @@
                         <div class="flex-1 px-1 text-black">
                             <a href="{{ route('online_events') }}" class="block mt-2 space-y-6">
                                 <h3
-                                    class="text-4xl mt-4 text-center font-semibold uppercase   tracking-wide oswald-bold-500">
+                                    class="text-3xl mt-4 text-center font-semibold uppercase   tracking-wide oswald-bold-500">
                                     Online Events</h3>
                             </a>
                         </div>

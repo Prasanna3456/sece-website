@@ -545,12 +545,14 @@
         <div class="container mx-auto px-16 ">
             <div class="lg:max-w-screen-xl mx-auto my-5 flex flex-wrap justify-between">
                 <div class="mx-auto ">
-                    <img src="{{ asset('storage/'.$event->poster) }}" alt="poster" class="w-64 lg:w-96">
+                    <img src="{{ asset('assets/img/sample-poster.jpg') }}" alt="poster" class="w-64 lg:w-96">
                 </div>
 
-                <div class="flex-grow md:ml-5 overflow-x-hidden bg-black bg-opacity-60 h-96 mt-5 lg:mt-0 md:mt-0 " x-data="{ opentab: 1 }">
+                <div class="flex-grow md:ml-5 overflow-x-hidden bg-black bg-opacity-60 h-96 mt-5 lg:mt-0 md:mt-0 "
+                    x-data="{ opentab: 1 }">
                     <ul
-                        class="flex flex-wrap text-xl uppercase  oswald-bold-500 tracking-wide font-medium text-center text-gray-500 border-b border-gray-200">
+                        class="bg-black
+                        flex flex-wrap text-xl uppercase  oswald-bold-500 tracking-wide font-medium text-center text-gray-500 border-b border-gray-200 sticky top-0">
                         <li class="mr-2 flex-auto">
                             <a :class="{ 'text-[#FF003C]': opentab === 1 }" @click="opentab = 1" aria-current="page"
                                 class="inline-block p-4 cursor-pointer rounded-t-lg active">Description</a>
@@ -664,21 +666,23 @@
                         <div class="my-2">
                             <label class="text-white font-semibold tracking-wide text-lg" for="email">Whatsapp
                                 number</label>
-                            <input  name="whatsapp_number" type="number" autocomplete="none"
+                            <input name="whatsapp_number" type="number" autocomplete="none"
                                 class=" text-white block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring"
                                 required>
                         </div>
                     </div>
 
                     <div class="my-2 orbitron uppercase mb-3">
-                            <label class="text-white font-semibold tracking-wide text-lg" for="email">Upload your college ID card</label>
-                                <input type="file" name="college_id_card" required />
-                        </div>
+                        <label class="text-white font-semibold tracking-wide text-lg" for="email">Upload your college
+                            ID card</label>
+                        <input type="file" name="college_id_card" required />
+                    </div>
 
 
                     @if ($event->fifa_event)
                         <div class="my-2 orbitron uppercase">
-                            <label class="text-white font-semibold tracking-wide text-lg" for="email">Do you have a PS4 Controller ?</label>
+                            <label class="text-white font-semibold tracking-wide text-lg" for="email">Do you have a PS4
+                                Controller ?</label>
                             <select id="country" name="fifa_event" autocomplete="country-name"
                                 class="text-white block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring"
                                 required>
@@ -689,7 +693,7 @@
                     @endif
 
                     @if ($event->project_based_event)
-                    <input type="hidden" name="project_based_event" value="1">
+                        <input type="hidden" name="project_based_event" value="1">
                         <div class="orbitron uppercase">
                             <div class="my-2 ">
                                 <label class="text-white font-semibold tracking-wide text-lg" for="username">Project

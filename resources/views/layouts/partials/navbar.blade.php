@@ -1,5 +1,5 @@
 
-<nav class="w-full fixed top-0 z-50 text-gray-700 orbitron bg-[#121212] bg-opacity-[0.85] ">
+<nav class="w-full fixed top-0 z-50 text-gray-700 orbitron bg-[#121212] bg-opacity-[0.5] ">
     <div x-data="{ open: false }"
         class="flex flex-col w-full px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
         <div class="p-2  flex flex-row items-center justify-between">

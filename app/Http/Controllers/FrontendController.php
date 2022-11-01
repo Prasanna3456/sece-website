@@ -11,6 +11,8 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Validator;
+
 
 class FrontendController extends Controller
 {
@@ -65,45 +67,53 @@ class FrontendController extends Controller
 
     public function register_team(Request $request)
     {
-        // foreach ($request->input() as $input => $value) {
-        //     if ($input != '_token') {
-        //        var_dump($input);
-        //     }
-        // }
+        
 
-        // dd($request->input());
-        $project_based_event = $request->project_based_event;
-        $fifa_event = $request->fifa_event;
         $event_details = Event::where('id', $request->event_id)->first();
-        $team = Team::create([
-            'event_id' => $request->event_id,
-            'team_id' => 'QN-' . random_int(10000, 99999),
-            'name' => $request->name,
-            'email' => $request->email,
-            'institution_name' => $request->institution_name,
-            'course' => $request->course,
-            'department' => $request->department,
-            'year_section' => $request->year_and_section,
-            'whatsapp_number' => $request->whatsapp_number,
-            'college_id_card' => $request->college_id_card,
-            'project_title' => $project_based_event ? $request->project_title : null,
-            'project_abstract' => $project_based_event ? $request->project_abstract : NULL,
-            'project_based_event' => $project_based_event ? 1 : 0,
-            'fifa_event' =>  $request->fifa_event ? 1:0
-        ]);
 
-        for ($i = 0; $i < count($request->team_member_names); $i++) {
-            $team_member = TeamMember::create([
-                'team_id' => $team->id,
-                'name' => $request->team_member_names[$i],
+        $team_check = Team::where('event_id',$request->event_id)->where('email',$request->email)->get();
+        $team_check2 = Team::where('event_id',$request->event_id)->where('email',$request->whatsapp_number)->get();
+        // dd($event);
+        // $collection = collect($event);
+        if($team_check->count() > 0 || $team_check2->count() > 0) {
+            return redirect(route('register_error'));
+            // ->withErrors($errors, $this->errorBag());
+        } else {
+            $project_based_event = $request->project_based_event;
+            $fifa_event = $request->fifa_event;
+            $team = Team::create([
+                'event_id' => $request->event_id,
+                'team_id' => 'QN-' . random_int(10000, 99999),
+                'name' => $request->name,
+                'email' => $request->email,
+                'institution_name' => $request->institution_name,
+                'course' => $request->course,
+                'department' => $request->department,
+                'year_section' => $request->year_and_section,
+                'whatsapp_number' => $request->whatsapp_number,
+                'college_id_card' => $request->college_id_card,
+                'project_title' => $project_based_event ? $request->project_title : null,
+                'project_abstract' => $project_based_event ? $request->project_abstract : NULL,
+                'project_based_event' => $project_based_event ? 1 : 0,
+                'fifa_event' =>  $request->fifa_event ? 1:0
             ]);
+    
+            for ($i = 0; $i < count($request->team_member_names); $i++) {
+                $team_member = TeamMember::create([
+                    'team_id' => $team->id,
+                    'name' => $request->team_member_names[$i],
+                ]);
+            }
+    
+            $razorpay_order = app(RazorpayController::class)->create_order($team, $event_details);
+    
+            // dd($razorpay_order);
+            // return view('frontend.payment',compact('razorpay_order','team'));
+            return redirect(route('payment', ['razorpay_order_id' => $razorpay_order['order_id']]));
+
         }
 
-        $razorpay_order = app(RazorpayController::class)->create_order($team, $event_details);
-
-        // dd($razorpay_order);
-        // return view('frontend.payment',compact('razorpay_order','team'));
-        return redirect(route('payment', ['razorpay_order_id' => $razorpay_order['order_id']]));
+       
     }
 
     public function payment($razorpay_order_id)

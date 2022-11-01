@@ -34,3 +34,7 @@ Route::get('registration-successfull/{payment_id?}',[FrontendController::class,'
 //TODO : Add transparecny
 //https://codepen.io/AlainBarrios/pen/OEOKgm
 //counter
+
+Route::get('register_error',function () {
+    return view('frontend.register_error');
+})->name('register_error');

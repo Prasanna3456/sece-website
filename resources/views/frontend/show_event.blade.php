@@ -2,6 +2,16 @@
 @section('css')
     <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
     <style>
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+        -moz-appearance: textfield;
+        }
         .filepond--panel-root {
             background-color: #121212;
         }
@@ -595,21 +605,28 @@
             <form class="p-6" action="{{ route('register_team') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="event_id" value="{{ $event->id }}">
-                <h2 class="text-2xl text-[#C7002F] orbitron tracking-wide capitalize">
+                <h2 class="text-lg mt-2 text-[#C7002F] orbitron tracking-wide capitalize">
                     Event registration fee : {{ $event->entry_fee }} Rs</h2>
+
+                     @if(session('email_error'))
+                        <p class="text-2xl text-[#C7002F] orbitron tracking-wide capitalize">
+                        {{ session('email_error') }}
+                        </p>
+                        <br/>
+                    @endif
                 <div class="border-b-2 border-gray-200 my-6">
                     <div class="grid grid-cols-1 gap-6 mt-3 sm:grid-cols-2  orbitron uppercase">
                         <div class="my-2">
                             <label class="text-white font-semibold tracking-wide text-lg" for="username">Name</label>
                             <input id="username" type="text" name="name" autocomplete="nickname"
                                 class=" text-white block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring"
-                                required>
+                                required value="{{old('name')}}">
                         </div>
                         <div class="my-2">
                             <label class="text-white font-semibold tracking-wide text-lg" for="email">Email</label>
                             <input id="email" name="email" type="email"
                                 class="block w-full px-4 py-2 mt-2 text-white bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring"
-                                required>
+                                required value="{{old('email')}}">
                         </div>
                     </div>
 
@@ -618,7 +635,7 @@
                             name</label>
                         <input id="username" name="institution_name" type="text"
                             class="block w-full px-4 py-2 mt-2 text-white bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring"
-                            required>
+                            required value="{{old('institution_name')}}">
                     </div>
 
                     <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-3  orbitron uppercase">
@@ -626,20 +643,20 @@
                             <label class="text-white font-semibold tracking-wide text-lg" for="username">Course</label>
                             <input id="username" name="course" type="text" autocomplete="nickname"
                                 class=" text-white block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring"
-                                required>
+                                required value="{{old('course')}}">
                         </div>
                         <div class="my-2">
                             <label class="text-white font-semibold tracking-wide text-lg" for="email">Department </label>
                             <input id="department" name="department" type="text"
                                 class="text-white block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring"
-                                required>
+                                required value="{{old('department')}}">
                         </div>
                         <div class="my-2">
                             <label class="text-white font-semibold tracking-wide text-lg" for="email">Year &
                                 Section</label>
                             <input id="year" name="year_and_section" type="text"
                                 class="block w-full px-4 py-2 mt-2 text-white bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring"
-                                required>
+                                required value="{{old('year_and_section')}}">
                         </div>
                     </div>
 
@@ -656,7 +673,7 @@
                                 number</label>
                             <input name="whatsapp_number" type="number" autocomplete="none"
                                 class=" text-white block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring"
-                                required>
+                                required value="{{old('whatsapp_number')}}">
                         </div>
                     </div>
 
@@ -689,7 +706,7 @@
                                 </label>
                                 <input id="username" name="project_title" type="text" autocomplete="nickname"
                                     class=" text-white  block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring"
-                                    required>
+                                    required  value="{{old('project_title')}}">
                             </div>
                             <div class="my-2 ">
                                 <label class="text-white font-semibold tracking-wide text-lg" for="username">Project
@@ -697,7 +714,7 @@
                                 </label>
                                 <textarea id="username" name="project_abstract" type="text" autocomplete="nickname"
                                     class=" text-white block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring"
-                                    required></textarea>
+                                    required>{{ old('project_abstract') }}</textarea>
                             </div>
 
                         </div>
@@ -713,14 +730,14 @@
                         <h2 class="text-white font-semibold tracking-wide text-lg" for="username">Team Members Details
                         </h2>
                         <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2  ">
-                            @for ($i = 0; $i < $event->max_team_members; $i++)
+                            @for ($i = 0; $i < $event->max_team_members;)
                                 <div class="my-2">
                                     <label class="text-white font-semibold tracking-wide text-lg" for="username">Team
                                         Member
-                                        {{ $i }} </label>
+                                        {{ $i++ }} </label>
                                     <input id="username" name="team_member_names[]" type="text"
                                         autocomplete="nickname"
-                                        class=" text-white block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring">
+                                        class=" text-white block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring" required>
                                 </div>
                             @endfor
                         </div>

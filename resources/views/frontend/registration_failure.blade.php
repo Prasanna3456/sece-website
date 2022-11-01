@@ -8,4 +8,5 @@
             Sorry, something went wrong please try again</p>
         <p class="text-gray-200 text-lg text-center max-w-3xl  mx-5 mt-6">Incase money got debited, please call or whatsapp <a href="tel:9087724500"><strong>9087724500</strong></a> / <a href="tel:6383649810"><strong>6383649810</strong></a> </p>
     </div>
+    
 @endsection

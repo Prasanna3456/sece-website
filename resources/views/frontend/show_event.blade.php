@@ -543,7 +543,7 @@
         <div class="container mx-auto px-16 ">
             <div class="lg:max-w-screen-xl mx-auto my-5 flex flex-wrap justify-between">
                 <div class="mx-auto ">
-                    <img src="{{ asset('assets/img/sample-poster.jpg') }}" alt="poster" class="w-64 lg:w-96">
+                    <img src="{{ asset('storage/'.$event->poster) }}" alt="poster" class="w-64 lg:w-96">
                 </div>
 
                 <div class="flex-grow md:ml-5 overflow-x-hidden bg-black bg-opacity-60 h-96 mt-5 lg:mt-0 md:mt-0 "
@@ -588,11 +588,15 @@
 
 
         </div>
+        
+    @if($event->category != 2) 
         <div class="mouse flex justify-center mx-auto  lg:mt-10"></div>
         <p class="register_text flex justify-center mx-auto">Scroll</p>
+    @endif
     </section>
 
-
+    
+    @if($event->category != 2) 
 
     {{-- Register section --}}
     <section class="text-gray-900  body-font py-10"
@@ -755,6 +759,7 @@
             </form>
         </div>
     </section>
+    @endif
 
     <div
         class="z-50 inset-x-0 bottom-0 sticky flex justify-center bg-gradient-to-t from-black  pb-8 pointer-events-none dark:from-slate-900 absolute">

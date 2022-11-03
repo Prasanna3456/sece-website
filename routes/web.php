@@ -38,3 +38,11 @@ Route::get('registration-successfull/{payment_id?}',[FrontendController::class,'
 Route::get('register_error',function () {
     return view('frontend.register_error');
 })->name('register_error');
+
+
+// Route::get('foo',function() {
+//     $target = storage_path('app/public/');
+    
+//     $linkFolder = $_SERVER['DOCUMENT_ROOT'] . '/storage';
+//     symlink($target,$linkFolder);
+// });

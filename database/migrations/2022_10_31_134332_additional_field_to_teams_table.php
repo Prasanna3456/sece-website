@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::table('teams', function (Blueprint $table) {
             $table->boolean('team_present')->default(0);
+            $table->string('college_id_card');
         });
     }
 

@@ -57,9 +57,10 @@ class FrontendController extends Controller
     {
         if ($request->hasFile('college_id_card')) {
             $file = $request->file('college_id_card');
-            $filename = time() . $file->getClientOriginalName();
-            $file_path = $file->storeAs('uploads', $filename);
-            return $file_path;
+            $filename = time() .'.'. $request->college_id_card->extension();
+            $file_path = $file->move(public_path('storage'),$filename);
+            // dd($filename);
+            return $filename;
         }
 
         return  '';

@@ -21,6 +21,7 @@ use Filament\Tables\Columns\BadgeColumn;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
+use App\Forms\Components\ImageViewer; 
 
 class TeamResource extends Resource
 {
@@ -74,7 +75,13 @@ class TeamResource extends Resource
                         Toggle::make('team_present')
                             ->label('Team Present ?')
                             ->required(),
-                    ])
+                    ]),
+                    Card::make()
+                    ->schema([
+                            ImageViewer::make('college_id_card')
+                            ->visibleOn('edit')
+                        ])
+                        
             ]);
     }
 

@@ -673,11 +673,11 @@
                                 required>
                         </div> --}}
                         <div class="my-2">
-                            <label class="text-white font-semibold tracking-wide text-lg" for="email">Whatsapp
-                                number</label>
-                            <input name="whatsapp_number" type="number" autocomplete="none"
+                            <label class="text-white font-semibold tracking-wide text-lg" for="email">Whatsapp 
+                                number <small class="text-gray-500">(9439034564)</small> </label>
+                            <input name="whatsapp_number" type="text" autocomplete="none"
                                 class=" text-white block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring"
-                                required value="{{old('whatsapp_number')}}">
+                                required value="{{old('whatsapp_number')}}" title="Make sure to enter the number in right format" pattern="[1-9]{1}[0-9]{9}">
                         </div>
                     </div>
 
@@ -741,7 +741,7 @@
                                         {{ $i++ }} </label>
                                     <input id="username" name="team_member_names[]" type="text"
                                         autocomplete="nickname"
-                                        class=" text-white block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring" required>
+                                        class=" text-white block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring">
                                 </div>
                             @endfor
                         </div>

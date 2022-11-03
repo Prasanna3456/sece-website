@@ -29,6 +29,12 @@
             },
             "theme": {
                 "color": "#3399cc"
+            },
+            "modal": {
+                "ondismiss": function(){
+                     window.location.replace('{{ route("register_error") }}');
+                    console.log('Checkout form closed');
+                }
             }
         };
 

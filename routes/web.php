@@ -36,8 +36,12 @@ Route::get('registration-successfull/{payment_id?}',[FrontendController::class,'
 //counter
 
 Route::get('register_error',function () {
-    return view('frontend.register_error');
+    return view('frontend.registration_failure');
 })->name('register_error');
+
+Route::get('duplicatie-entry',function () {
+    return view('frontend.register_error');
+})->name('duplication_entry');
 
 
 // Route::get('foo',function() {

@@ -22,6 +22,8 @@ use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use App\Forms\Components\ImageViewer; 
+use Filament\Tables\Filters\SelectFilter; 
+
 
 class TeamResource extends Resource
 {
@@ -80,7 +82,7 @@ class TeamResource extends Resource
                     ->schema([
                             ImageViewer::make('college_id_card')
                             ->visibleOn('edit')
-                        ])
+                        ])->columns(2)
                         
             ]);
     }
@@ -93,9 +95,9 @@ class TeamResource extends Resource
                     ->label('Team Lead Name')
                     ->description(function ($record) {
                         return $record->email;
-                    }),
-                TextColumn::make('event.creative_name'),
-                TextColumn::make('institution_name'),
+                    })->searchable(),
+                TextColumn::make('event.creative_name')->searchable(),
+                TextColumn::make('institution_name')->searchable(),
                 TextColumn::make('year_section'),
                 BadgeColumn::make('status')
                     ->description('Registered, Payment Completed , Payment Failed')
@@ -118,7 +120,17 @@ class TeamResource extends Resource
 
             ])
             ->filters([
-                //
+                SelectFilter::make('status')
+                    ->options([
+                        '0' => 'Registered',
+                        '1' => 'Payment successfull',
+                        '2' => 'Payment Failed',
+                    ]),
+                SelectFilter::make('team_present')
+                    ->options([
+                        '0' => 'Absent',
+                        '1' => 'Present',
+                    ]),
             ])
             ->actions([
                 Tables\Actions\EditAction::make()

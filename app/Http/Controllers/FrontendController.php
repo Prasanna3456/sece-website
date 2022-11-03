@@ -58,7 +58,7 @@ class FrontendController extends Controller
         if ($request->hasFile('college_id_card')) {
             $file = $request->file('college_id_card');
             $filename = time() .'.'. $request->college_id_card->extension();
-            $file_path = $file->move(public_path('storage'),$filename);
+            $file_path = $file->move(storage_path('app/public'),$filename);
             // dd($filename);
             return $filename;
         }
@@ -68,16 +68,20 @@ class FrontendController extends Controller
 
     public function register_team(Request $request)
     {
-        
+        // dd($request->input('college_id_card'));
 
         $event_details = Event::where('id', $request->event_id)->first();
 
         $team_check = Team::where('event_id',$request->event_id)->where('email',$request->email)->get();
         $team_check2 = Team::where('event_id',$request->event_id)->where('email',$request->whatsapp_number)->get();
-        // dd($event);
+        
+        // dd($team_check);
+        // if($team_check and $team_check->status == 2) {
+        //     return redirect(route('register_error'));
+        // } else {
         // $collection = collect($event);
         if($team_check->count() > 0 || $team_check2->count() > 0) {
-            return redirect(route('register_error'));
+            return redirect(route('duplication_entry'));
             // ->withErrors($errors, $this->errorBag());
         } else {
             $project_based_event = $request->project_based_event;
@@ -92,19 +96,27 @@ class FrontendController extends Controller
                 'department' => $request->department,
                 'year_section' => $request->year_and_section,
                 'whatsapp_number' => $request->whatsapp_number,
-                'college_id_card' => $request->college_id_card,
+                'college_id_card' => $request->input('college_id_card'),
                 'project_title' => $project_based_event ? $request->project_title : null,
                 'project_abstract' => $project_based_event ? $request->project_abstract : NULL,
                 'project_based_event' => $project_based_event ? 1 : 0,
                 'fifa_event' =>  $request->fifa_event ? 1:0
+                
             ]);
-    
-            for ($i = 0; $i < count($request->team_member_names); $i++) {
-                $team_member = TeamMember::create([
-                    'team_id' => $team->id,
-                    'name' => $request->team_member_names[$i],
-                ]);
+            
+            if($request->team_member_names != null) {
+                
+                for ($i = 0; $i < count($request->team_member_names); $i++) {
+                    if($request->team_member_names[$i] != null) {
+                        $team_member = TeamMember::create([
+                            'team_id' => $team->id,
+                            'name' => $request->team_member_names[$i],
+                        ]);
+                        
+                    }
+                }
             }
+    
     
             $razorpay_order = app(RazorpayController::class)->create_order($team, $event_details);
     
@@ -113,6 +125,8 @@ class FrontendController extends Controller
             return redirect(route('payment', ['razorpay_order_id' => $razorpay_order['order_id']]));
 
         }
+            
+        // }
 
        
     }
@@ -125,10 +139,11 @@ class FrontendController extends Controller
             return redirect(route('index'));
         }
         $order = app(RazorpayController::class)->fetch_order($razorpay_order_id);
-
-        if ($order['status'] == "paid") {
-            return redirect()->route('index');
-        }
+    
+    // dd($order);
+        // if ($order['status'] == "paid") {
+        //     return redirect(route('register_error'));
+        // }
 
         // dd($order    );
         return view('frontend.payment', compact('order'));

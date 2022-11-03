@@ -12,6 +12,6 @@
     :state-path="$getStatePath()"
 >
     <div x-data="{ state: $wire.entangle('{{ $getStatePath() }}').defer }">
-          <img src="{{ asset('storage/'.$getRecord()->collge_id_card) }}" alt="" srcset="">
+          <img src="{{ asset('storage/'.$getRecord()->college_id_card) }}" alt="" srcset="">
     </div>
 </x-dynamic-component>

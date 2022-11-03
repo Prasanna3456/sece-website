@@ -26,7 +26,7 @@ class Team extends Model
         'status',
         'razorpay_order_id',
         'team_present',
-        'collge_id_card'
+        'college_id_card'
     ];
 
     public function event()

@@ -5,7 +5,7 @@
         <h1 class="text-4xl sm:text-5xl lg:text-6xl tracking-tight text-center text-[#FF003C] oswald-bold-800 uppercase">
             Registered Successfully </h1>
         <p class="text-gray-200 text-lg text-center max-w-3xl  mx-5 mt-6">
-            You have successfully registered for the <strong class="text-[#FF003C]">Electrphile</strong> event.Your Team ID
+            You have successfully registered for the <strong class="text-[#FF003C]">{{ ucfirst($event->creative_name) }}</strong> event.Your Team ID
             <strong class="text-[#FF003C]">{{ $team->team_id }}</strong>.
           Take a screenshot of this for future reference
         </p>

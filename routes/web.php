@@ -37,16 +37,16 @@ Route::get('registration-successfull/{payment_id?}',[FrontendController::class,'
 
 Route::get('register_error',function () {
     return view('frontend.registration_failure');
-})->name('register_error');
+})->name('payment.modalclosed');
 
-Route::get('duplicatie-entry',function () {
-    return view('frontend.register_error');
-})->name('duplication_entry');
+Route::get('duplicate-entry',function () {
+    return view('frontend.duplicate-entry');
+})->name('duplicate_entry');
 
 
 // Route::get('foo',function() {
 //     $target = storage_path('app/public/');
-    
+
 //     $linkFolder = $_SERVER['DOCUMENT_ROOT'] . '/storage';
 //     symlink($target,$linkFolder);
 // });

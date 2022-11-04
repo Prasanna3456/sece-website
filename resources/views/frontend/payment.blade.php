@@ -32,7 +32,7 @@
             },
             "modal": {
                 "ondismiss": function(){
-                     window.location.replace('{{ route("register_error") }}');
+                     window.location.replace('{{ route("payment.modalclosed") }}');
                     console.log('Checkout form closed');
                 }
             }
@@ -41,8 +41,9 @@
         var razorpay_instance = new Razorpay(options);
 
         razorpay_instance.on('payment.failed', function(response) {
-            alert('Check console for payment error');
-            console.log(response.error.code);
+            alert('Whoops! Payment failed. Please try again');
+
+            // console.log(response.error.code);
         });
 
         // TODO Capture other events too, lke INVALID PAYMENT etc.

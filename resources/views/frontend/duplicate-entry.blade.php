@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+{{-- duplicate entry --}}
 @section('content')
     <div class="flex flex-col justify-center items-center h-screen width-80 bg-black">
         <h1 class="text-4xl sm:text-5xl lg:text-6xl tracking-tight text-center text-[#FF003C] oswald-bold-800 uppercase">

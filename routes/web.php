@@ -36,7 +36,7 @@ Route::get('registration-successfull/{payment_id?}',[FrontendController::class,'
 //counter
 
 Route::get('register_error',function () {
-    return view('frontend.registration_failure');
+    return view('frontend.payment-failed');
 })->name('payment.modalclosed');
 
 Route::get('duplicate-entry',function () {

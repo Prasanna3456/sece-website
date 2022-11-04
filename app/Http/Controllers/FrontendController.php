@@ -163,6 +163,7 @@ class FrontendController extends Controller
     }
 
     // new registration ✔
-    // duplicate entry with successfull payment redirect to already registered page ✔
+    // new registration but upi failed means stay in payement page ✔
     // registerd but not paid redirect to payment page ✔
+    // duplicate entry with successfull payment redirect to already registered page ✔
 }

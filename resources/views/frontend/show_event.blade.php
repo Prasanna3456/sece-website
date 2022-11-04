@@ -674,7 +674,7 @@
                         </div> --}}
                         <div class="my-2">
                             <label class="text-white font-semibold tracking-wide text-lg" for="email">Whatsapp 
-                                number <small class="text-gray-500">(9439034564)</small> </label>
+                                number  </label>
                             <input name="whatsapp_number" type="text" autocomplete="none"
                                 class=" text-white block w-full px-4 py-2 mt-2  bg-black border border-gray-200 rounded-md focus:border-[#C7002F] focus:ring-[#C7002F] focus:ring-opacity-40  focus:outline-none focus:ring"
                                 required value="{{old('whatsapp_number')}}" title="Make sure to enter the number in right format" pattern="[1-9]{1}[0-9]{9}">
@@ -734,7 +734,7 @@
                         <h2 class="text-white font-semibold tracking-wide text-lg" for="username">Team Members Details
                         </h2>
                         <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2  ">
-                            @for ($i = 0; $i < $event->max_team_members;)
+                            @for ($i = 1; $i <= $event->max_team_members;)
                                 <div class="my-2">
                                     <label class="text-white font-semibold tracking-wide text-lg" for="username">Team
                                         Member

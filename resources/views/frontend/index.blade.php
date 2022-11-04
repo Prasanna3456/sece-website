@@ -3,7 +3,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Tourney:ital,wght@1,900&display=swap" rel="stylesheet">
     <style>
         .glitch {
-            font-family: "Tourney", cursive;
+            font-family: "Tourney";
+            font-style:"normal";
             width: 100vw;
             /* height: 100vh; */
             max-width: 100%;
@@ -28,7 +29,8 @@
 
         .glitch .glitch__title:before,
         .glitch .glitch__title:after {
-            font-family: "Tourney", cursive;
+            font-family: "Tourney";
+            font-style:"normal";
             content: "Quintessence";
             position: absolute;
             left: 0;
@@ -40,7 +42,8 @@
 
         .glitch .glitch__title:before {
             left: 2px;
-            font-family: "Tourney", cursive;
+            font-family: "Tourney";
+            font-style:"normal";
             text-shadow: -1px 0 #00ffea;
             clip: rect(24px, 550px, 90px, 0);
             animation: glitch-anim 2s linear infinite alternate-reverse;
@@ -48,7 +51,8 @@
 
         .glitch .glitch__title:after {
             left: -2px;
-            font-family: "Tourney", cursive;
+            font-family: "Tourney";
+            font-style:"normal";
             text-shadow: -1px 0 #fe3a7f;
             clip: rect(85px, 550px, 140px, 0);
             animation: glitch-anim 2s 1s linear infinite alternate-reverse;

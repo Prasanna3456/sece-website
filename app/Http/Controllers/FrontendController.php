@@ -114,7 +114,7 @@ class FrontendController extends Controller
         // dd($razorpay_order_id);
         $team = Team::where('razorpay_order_id', $razorpay_order_id)->first();
         // dd($team)
-        $event = Event::find($team->event_id)->select('creative_name')->first();
+        $event = Event::find($team->event_id);
         $team->update([
             'status' => '1'
         ]);

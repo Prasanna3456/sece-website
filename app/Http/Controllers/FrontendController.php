@@ -57,8 +57,8 @@ class FrontendController extends Controller
     {
         if ($request->hasFile('college_id_card')) {
             $file = $request->file('college_id_card');
-            $filename = time() .'.'. $request->college_id_card->extension();
-            $file_path = $file->move(storage_path('app/public'),$filename);
+            $filename = time() . '.' . $request->college_id_card->extension();
+            $file_path = $file->move(storage_path('app/public'), $filename);
             // dd($filename);
             return $filename;
         }
@@ -71,64 +71,23 @@ class FrontendController extends Controller
         // dd($request->input('college_id_card'));
 
         $event_details = Event::where('id', $request->event_id)->first();
+        $team = Team::where('event_id', $request->event_id)->where('email', $request->email)->orWhere('whatsapp_number', $request->whatsapp_number);
 
-        $team_check = Team::where('event_id',$request->event_id)->where('email',$request->email)->get();
-        $team_check2 = Team::where('event_id',$request->event_id)->where('email',$request->whatsapp_number)->get();
-        
-        // dd($team_check);
-        // if($team_check and $team_check->status == 2) {
-        //     return redirect(route('register_error'));
-        // } else {
-        // $collection = collect($event);
-        if($team_check->count() > 0 || $team_check2->count() > 0) {
-            return redirect(route('duplication_entry'));
-            // ->withErrors($errors, $this->errorBag());
-        } else {
-            $project_based_event = $request->project_based_event;
-            $fifa_event = $request->fifa_event;
-            $team = Team::create([
-                'event_id' => $request->event_id,
-                'team_id' => 'QN-' . random_int(10000, 99999),
-                'name' => $request->name,
-                'email' => $request->email,
-                'institution_name' => $request->institution_name,
-                'course' => $request->course,
-                'department' => $request->department,
-                'year_section' => $request->year_and_section,
-                'whatsapp_number' => $request->whatsapp_number,
-                'college_id_card' => $request->input('college_id_card'),
-                'project_title' => $project_based_event ? $request->project_title : null,
-                'project_abstract' => $project_based_event ? $request->project_abstract : NULL,
-                'project_based_event' => $project_based_event ? 1 : 0,
-                'fifa_event' =>  $request->fifa_event ? 1:0
-                
-            ]);
-            
-            if($request->team_member_names != null) {
-                
-                for ($i = 0; $i < count($request->team_member_names); $i++) {
-                    if($request->team_member_names[$i] != null) {
-                        $team_member = TeamMember::create([
-                            'team_id' => $team->id,
-                            'name' => $request->team_member_names[$i],
-                        ]);
-                        
-                    }
-                }
-            }
-    
-    
-            $razorpay_order = app(RazorpayController::class)->create_order($team, $event_details);
-    
-            // dd($razorpay_order);
-            // return view('frontend.payment',compact('razorpay_order','team'));
-            return redirect(route('payment', ['razorpay_order_id' => $razorpay_order['order_id']]));
-
+        // check whether the team exsits and if their status is registred means go to payment page
+        if ($team->exists() && $team->first()->status == TeamStatusEnum::REGISTERED) {
+            return redirect(route('payment', ['razorpay_order_id' => $team->first()->razorpay_order_id]));
         }
-            
-        // }
-
-       
+        // check whether the team exsits and if their is status is paid means go to duplicate entry page
+        else if ($team->exists() && $team->first()->status == TeamStatusEnum::PAYMENT_SUCCESSFULL)
+        {
+            return redirect(route('duplicate_entry'));
+            // return redirect(route('duplicate_entry'));
+        }
+        else {
+            $new_team = $this->add_team_data_to_db($request);
+            $razorpay_order = app(RazorpayController::class)->create_order($new_team, $event_details);
+            return redirect(route('payment', ['razorpay_order_id' => $razorpay_order['order_id']]));
+        }
     }
 
     public function payment($razorpay_order_id)
@@ -139,8 +98,8 @@ class FrontendController extends Controller
             return redirect(route('index'));
         }
         $order = app(RazorpayController::class)->fetch_order($razorpay_order_id);
-    
-    // dd($order);
+
+        // dd($order);
         // if ($order['status'] == "paid") {
         //     return redirect(route('register_error'));
         // }
@@ -155,12 +114,55 @@ class FrontendController extends Controller
         // dd($razorpay_order_id);
         $team = Team::where('razorpay_order_id', $razorpay_order_id)->first();
         // dd($team)
+        $event = Event::find($team->event_id)->select('creative_name')->first();
         $team->update([
             'status' => '1'
         ]);
 
         // dd($team);
 
-        return view('frontend.registration_successfull', compact('team'));
+        return view('frontend.registration_successfull', compact('team','event'));
     }
+
+
+    public function add_team_data_to_db($request)
+    {
+        $project_based_event = $request->project_based_event;
+        $fifa_event = $request->fifa_event;
+        $team = Team::create([
+            'event_id' => $request->event_id,
+            'team_id' => 'QN-' . random_int(10000, 99999),
+            'name' => $request->name,
+            'email' => $request->email,
+            'institution_name' => $request->institution_name,
+            'course' => $request->course,
+            'department' => $request->department,
+            'year_section' => $request->year_and_section,
+            'whatsapp_number' => $request->whatsapp_number,
+            'college_id_card' => $request->input('college_id_card'),
+            'project_title' => $project_based_event ? $request->project_title : null,
+            'project_abstract' => $project_based_event ? $request->project_abstract : NULL,
+            'project_based_event' => $project_based_event ? 1 : 0,
+            'fifa_event' =>  $request->fifa_event ? 1 : 0
+
+        ]);
+
+        if ($request->team_member_names != null) {
+
+            for ($i = 0; $i < count($request->team_member_names); $i++) {
+                if ($request->team_member_names[$i] != null) {
+                    $team_member = TeamMember::create([
+                        'team_id' => $team->id,
+                        'name' => $request->team_member_names[$i],
+                    ]);
+                }
+            }
+        }
+
+        return $team;
+    }
+
+    // new registration ✔
+    // duplicate entry with successfull payment redirect to already registered page ✔
+    // registerd but not paid redirect to payment page ✔
 }

@@ -7,6 +7,7 @@ use App\Filament\Resources\TeamResource\RelationManagers\MembersRelationManager;
 use App\Filament\Resources\TeamResource\Pages;
 use App\Filament\Resources\TeamResource\RelationManagers;
 use App\Models\Team;
+use App\Models\Event;
 use Closure;
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\Grid;
@@ -24,6 +25,7 @@ use Filament\Tables\Columns\ToggleColumn;
 use App\Forms\Components\ImageViewer;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\FileUpload;
 
 
 class TeamResource extends Resource
@@ -49,6 +51,10 @@ class TeamResource extends Resource
                             ]),
                         Grid::make()
                             ->schema([
+                                Select::make('event_id')
+                                ->label('Event')
+                                ->options(Event::all()->pluck('name', 'id'))
+                                ->searchable(),
                                 TextInput::make('whatsapp_number')
                                     ->label('Whatsapp Number')
                                     ->required(),
@@ -80,10 +86,10 @@ class TeamResource extends Resource
                             ->label('Project Abstract')
                             ->disabled()
                             ->hidden(fn (Closure $get) => $get('project_based_event') == 0),
-
                         Toggle::make('team_present')
                             ->label('Team Present ?')
                             ->required(),
+                        FileUpload::make('college_id_card')
                     ]),
                     Card::make()
                     ->schema([

@@ -18,14 +18,14 @@
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://metatags.io/">
+<meta property="og:url" content="https://quintessence2k22.com/">
 <meta property="og:title" content="Quintessence  — National Level Tech Symposium">
 <meta property="og:description" content="Quintessence, a national technical symposium hosted by the department of Electronics and Communication Engineering, showcases engineering brilliance. The symposium combines a wide range of technical and non-technical events, all of which are aimed to flummox our participants thoughts and illuminate their knowledge while maintaining a positive atmosphere. With the use of a competitive platform, Quintessence aims to procure the top skills from them.">
 <meta property="og:image" content="{{ asset('assets/img/meta_image.jpeg') }}">
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://metatags.io/">
+<meta property="twitter:url" content="https://quintessence2k22.com/">
 <meta property="twitter:title" content="Quintessence  — National Level Tech Symposium">
 <meta property="twitter:description" content="Quintessence, a national technical symposium hosted by the department of Electronics and Communication Engineering, showcases engineering brilliance. The symposium combines a wide range of technical and non-technical events, all of which are aimed to flummox our participants thoughts and illuminate their knowledge while maintaining a positive atmosphere. With the use of a competitive platform, Quintessence aims to procure the top skills from them.">
 <meta property="twitter:image" content="{{ asset('assets/img/meta_image.jpeg') }}">

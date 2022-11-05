@@ -21,8 +21,9 @@ use Filament\Tables\Columns\BadgeColumn;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
-use App\Forms\Components\ImageViewer; 
-use Filament\Tables\Filters\SelectFilter; 
+use App\Forms\Components\ImageViewer;
+use Filament\Tables\Filters\SelectFilter;
+use Filament\Forms\Components\Select;
 
 
 class TeamResource extends Resource
@@ -63,6 +64,12 @@ class TeamResource extends Resource
                                 TextInput::make('year_section')
                                     ->label('Year and section')
                                     ->disabled(),
+                                    Select::make('status')
+                                        ->options([
+                                            '0' => 'Registered',
+                                            '1' => 'Payment Successfull',
+                                            '2' => 'Payment Failed',
+                                        ])
                             ]),
 
                         TextInput::make('project_title')
@@ -83,7 +90,7 @@ class TeamResource extends Resource
                             ImageViewer::make('college_id_card')
                             ->visibleOn('edit')
                         ])->columns(2)
-                        
+
             ]);
     }
 

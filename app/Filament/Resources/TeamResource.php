@@ -42,28 +42,28 @@ class TeamResource extends Resource
                             ->schema([
                                 TextInput::make('name')
                                     ->label('Team Lead Name')
-                                    ->disabled(),
+                                    ->required(),
                                 TextInput::make('email')
                                     ->label('Team Lead Email')
-                                    ->disabled(),
+                                    ->required(),
                             ]),
                         Grid::make()
                             ->schema([
                                 TextInput::make('whatsapp_number')
                                     ->label('Whatsapp Number')
-                                    ->disabled(),
+                                    ->required(),
                                 TextInput::make('institution_name')
                                     ->label('Institution Name')
-                                    ->disabled(),
+                                    ->required(),
                                 TextInput::make('course')
                                     ->label('Course')
-                                    ->disabled(),
+                                    ->required(),
                                 TextInput::make('department')
                                     ->label('Course')
-                                    ->disabled(),
+                                    ->required(),
                                 TextInput::make('year_section')
                                     ->label('Year and section')
-                                    ->disabled(),
+                                    ->required(),
                                     Select::make('status')
                                         ->options([
                                             '0' => 'Registered',

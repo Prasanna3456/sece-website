@@ -134,7 +134,7 @@
                     var nowTime = Date.parse(new Date());
 
 
-                    var deadline = new Date('Nov 12, 2022, 9:00');
+                    var deadline = new Date('Jan 28, 2023, 9:00');
                     initializeClock('countdown', deadline);
                 } else {
                     daysSpan.innerHTML = t.days;
@@ -182,11 +182,10 @@
     </script>
 @endsection
 @section('content')
-    <div class="bg-black z-50 w-screen h-screen flex justify-start mx-auto fixed " id="loading_screen">
+<div class="bg-black z-50 w-screen h-screen flex justify-start mx-auto fixed " id="loading_screen">
         <span id="loader-text"
             class="text-green-500 text-left text-lg mt-20 ml-5 oswald-bold-500 tracking-widest uppercase"></span>
     </div>
-
     <section>
         <div class="glitch py-12">
             <div class="glitch__item"></div>
@@ -227,7 +226,7 @@
             </div>
             <div id="timer_exp"
                 class="hidden z-40 text-4xl text-center text-[#FFFF000] md:text-5xl lg:text-5xl  font-semibold oswald-bold-500">
-                TODAY'S THE DAY
+              
             </div>
 
             {{-- <div class="mouse flex justify-center mx-auto mt-10 lg:mt-2 md:mt-2"></div>
@@ -250,7 +249,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mx-1" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
                           </svg>
-                        12 Nov 2022
+                        28 Jan 2023
                     </p>
                     <p class="text-white tracking-wide">9:00 AM </p>
                 </div>
@@ -370,7 +369,7 @@
                     class="lg:flex-grow  md:w-1/2  md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center mx-10">
                     <h1
                         class="w-full title-font sm:text-4xl text-3xl mt-4 text-white lg:text-6xl mb-4 text-center oswald-bold-800 uppercase">
-                        Easwari Enginerring College
+                        Easwari Engineering College
                     </h1>
                     <p class="mb-8 text-md lg:text-xl text-center leading-relaxed">Easwari Engineer­ing College,
                         Auto­nomous From 2019, a unit of SRM Group of Edu­cat­ional Instit­utions for higher learning is

@@ -40,9 +40,15 @@
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
-                </a>
-
+                </a><br>
             </span>
+        </div>
+        <div class="container flex justify-center  w-full text-sm ">
+            <a href="https://quintessence2k22.com/terms-and-conditions" target="_blank" class="ml-3 text-gray-400" ><u>Terms and Conditions</u></a>
+                <a href="https://quintessence2k22.com/cancellation-and-refund-policy" target="_blank" class="ml-3 text-gray-400" ><u>Cancellations and refund policy</u></a>
+                <a href="https://quintessence2k22.com/privacy-policy" target="_blank" class="ml-3 text-gray-400"><u>Privacy Policy</u></a>
+                <a href="https://quintessence2k22.com/shipping-policy" target="_blank" class="ml-3 text-gray-400" ><u>Shipping Policy</u></a>
+                <a href="https://quintessence2k22.com/contact-us" target="_blank" class="ml-3 text-gray-400" ><u>Contact us</u></a>
         </div>
     </div>
 </footer>

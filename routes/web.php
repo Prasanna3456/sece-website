@@ -44,6 +44,26 @@ Route::get('duplicate-entry',function () {
 })->name('duplicate_entry');
 
 
+Route::get('terms-and-conditions',function () {
+    return view('frontend.tc');
+})->name('tc');
+
+Route::get('contact-us',function () {
+    return view('frontend.contact-us');
+})->name('contact-us');
+
+Route::get('shipping-policy',function () {
+    return view('frontend.shipping');
+})->name('shipping');
+
+Route::get('cancellation-and-refund-policy',function () {
+    return view('frontend.cancellation');
+})->name('cancellation');
+
+Route::get('privacy-policy',function () {
+    return view('frontend.privacy-policy');
+})->name('privacy-policyx`');
+
 // Route::get('foo',function() {
 //     $target = storage_path('app/public/');
 

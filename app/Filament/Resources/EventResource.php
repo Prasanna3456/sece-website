@@ -25,6 +25,9 @@ use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\SelectColumn;
+
 
 class EventResource extends Resource
 {
@@ -108,11 +111,15 @@ class EventResource extends Resource
                                             ->required()
                                             ->hint('Upload the event poster here'),
                                     ]),
-
-
-
                             ]),
-
+                         Select::make('status')
+                                    ->label('Event Status')
+                                    ->required()
+                                    ->options([
+                                        '0' => 'Event enabled',
+                                        '1' => 'Registration Closed ',
+                                        '2' => 'Online registration Closed , on spot available',
+                                    ])->reactive()
                     ])
             ]);
     }
@@ -127,7 +134,18 @@ class EventResource extends Resource
                 TextColumn::make('category')
                     ->label('Event Category')
                     ->enum(EventCategoryEnum::getCategoryTypes()),
-                TextColumn::make('entry_fee')
+                TextColumn::make('entry_fee'),
+                IconColumn::make('status')
+                    ->label('Registration Disabled ? ')
+                     ->boolean()
+                    ->trueIcon('heroicon-o-badge-check')
+                    ->falseIcon('heroicon-o-x-circle'),
+                          SelectColumn::make('status')
+                            ->options([
+                                '0' => 'Event Enabled',
+                                '1' => 'Registration Closed',
+                                '2' => 'On spot available',
+                            ])
             ])
             ->filters([
                 //

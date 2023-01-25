@@ -99,6 +99,16 @@
         integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
     <script>
         function getTimeRemaining(endtime) {
+            
+            if(Date.parse(endtime)<Date.parse(new Date())){
+                return{
+                    total  : 0,
+                    days   : 0,
+                    hours  : 0,
+                    minutes: 0,
+                    seconds: 0
+                }
+            }
             var t = Date.parse(endtime) - Date.parse(new Date());
             var seconds = Math.floor((t / 1000) % 60);
             var minutes = Math.floor((t / 1000 / 60) % 60);

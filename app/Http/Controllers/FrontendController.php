@@ -48,8 +48,13 @@ class FrontendController extends Controller
     public function show_event_details($slug)
     {
         $event = Event::where('slug', $slug)->first();
-        // dd($event);
-        return view('frontend.show_event', compact('event'));
+        
+        // if($event->status != 0)
+        // {
+        //     return response('Event Registration has been closed');
+        // } else {
+            return view('frontend.show_event', compact('event'));
+        // }
     }
 
 

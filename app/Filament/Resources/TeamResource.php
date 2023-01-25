@@ -104,6 +104,9 @@ class TeamResource extends Resource
     {
         return $table
             ->columns([
+                  TextColumn::make('team_id')
+                    ->label('Team Reg ID')
+                    ->searchable(),
                 TextColumn::make('name')
                     ->label('Team Lead Name')
                     ->description(function ($record) {

@@ -22,5 +22,7 @@ class Event extends Model
         'poster',
         'project_based_event',
         'fifa_event',
+        'status',
+        'on_spot_enabled'
     ];
 }

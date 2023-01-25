@@ -588,16 +588,24 @@
 
 
         </div>
-        
-    @if($event->category != 2) 
-        <div class="mouse flex justify-center mx-auto  lg:mt-10"></div>
+     
+
+    
+    @if($event->status == 1) 
+        <h2 class="text-3xl font-semibold  text-center text-[#FFFF00] bg-[#121212] bg-opacity-[0.5] uppercase  h-16 flex items-center justify-center orbitron">
+               Slots filled, registrations closed!</h2>
+   @elseif($event->status == 2)
+            <h2 class="text-xl font-semibold  text-center text-[#FFFF00] bg-[#121212] bg-opacity-[0.5] uppercase  h-16 flex items-center justify-center orbitron">
+            Online registrations  are closed!, on spot registrations are available</h2>
+    @else 
+     <div class="mouse flex justify-center mx-auto  lg:mt-10"></div>
         <p class="register_text flex justify-center mx-auto">Scroll</p>
-    @endif
+               
+    @endif 
     </section>
 
     
-    @if($event->category != 2) 
-
+    @if($event->status == 0) 
     {{-- Register section --}}
     <section class="text-gray-900  body-font py-10"
         style="background-image: url('{{ asset('assets/img/bg_elements.png') }}') " id="register_section">
@@ -682,8 +690,10 @@
                     </div>
 
                     <div class="my-2 orbitron uppercase mb-3">
+                        
                         <label class="text-white font-semibold tracking-wide text-lg" for="email">Upload your college
                             ID card</label>
+                        <p class="text-white text-sm mt-2 tracking-wide">If ID card is not available, upload your ERP profile</p>
                         <input type="file" name="college_id_card" required />
                     </div>
 
@@ -759,8 +769,7 @@
             </form>
         </div>
     </section>
-    @endif
-
+  @endif 
     <div
         class="z-50 inset-x-0 bottom-0 sticky flex justify-center bg-gradient-to-t from-black  pb-8 pointer-events-none dark:from-slate-900 absolute">
     </div>

@@ -99,7 +99,7 @@
         integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
     <script>
         function getTimeRemaining(endtime) {
-            
+
             if(Date.parse(endtime)<Date.parse(new Date())){
                 return{
                     total  : 0,
@@ -236,7 +236,7 @@
             </div>
             <div id="timer_exp"
                 class="hidden z-40 text-4xl text-center text-[#FFFF000] md:text-5xl lg:text-5xl  font-semibold oswald-bold-500">
-              
+
             </div>
 
             {{-- <div class="mouse flex justify-center mx-auto mt-10 lg:mt-2 md:mt-2"></div>

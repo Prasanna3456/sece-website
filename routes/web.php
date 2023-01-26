@@ -1,8 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontendController;
 use App\Models\Team;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------

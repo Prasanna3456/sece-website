@@ -89,7 +89,7 @@ class TeamResource extends Resource
                         Toggle::make('team_present')
                             ->label('Team Present ?')
                             ->required(),
-                        FileUpload::make('college_id_card')
+                        // FileUpload::make('college_id_card')
                     ]),
                     Card::make()
                     ->schema([
